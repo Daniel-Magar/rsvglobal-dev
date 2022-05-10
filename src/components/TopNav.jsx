@@ -1,4 +1,5 @@
 import React from "react";
+import { Routes, Route, Link } from "react-router-dom";
 
 import "boxicons";
 
@@ -7,12 +8,15 @@ const TopNav = () => {
     <>
       <nav className="navbar">
         <h1 className="logo">
-          <a href="#">
+          <a href="#hero">
             <div className="flex-logo">
               <div>
                 <img src="./RSVglobal.png" alt="" style={{ width: "50px" }} />
               </div>
-              <div style={{ paddingTop: "25px" }}> RSV Global</div>
+              <div style={{ paddingTop: "25px" }}>
+                {" "}
+                <span style={{ color: "#F74749" }}>RSV</span> Global
+              </div>
             </div>
           </a>
         </h1>
@@ -24,13 +28,16 @@ const TopNav = () => {
         </div>
         <ul class="main-nav">
           <li>
-            <a href="#hero">Home</a>
+            <Link href="#hero" to="/home">
+              Home
+            </Link>
           </li>
           <li>
-            <a href="#about">About</a>
+            {/* <a href="#about">About</a> */}
+            <Link to="/about">About us</Link>
           </li>
           <li>
-            <a href="#vision">Vision</a>
+            <a href="#why">Why RSV</a>
           </li>
           <li className="submenu">
             <a href="#services">
@@ -38,7 +45,8 @@ const TopNav = () => {
             </a>
             <ul class="dropdown" aria-label="submenu">
               <li>
-                <a href="#">Permanent Staffing</a>
+                {/* <a href="#">Permanent Staffing</a> */}
+                <Link to="/permanentstaffing">Permanent Staffing</Link>
               </li>
               <li>
                 <a href="#">Temp Staffing</a>
