@@ -193,7 +193,7 @@ ul li ul li {
   font-size: 30px;
   text-align: center;
   padding: 10px 128px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 100%;
 }
 .flex-container .flex-item {
@@ -210,7 +210,7 @@ ul li ul li {
   padding: 10px;
   /* flex: 50%;
   width: 50%; */
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
 
 .flex-item-right {
@@ -224,7 +224,7 @@ ul li ul li {
   top: 50px;
   height: 500px;
   flex-direction: column;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 .hero-ellipse {
   position: absolute;
@@ -260,13 +260,13 @@ ul li ul li {
   border: none;
   border-radius: 4px;
   color: white;
-  padding: 14px 22px;
+  padding: 14px 50px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   font-weight: 500;
-  margin: 4px 2px;
+  margin: 4px 10px;
   cursor: pointer;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
@@ -277,6 +277,7 @@ ul li ul li {
 .btn-content .btn-sub {
   top: 0;
   margin: auto;
+  padding: 0 5px;
 }
 .btn-content .btn-font {
   margin-left: 12px;
@@ -286,7 +287,7 @@ ul li ul li {
 ==================================== */
 .abt-main {
   width: 80%;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   margin: 0 auto;
 }
 .about-section {
@@ -328,7 +329,7 @@ ul li ul li {
   justify-items: start;
   align-items: center;
   display: grid;
-  border: 1px solid green;
+  /* border: 1px solid green; */
   width: 100%;
   grid-template-columns: 380px 380px 380px 380px;
   gap: 10px;
@@ -365,7 +366,7 @@ ul li ul li {
 }
 .responsiveimg {
   width: 100%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   object-fit: contain;
   object-position: bottom;
 }
@@ -402,7 +403,7 @@ ul li ul li {
   .about-section .about-abt {
     width: 100% !important;
     margin: 0 auto;
-    border: 1px solid red;
+    /* border: 1px solid red; */
   }
   .text {
     align-items: center;
@@ -415,7 +416,7 @@ ul li ul li {
     justify-items: start;
     align-items: center;
     display: grid;
-    border: 1px solid green;
+    /* border: 1px solid green; */
     width: 100%;
     grid-template-columns: 380px;
     gap: 10px;
@@ -750,7 +751,7 @@ ul li ul li {
     text-align: justify;
     display: grid;
     width: 100% !important;
-    grid-template-columns: 380px;
+    grid-template-columns: 380px 380px 380px 380px;
     gap: 10px;
 
     padding: 44px 0 44px 10px;
@@ -778,7 +779,7 @@ ul li ul li {
     text-align: justify;
     display: grid;
     width: 100% !important;
-    grid-template-columns: 380px;
+    grid-template-columns: 380px 380px 380px 380px;
     gap: 10px;
 
     padding: 44px 0 44px 10px;

@@ -1,0 +1,62 @@
+.career-flex-container {
+  display: flex;
+  border: 2px solid red;
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px 0 10px 10px;
+}
+.career-div {
+  width: 100%;
+  display: flex;
+  margin: 0 auto;
+  border: 2px solid blue;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.career-img {
+  width: 70%;
+}
+
+/*upload*/
+.custom-file-input {
+  color: transparent;
+}
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  content: "Upload CV";
+  color: black;
+  display: inline-block;
+
+  border: 1px solid #999;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  background-color: #2b00d4; /* Green */
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 14px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 4px 10px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+/* .custom-file-input:hover::before {
+  border-color: black;
+} */
+/* .custom-file-input:active {
+  outline: 0;
+}
+.custom-file-input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+} */

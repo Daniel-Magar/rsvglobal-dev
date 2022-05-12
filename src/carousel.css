@@ -1,0 +1,70 @@
+/* Carousal */
+.carousel {
+  overflow: hidden;
+  width: auto;
+  /* border: 5px solid dodgerblue; */
+}
+.inner {
+  white-space: nowrap;
+  transition: transform 0.3s;
+  background-color: black;
+  position: relative;
+}
+.carousel-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid yellow; */
+  width: 100%;
+  height: auto;
+  background-color: green;
+  color: #fff;
+  transition: all 0.6s ease-in;
+}
+/* Indicators Next -- previous buttons */
+.indicators {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 80%;
+  right: 45%;
+  left: 45%;
+}
+.indicators button {
+  height: 20px;
+  width: 20px;
+  border-radius: 100px;
+  cursor: pointer;
+  border-style: none;
+  background-color: #99f;
+  margin: 2px;
+}
+.indicators > button.active {
+  background-color: rgb(247, 71, 73);
+  /* color: whitesmoke; */
+  height: 20px;
+  width: 20px;
+  border-radius: 100px;
+  cursor: pointer;
+  border-style: none;
+}
+.next {
+  margin: -3px 0 0 -3px;
+}
+.imgresponsive {
+  width: 100%;
+  /* max-width: 400px; */
+
+  height: 700px;
+  object-fit: cover;
+}
+@media (max-width: 768px) {
+  .indicators {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 76%;
+    right: 38%;
+    left: 38%;
+  }
+}

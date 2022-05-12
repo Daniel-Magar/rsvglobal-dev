@@ -26,7 +26,7 @@ const TopNav = () => {
           <span className="line line2"></span>
           <span className="line line3"></span>
         </div>
-        <ul class="main-nav">
+        <ul className="main-nav">
           <li>
             <Link href="#hero" to="/home">
               Home
@@ -41,9 +41,9 @@ const TopNav = () => {
           </li>
           <li className="submenu">
             <a href="#services">
-              Services <i class="bx bx-chevron-down"></i>{" "}
+              Services <i className="bx bx-chevron-down"></i>{" "}
             </a>
-            <ul class="dropdown" aria-label="submenu">
+            <ul className="dropdown" aria-label="submenu">
               <li>
                 {/* <a href="#">Permanent Staffing</a> */}
                 <Link to="/permanentstaffing">Permanent Staffing</Link>
@@ -63,7 +63,7 @@ const TopNav = () => {
             <a href="#">Contact </a>
           </li>
           <li>
-            <a href="#">Careers </a>
+            <Link to="/career">Career</Link>
           </li>
         </ul>
       </nav>
