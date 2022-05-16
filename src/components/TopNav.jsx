@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
+import { NavHashLink } from "react-router-hash-link";
 
 import "boxicons";
 
 const TopNav = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  useEffect(() => {}, []);
   return (
     <>
       <nav className="navbar">
         <h1 className="logo">
-          <a href="#hero">
+          <Link href="#home" to="/home">
+            {/* <a href="#home"> */}
             <div className="flex-logo">
               <div>
                 <img src="./RSVglobal.png" alt="" style={{ width: "50px" }} />
@@ -18,7 +24,8 @@ const TopNav = () => {
                 <span style={{ color: "#F74749" }}>RSV</span> Global
               </div>
             </div>
-          </a>
+            {/* </a> */}
+          </Link>
         </h1>
         <input type="checkbox" name="" id="" />
         <div className="hamburger-lines">
@@ -28,34 +35,37 @@ const TopNav = () => {
         </div>
         <ul className="main-nav">
           <li>
-            <Link href="#hero" to="/home">
-              Home
-            </Link>
+            <NavHashLink to="/#home">Home</NavHashLink>
           </li>
           <li>
-            {/* <a href="#about">About</a> */}
-            <Link to="/about">About us</Link>
+            <NavHashLink to="/#about">About</NavHashLink>
           </li>
           <li>
-            <a href="#why">Why RSV</a>
+            <NavHashLink to="/#why">Why RSV</NavHashLink>
           </li>
           <li className="submenu">
             <a href="#services">
               Services <i className="bx bx-chevron-down"></i>{" "}
             </a>
-            <ul className="dropdown" aria-label="submenu">
+            <ul className="dropdown" aria-label="submenu" id="target">
               <li>
-                {/* <a href="#">Permanent Staffing</a> */}
                 <Link to="/permanentstaffing">Permanent Staffing</Link>
               </li>
               <li>
-                <a href="#">Temp Staffing</a>
+                <a href="#" id="subnav">
+                  Temp Staffing
+                </a>
               </li>
               <li>
-                <a href="#">HR Statutory Compliance</a>
+                <a href="#" id="subnav">
+                  HR Statutory Compliance
+                </a>
               </li>
               <li>
-                <a href="#"> Payroll</a>
+                <a href="#" id="subnav">
+                  {" "}
+                  Payroll
+                </a>
               </li>
             </ul>
           </li>

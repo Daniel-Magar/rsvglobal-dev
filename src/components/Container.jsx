@@ -5,7 +5,7 @@ import { CarouselData } from "./CarouselData";
 const Container = (props) => {
   return (
     <>
-      <div>
+      <div className="sec">
         <div className="carousel">
           <Carousel style={{ display: "none!important" }}>
             {/* {CarousalData.map((pic) => {

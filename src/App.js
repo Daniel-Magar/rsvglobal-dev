@@ -15,8 +15,8 @@ function App() {
         <Route exact path="/" element={<Body />} />
         <Route path="/home" element={<Body />} />
         <Route path="permanentstaffing" element={<Pstaffing />} />
-        <Route path="about" element={<Aboutus />} />
         <Route path="career" element={<CareerPage />} />
+        <Route path="*" element={<Body />} />
       </Routes>
       <Footer />
     </>
