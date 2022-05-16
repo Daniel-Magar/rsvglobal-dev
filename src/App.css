@@ -389,7 +389,9 @@ ul li ul li {
 
     width: 100%;
   }
-
+  #about {
+    padding: 7% 0 0 0;
+  }
   .about-item-right {
     padding: 10px;
     flex: 100%;
@@ -421,8 +423,8 @@ ul li ul li {
     display: grid;
     /* border: 1px solid green; */
     width: 100%;
-    grid-template-columns: 380px;
-    gap: 10px;
+    grid-template-columns: 1fr;
+    gap: 0;
 
     padding: 44px 0 44px 0;
   }
@@ -433,7 +435,7 @@ ul li ul li {
     justify-items: start;
   }
   .logo-text {
-    padding-top: 0 !important;
+    padding: 0;
   }
   .flex-logo > div {
     padding: 0 0 0 0;
@@ -579,11 +581,11 @@ ul li ul li {
   .abt-subcontent-content {
     justify-items: start;
     align-items: center;
-    text-align: justify;
+    /* text-align: justify; */
     display: grid;
-    width: 100% !important;
-    grid-template-columns: 380px;
-    gap: 10px;
+    width: 100%;
+    grid-template-columns: 1fr;
+    /* gap: 10px; */
 
     padding: 44px 0 44px 10px;
   }
@@ -592,11 +594,11 @@ ul li ul li {
   .abt-subcontent-content {
     justify-items: start;
     align-items: center;
-    text-align: justify;
+    /* text-align: justify; */
     display: grid;
-    width: 100% !important;
-    grid-template-columns: 380px;
-    gap: 10px;
+    width: 100%;
+    grid-template-columns: 1fr;
+    /* gap: 10px; */
 
     padding: 44px 0 44px 10px;
   }
@@ -604,6 +606,9 @@ ul li ul li {
     display: flex;
     justify-content: space-between;
     justify-items: start;
+  }
+  #about {
+    padding: 7% 0 0 0;
   }
   .logo-text {
     padding-top: 0 !important;
@@ -751,13 +756,16 @@ ul li ul li {
   .abt-subcontent-content {
     justify-items: start;
     align-items: center;
-    text-align: justify;
+    /* text-align: justify; */
     display: grid;
     width: 100% !important;
-    grid-template-columns: 380px 380px 380px 380px;
-    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* gap: 3; */
 
     padding: 44px 0 44px 10px;
+  }
+  #about {
+    padding: 3% 0 0 0;
   }
 }
 @media (max-width: 1204px) {
@@ -779,13 +787,16 @@ ul li ul li {
   .abt-subcontent-content {
     justify-items: start;
     align-items: center;
-    text-align: justify;
+    /* text-align: justify; */
     display: grid;
     width: 100% !important;
-    grid-template-columns: 380px 380px 380px 380px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 10px;
 
     padding: 44px 0 44px 10px;
+  }
+  #about {
+    padding: 7% 0 0 0;
   }
 }
 @media (max-width: 1024px) {
@@ -803,5 +814,19 @@ ul li ul li {
     width: 100%;
 
     /* width: 100%; */
+  }
+  .abt-subcontent-content {
+    justify-items: start;
+    align-items: center;
+    /* text-align: justify; */
+    display: grid;
+    width: 100% !important;
+    grid-template-columns: 1fr;
+    gap: 10px;
+
+    padding: 44px 0 44px 10px;
+  }
+  #about {
+    padding: 7% 0 0 0;
   }
 }
