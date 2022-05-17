@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../career.css";
 import "../messages.css";
+import "../form.css";
 import { storage } from "../firebase-config";
 import ProgressBar from "./ProgressBar";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
@@ -122,52 +123,78 @@ const CareerPage = () => {
                 }}
                 closeTimeoutMS={500}
               >
-                <div className="cls">
-                  <button onClick={() => setIsOpen(false)} className="cls-btn">
-                    <i class="bx bx-x"></i>
-                  </button>
-                </div>
-
-                <div className="modal-body">
-                  {showMsg ? <Message msg={msg} /> : null}
-                  <form onSubmit={handleSubmit}>
-                    <label class="btn fileUpload btn-default">
-                      Select file
-                      <input
-                        type="file"
-                        hidden=""
-                        accept={".pdf"}
-                        onChange={changeHandler}
-                        ref={reference}
-                      />
-                      <i
-                        class="bx bx-file"
-                        style={{ color: "white", fontSize: "20px" }}
-                      ></i>
-                    </label>
-
-                    <button className="btn-upload" type="submit">
-                      <div className="btn-content">
-                        <div className="btn-sub">Upload</div>
-                        <div className="btn-sub">
-                          <i
-                            class="bx bx-upload"
-                            style={{ color: "white", fontSize: "22px" }}
-                          ></i>
-                        </div>
-                      </div>
+                <div>
+                  <div className="cls">
+                    <button
+                      onClick={() => setIsOpen(false)}
+                      className="cls-btn"
+                    >
+                      <i class="bx bx-x"></i>
                     </button>
-                    {showResults ? (
-                      <Results
-                        imgUrl={imgUrl}
-                        progresspercent={progresspercent}
-                        status={status}
-                        isFilePicked={isFilePicked}
-                        selectedFile={selectedFile}
+                  </div>
+                  {showMsg ? <Message msg={msg} /> : null}
+                  <div className="modal-body">
+                    <form action="">
+                      <label for="fname">First Name</label>
+                      <input
+                        type="text"
+                        id="fname"
+                        name="firstname"
+                        placeholder="Your name.."
                       />
-                    ) : null}
-                    {/* {imgUrl && <iframe src={imgUrl}></iframe>} */}
-                  </form>
+
+                      <label for="lname">Last Name</label>
+                      <input
+                        type="text"
+                        id="lname"
+                        name="lastname"
+                        placeholder="Your last name.."
+                      />
+
+                      <label for="country">Country</label>
+                      <select id="country" name="country">
+                        <option value="australia">Australia</option>
+                        <option value="canada">Canada</option>
+                        <option value="usa">USA</option>
+                      </select>
+
+                      <label class="btn fileUpload btn-default">
+                        Select file
+                        <input
+                          type="file"
+                          hidden=""
+                          accept={".pdf"}
+                          onChange={changeHandler}
+                          ref={reference}
+                        />
+                        <i
+                          class="bx bx-file"
+                          style={{ color: "white", fontSize: "20px" }}
+                        ></i>
+                      </label>
+
+                      <button className="btn-upload" onClick={handleSubmit}>
+                        <div className="btn-content">
+                          <div className="btn-sub">Upload</div>
+                          <div className="btn-sub">
+                            <i
+                              class="bx bx-upload"
+                              style={{ color: "white", fontSize: "22px" }}
+                            ></i>
+                          </div>
+                        </div>
+                      </button>
+                      {showResults ? (
+                        <Results
+                          imgUrl={imgUrl}
+                          progresspercent={progresspercent}
+                          status={status}
+                          isFilePicked={isFilePicked}
+                          selectedFile={selectedFile}
+                        />
+                      ) : null}
+                    </form>
+                  </div>
                 </div>
               </Modal>
             </div>

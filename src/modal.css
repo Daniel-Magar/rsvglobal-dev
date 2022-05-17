@@ -55,7 +55,7 @@
 }
 .content-after {
   width: 70%;
-  height: 60%;
+  height: auto;
   background-color: #ffffff;
 }
 
@@ -84,7 +84,7 @@
 .modal-body {
   display: flex;
   /* border: 1px solid blue; */
-  padding: 5px;
+
   /* align-items: center;
   justify-content: center;
   margin: 0 auto; */
@@ -92,11 +92,11 @@
 }
 .flex-container {
   display: flex;
-  background-color: DodgerBlue;
+  /* background-color: DodgerBlue; */
 }
 
 .flex-container > div {
-  background-color: #f1f1f1;
+  /* background-color: #f1f1f1; */
   margin: 10px;
   padding: 20px;
   font-size: 30px;
