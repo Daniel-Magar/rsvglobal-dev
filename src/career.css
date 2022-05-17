@@ -19,28 +19,16 @@
 }
 
 /*upload*/
-.custom-file-input {
-  color: transparent;
+
+.fileUpload input[type="file"] {
+  display: none;
 }
-.custom-file-input::-webkit-file-upload-button {
-  visibility: hidden;
-}
-.custom-file-input::before {
-  content: "Upload CV";
-  color: black;
-  display: inline-block;
-
-  border: 1px solid #999;
-
-  white-space: nowrap;
-
-  cursor: pointer;
-
+.btn {
   background-color: #2b00d4; /* Green */
   border: none;
   border-radius: 4px;
   color: white;
-  padding: 14px 50px;
+  padding: 13px 28px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -48,15 +36,4 @@
   font-weight: 500;
   margin: 4px 10px;
   cursor: pointer;
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
 }
-/* .custom-file-input:hover::before {
-  border-color: black;
-} */
-/* .custom-file-input:active {
-  outline: 0;
-}
-.custom-file-input:active::before {
-  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
-} */

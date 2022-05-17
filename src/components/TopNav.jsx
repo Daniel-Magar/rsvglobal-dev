@@ -19,7 +19,7 @@ const TopNav = () => {
               <div>
                 <img src="./RSVglobal.png" alt="" style={{ width: "50px" }} />
               </div>
-              <div className="logo-text" style={{ paddingTop: "25px" }}>
+              <div style={{ paddingTop: "25px" }}>
                 {" "}
                 <span style={{ color: "#F74749" }}>RSV</span> Global
               </div>
