@@ -16,6 +16,8 @@ import {
   onSnapshot,
 } from "firebase/firestore";
 import { db } from "../firebase-config";
+import TopNav from "./TopNav";
+import Footer from "./Footer";
 const CareerPage = (props) => {
   const [imgUrl, setImgUrl] = useState(null);
   const [progresspercent, setProgresspercent] = useState(0);
@@ -234,6 +236,7 @@ const CareerPage = (props) => {
 
   return (
     <>
+      <TopNav />
       <section id="career">
         <div className="career-flex-container">
           <div className="career-div">
@@ -398,6 +401,7 @@ const CareerPage = (props) => {
           {/* {imgUrl && <img src={imgUrl} alt="uploaded file" height={200} />} */}
         </div>
       </section>
+      <Footer />
     </>
   );
 };

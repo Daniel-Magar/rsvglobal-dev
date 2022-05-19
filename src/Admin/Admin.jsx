@@ -55,7 +55,7 @@ const Admin = (props) => {
     <div className="show-fake-browser sidebar-page">
       <Container>
         <Sidebar
-          style={{ display: "flex", flexDirection: "column" }}
+          style={{ display: "flex", flexDirection: "column", height: "100vh" }}
           width={expand ? 260 : 56}
           collapsible
           className="r-nav"
@@ -72,7 +72,7 @@ const Admin = (props) => {
             appearance="subtle"
           >
             <Sidenav.Body className="r-nav">
-              <Nav>
+              <Nav className="nav-bar">
                 <Nav.Item
                   eventKey="1"
                   active
@@ -95,14 +95,14 @@ const Admin = (props) => {
         </Sidebar>
 
         <Container>
-          <Header>
-            <h3>Admin</h3>
-          </Header>
-          <Content>
-            <div>
+          <div className="adminboard">
+            <Header>
+              <h3>Admin</h3>
+            </Header>
+            <Content>
               <CandidateList candidates={props.candidates} />
-            </div>
-          </Content>
+            </Content>
+          </div>
         </Container>
       </Container>
     </div>

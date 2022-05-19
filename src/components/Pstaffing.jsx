@@ -1,4 +1,7 @@
 import React, { useEffect } from "react";
+// import { Footer } from "rsuite";
+import TopNav from "./TopNav";
+import Footer from "./Footer";
 
 const Pstaffing = () => {
   useEffect(() => {
@@ -6,6 +9,7 @@ const Pstaffing = () => {
   }, []);
   return (
     <>
+      <TopNav />
       <section id="permanentstaffing">
         <div className="flex-container">
           <div className="flex-item-left">
@@ -21,6 +25,7 @@ const Pstaffing = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 };

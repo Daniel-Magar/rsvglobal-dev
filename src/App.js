@@ -46,16 +46,16 @@ function App() {
   }, []);
   return (
     <>
-      <TopNav />
       <Routes>
         <Route exact path="/" element={<Body />} />
         <Route path="/home" element={<Body />} />
         <Route path="permanentstaffing" element={<Pstaffing />} />
         <Route path="career" element={<CareerPage candidates={candidates} />} />
-        <Route path="admin" element={<Admin candidates={candidates} />} />
+
         <Route path="*" element={<Body />} />
+
+        <Route exact path="admin" element={<Admin candidates={candidates} />} />
       </Routes>
-      <Footer />
     </>
   );
 }

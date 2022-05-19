@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Table, Column, HeaderCell, Cell } from "rsuite-table";
-import { Pagination } from "rsuite";
+import { Button, Pagination } from "rsuite";
 import { set } from "firebase/database";
 
 const CandidateList = (props) => {
@@ -111,9 +111,15 @@ const CandidateList = (props) => {
             <Cell>{date}</Cell>
           </Column>
 
-          <Column width={100}>
+          <Column width={600}>
             <HeaderCell>CV</HeaderCell>
-            <Cell dataKey="fileURL" />
+            <Cell>
+              {props.candidates.map((data, idx) => (
+                <a href={data.fileURL} key={idx} target="_blank">
+                  Download
+                </a>
+              ))}
+            </Cell>
           </Column>
         </Table>
         <div style={{ padding: 20 }}>

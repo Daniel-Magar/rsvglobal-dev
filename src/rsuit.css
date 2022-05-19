@@ -10,3 +10,12 @@ i {
 .r-nav-toggle {
   background-color: #030441 !important;
 }
+.r-nav rs-sidebar rs-sidebar-collapse {
+  height: 100%;
+}
+.nav-bar {
+  height: 100%;
+}
+.adminboard {
+  padding: 15px 14px 0 14px;
+}
