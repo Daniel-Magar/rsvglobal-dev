@@ -1,0 +1,12 @@
+i {
+  color: #f8f6f6;
+  font-size: 20px;
+  padding: 0px 20px 0px 0;
+}
+.r-nav {
+  background-color: #030441;
+  color: white;
+}
+.r-nav-toggle {
+  background-color: #030441 !important;
+}

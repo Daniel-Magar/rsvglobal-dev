@@ -22,6 +22,7 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { db } from "./firebase-config";
+import Admin from "./Admin/Admin";
 function App() {
   const [candidates, setCandidates] = useState([]);
 
@@ -34,9 +35,10 @@ function App() {
         snapshot.docs.forEach((doc) => {
           productdb.push({ ...doc.data(), id: doc.id });
         });
-
+        let temp = [];
+        temp.push(productdb);
         setCandidates(productdb);
-        console.log(candidates);
+        console.log("list of candidates", candidates);
       })
       .catch((err) => {
         console.log(err.message);
@@ -50,6 +52,7 @@ function App() {
         <Route path="/home" element={<Body />} />
         <Route path="permanentstaffing" element={<Pstaffing />} />
         <Route path="career" element={<CareerPage candidates={candidates} />} />
+        <Route path="admin" element={<Admin candidates={candidates} />} />
         <Route path="*" element={<Body />} />
       </Routes>
       <Footer />

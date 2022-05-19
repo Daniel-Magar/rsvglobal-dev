@@ -75,6 +75,9 @@ const TopNav = () => {
           <li>
             <Link to="/career">Career</Link>
           </li>
+          <li>
+            <Link to="/admin">Admin</Link>
+          </li>
         </ul>
       </nav>
     </>
