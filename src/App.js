@@ -8,6 +8,7 @@ import Pstaffing from "./components/Pstaffing";
 import Aboutus from "./components/Aboutus";
 import CareerPage from "./components/CareerPage";
 import React, { useState, useEffect } from "react";
+import CandidateList from "./Admin/CandidateList";
 import {
   collection,
   getDocs,
@@ -23,6 +24,7 @@ import {
 } from "firebase/firestore";
 import { db } from "./firebase-config";
 import Admin from "./Admin/Admin";
+import PostJobs from "./Admin/PostJobs";
 function App() {
   const [candidates, setCandidates] = useState([]);
 
@@ -55,6 +57,18 @@ function App() {
         <Route path="*" element={<Body />} />
 
         <Route exact path="admin" element={<Admin candidates={candidates} />} />
+        <Route path="/" element={<Admin candidates={candidates} />} />
+
+        <Route
+          exact
+          path="admin/candidates"
+          element={<CandidateList candidates={candidates} />}
+        />
+        <Route
+          exact
+          path="admin/postjobs"
+          element={<PostJobs candidates={candidates} />}
+        />
       </Routes>
     </>
   );

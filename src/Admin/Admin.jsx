@@ -12,8 +12,12 @@ import {
 } from "rsuite";
 import DashboardIcon from "@rsuite/icons/Dashboard";
 import "rsuite/dist/rsuite.min.css"; // or 'rsuite/dist/rsuite.min.css'
-import "../rsuit.css";
+import "../cusrsuit.css";
+import { Routes, Route, Link } from "react-router-dom";
 import CandidateList from "./CandidateList";
+import SideNav from "./LeftNav";
+import LeftNav from "./LeftNav";
+import AdminBody from "./AdminBody";
 
 const headerStyles = {
   padding: 18,
@@ -33,113 +37,24 @@ const iconStyles = {
   textAlign: "center",
 };
 const Admin = (props) => {
-  // useEffect(() => {
-  //   const colRef = collection(db, "candidates");
-  //   getDocs(colRef)
-  //     .then((snapshot) => {
-  //       let productdb = [];
-  //       snapshot.docs.forEach((doc) => {
-  //         productdb.push({ ...doc.data(), id: doc.id });
-  //       });
-  //       // console.log(online);
-  //       setProduct(productdb);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err.message);
-  //     });
-  // }, []);
-
-  const [expand, setExpand] = React.useState(true);
-  const [candlist, setCandlist] = useState();
   return (
-    <div className="show-fake-browser sidebar-page">
+    <div className="show-fake-browser sidebar-page admin">
       <Container>
-        <Sidebar
-          style={{ display: "flex", flexDirection: "column", height: "100vh" }}
-          width={expand ? 260 : 56}
-          collapsible
-          className="r-nav"
-        >
-          <Sidenav.Header>
-            <div style={headerStyles}>
-              {/* <LogoAnalytics style={{ fontSize: 20 }} /> */}
-              <span style={{ marginLeft: 12 }}> BRAND</span>
-            </div>
-          </Sidenav.Header>
-          <Sidenav
-            expanded={expand}
-            defaultOpenKeys={["3"]}
-            appearance="subtle"
-          >
-            <Sidenav.Body className="r-nav">
-              <Nav className="nav-bar">
-                <Nav.Item
-                  eventKey="1"
-                  active
-                  icon={<i className="bx bxs-dashboard icn" />}
-                >
-                  Dashboard
-                </Nav.Item>
-                <Nav.Item eventKey="2" icon={<i className="bx bxs-group"></i>}>
-                  Candidates
-                </Nav.Item>
-              </Nav>
-            </Sidenav.Body>
-          </Sidenav>
-
-          <NavToggle
-            className="r-nav-toggle"
-            expand={expand}
-            onChange={() => setExpand(!expand)}
-          />
-        </Sidebar>
-
+        <LeftNav />
         <Container>
           <div className="adminboard">
             <Header>
-              <h3>Admin</h3>
+              <h3>Welcome Admin</h3>
             </Header>
             <Content>
-              <CandidateList candidates={props.candidates} />
+              <div id="admin">
+                <AdminBody />
+              </div>
             </Content>
           </div>
         </Container>
       </Container>
     </div>
-  );
-};
-const NavToggle = ({ expand, onChange }) => {
-  return (
-    <Navbar appearance="subtle" className="nav-toggle">
-      <Navbar.Body className="rnav">
-        <Nav>
-          <Dropdown
-            placement="topStart"
-            trigger="click"
-            renderTitle={(children) => {
-              // return <Cog style={iconStyles} />;
-            }}
-          >
-            <Dropdown.Item>Help</Dropdown.Item>
-            <Dropdown.Item>Settings</Dropdown.Item>
-            <Dropdown.Item>Sign out</Dropdown.Item>
-          </Dropdown>
-        </Nav>
-
-        <Nav pullRight>
-          <Nav.Item
-            onClick={onChange}
-            style={{ width: 56, textAlign: "center" }}
-          >
-            {expand ? (
-              <i class="bx bx-chevron-left"></i>
-            ) : (
-              <i class="bx bx-chevron-right"></i>
-            )}
-          </Nav.Item>
-        </Nav>
-      </Navbar.Body>
-    </Navbar>
   );
 };
 

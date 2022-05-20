@@ -1,0 +1,103 @@
+.icn {
+  color: #f8f6f6;
+  font-size: 20px;
+  padding: 0px 20px 0px 0;
+}
+.r-nav {
+  background-color: #030441;
+  color: white;
+}
+.r-nav-toggle {
+  background-color: #030441 !important;
+}
+.r-nav rs-sidebar rs-sidebar-collapse {
+  height: 100%;
+}
+.nav-bar {
+  height: 100%;
+}
+.adminboard {
+  padding: 15px 14px 0 14px;
+}
+.r-nav li {
+  list-style: none;
+}
+.r-nav a {
+  color: white;
+  text-decoration: none !important;
+}
+
+.r-nav a:hover {
+  color: rgb(247, 71, 73);
+}
+.htxt {
+  color: rgb(247, 71, 73);
+}
+.adminicon {
+  font-size: 44px;
+  color: #030441;
+}
+.adminform {
+  border: none !important;
+}
+.rs-picker-toggle-wrapper {
+  width: 100%;
+}
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 12px;
+  }
+  .r-nav {
+    display: block !important;
+  }
+  .r-nav ul {
+    margin: 5px 7px 0 6px;
+  }
+  .r-nav rs-sidebar rs-sidebar-collapse {
+    display: block !important;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  aside {
+    flex: 0 0 90px !important;
+  }
+  .rs-picker-toggle-wrapper {
+    width: 100%;
+  }
+  .r-nav a {
+    margin: -26px;
+  }
+  .adminboard {
+    padding: 12px 0px 0 0px;
+    width: 100%;
+  }
+  .nav-item span {
+    border: 1px solid;
+    display: none;
+  }
+  .htxt {
+    color: rgb(247, 71, 73);
+    font-size: 30px;
+  }
+  .adminicon {
+    font-size: 32px;
+    color: #030441;
+  }
+  .adminjobpost {
+    width: 100%;
+  }
+  /* .wid {
+    width: 100px !important;
+  }
+  .rs-table-cell-bordered .rs-table-cell {
+    width: 100px !important;
+  }
+  .rs-table-cell-group-fixed-left {
+    width: 100px !important;
+  }
+  .rs-table-row {
+    margin: 0px 0;
+  } */
+}

@@ -13,7 +13,11 @@ const TopNav = () => {
     <>
       <nav className="navbar">
         <h1 className="logo">
-          <Link href="#home" to="/home">
+          <Link
+            href="#home"
+            to="/home"
+            style={{ textDecoration: "none!important" }}
+          >
             {/* <a href="#home"> */}
             <div className="flex-logo">
               <div>
