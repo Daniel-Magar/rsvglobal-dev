@@ -7,7 +7,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import Pstaffing from "./components/Pstaffing";
 import Aboutus from "./components/Aboutus";
 import CareerPage from "./components/CareerPage";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import CandidateList from "./Admin/CandidateList";
 import {
   collection,
@@ -21,6 +21,7 @@ import {
   orderBy,
   limit,
   updateDoc,
+  onSnapshot,
 } from "firebase/firestore";
 import { db } from "./firebase-config";
 import Admin from "./Admin/Admin";
@@ -48,22 +49,36 @@ function App() {
   const [jobposts, setJobposts] = useState([]);
 
   useEffect(() => {
-    const colRef = collection(db, "job_posts");
-    getDocs(colRef)
-      .then((snapshot) => {
-        let productdb = [];
+    try {
+      const colRef = collection(db, "job_posts");
+      const q = query(colRef, orderBy("timestamp", "desc"));
+      onSnapshot(q, (snapshot) => {
+        let asperquery = [];
         snapshot.docs.forEach((doc) => {
-          productdb.push({ ...doc.data(), id: doc.id });
+          asperquery.push({ ...doc.data(), id: doc.id });
         });
         let temp = [];
-        temp.push(productdb);
-        setJobposts(productdb);
-        console.log("list of jobs posted:", jobposts);
-      })
-      .catch((err) => {
-        console.log(err.message);
+        temp.push(asperquery);
+        setJobposts(asperquery);
       });
+    } catch (error) {}
+    // const colRef = collection(db, "job_posts");
+    // getDocs(colRef)
+    //   .then((snapshot) => {
+    //     let productdb = [];
+    //     snapshot.docs.forEach((doc) => {
+    //       productdb.push({ ...doc.data(), id: doc.id });
+    //     });
+    //     let temp = [];
+    //     temp.push(productdb);
+    //     setJobposts(productdb);
+    //     console.log("list of jobs posted:", jobposts);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err.message);
+    //   });
   }, []);
+  const JobPosts = createContext();
   return (
     <>
       <Routes>

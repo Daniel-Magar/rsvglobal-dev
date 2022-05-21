@@ -18,6 +18,7 @@ import {
   Pagination,
   IconButton,
   Notification,
+  Modal,
 } from "rsuite";
 import Input from "rsuite/Input";
 import { Table, Column, HeaderCell, Cell } from "rsuite-table";
@@ -102,7 +103,7 @@ const PostJobs = (props) => {
   };
   useEffect(() => {
     setMydata(props.jobposts);
-  }, []);
+  }, [props]);
   const data = props.jobposts.filter((v, i) => {
     const start = limit * (page - 1);
     const end = start + limit;
@@ -229,189 +230,219 @@ const PostJobs = (props) => {
       </Notification>
     );
   });
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   return (
-    <div className="admin">
+    <Container>
+      <LeftNav />
       <Container>
-        <LeftNav />
-        <Container>
-          <div className="adminboard">
-            <Grid fluid>
-              <div
-                className="show-fake-browser sidebar-page adminboard"
-                id="candidates"
-              >
-                <Container>
-                  <Header>
-                    <h3>Post Jobs</h3>
-                  </Header>
+        <div className="adminboard">
+          <Grid fluid>
+            <div
+              className="show-fake-browser sidebar-page adminboard"
+              id="candidates"
+            >
+              <Container>
+                <Header>
+                  <h3>Post Jobs</h3>
+                </Header>
 
-                  <Content>
-                    <Row className="show-grid">
-                      <Col xs={24} sm={24} md={6}>
-                        <Panel header="Post New Job" bordered>
-                          {show && (
-                            <Message type="info" style={{ width: "100%" }} />
-                          )}
-                          <Form
-                            ref={formRef}
-                            onChange={setFormValue}
-                            onCheck={setFormError}
-                            formValue={formValue}
-                            model={model}
-                            className="adminform"
-                          >
-                            <TextField name="jobtitle" label="Job Title" />
-                            <TextField
-                              name="qualification"
-                              label="Min. Qualification"
-                            />
+                <Content>
+                  <Row className="show-grid">
+                    <Col xs={24} sm={24} md={24}>
+                      <Panel>
+                        <div className="modal-container">
+                          <ButtonToolbar>
+                            <Button onClick={handleOpen} className="btn-submit">
+                              <i class="bx bx-edit" /> Post Job(s)
+                            </Button>
+                          </ButtonToolbar>
 
-                            <TextField
-                              name="jobdescrp"
-                              label="Job Description"
-                            />
-                            <TextField name="skill" label="Skills" />
-                            <TextField
-                              name="noticeperiod"
-                              label="Notice Period"
-                            />
-
-                            <ButtonToolbar>
-                              <Button
-                                className="btn-submit"
-                                appearance="primary"
-                                onClick={handleSubmit}
+                          <Modal open={open} onClose={handleClose}>
+                            <Modal.Header>
+                              <Modal.Title>Post Job</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                              {show && (
+                                <Message
+                                  type="info"
+                                  style={{ width: "100%" }}
+                                />
+                              )}
+                              <Form
+                                layout="horizontal"
+                                ref={formRef}
+                                onChange={setFormValue}
+                                onCheck={setFormError}
+                                formValue={formValue}
+                                model={model}
+                                // className="adminform"
                               >
-                                Submit
+                                <TextField name="jobtitle" label="Job Title:" />
+                                <TextField
+                                  name="qualification"
+                                  label="Min. Qualification:"
+                                />
+
+                                <TextField
+                                  name="jobdescrp"
+                                  label="Job Description:"
+                                />
+                                <TextField name="skill" label="Skills:" />
+                                <TextField
+                                  name="noticeperiod"
+                                  label="Notice Period:"
+                                />
+
+                                <Form.Group>
+                                  <ButtonToolbar>
+                                    <Button
+                                      className="btn-submit"
+                                      appearance="primary"
+                                      onClick={handleSubmit}
+                                    >
+                                      <i class="bx bx-check"></i> Submit
+                                    </Button>
+
+                                    <Button className="btn-cancel">
+                                      <i class="bx bx-x"></i>Cancel
+                                    </Button>
+                                  </ButtonToolbar>
+                                </Form.Group>
+                              </Form>
+                            </Modal.Body>
+                            <Modal.Footer>
+                              <Button
+                                onClick={handleClose}
+                                appearance="primary"
+                              >
+                                <i class="bx bx-x-circle"></i> Close
                               </Button>
+                            </Modal.Footer>
+                          </Modal>
+                        </div>
+                      </Panel>
 
-                              <Button className="btn-cancel">Cancel</Button>
-                            </ButtonToolbar>
-                          </Form>
-                        </Panel>
-                      </Col>
-
-                      <Col xs={24} sm={24} md={18}>
-                        <Panel header="List of Jobs Posted" bordered>
-                          <Table
-                            virtualized
-                            height={400}
-                            data={getData()}
-                            loading={loading}
-                            sortColumn={sortColumn}
-                            sortType={sortType}
-                            onSortColumn={handleSortColumn}
-                            bordered
-                            cellBordered
-                            autoHeight
-                            affixHeader
-                            rowKey={rowKey}
-                            expandedRowKeys={expandedRowKeys}
-                            onRowClick={(data) => {
-                              console.log(data);
-                            }}
-                            renderRowExpanded={renderRowExpanded}
-                          >
-                            <Column width={70} align="center">
-                              <HeaderCell>#</HeaderCell>
-                              <ExpandCell
-                                dataKey="id"
-                                expandedRowKeys={expandedRowKeys}
-                                onChange={handleExpanded}
-                              />
-                            </Column>
-                            <Column width={180} resizable sortable>
-                              <HeaderCell>Job Title</HeaderCell>
-                              <Cell dataKey="jobtitle" />
-                            </Column>
-
-                            <Column width={250} resizable>
-                              <HeaderCell>Description</HeaderCell>
-                              <Cell dataKey="jobdescrp" />
-                            </Column>
-
-                            <Column width={200} resizable>
-                              <HeaderCell>Skills Required</HeaderCell>
-                              <Cell dataKey="skill" />
-                            </Column>
-                            <Column width={130} resizable>
-                              <HeaderCell>Qualification</HeaderCell>
-                              <Cell dataKey="qualification" />
-                            </Column>
-                            <Column width={130} resizable>
-                              <HeaderCell>Notice Period</HeaderCell>
-                              <Cell dataKey="noticeperiod" />
-                            </Column>
-                            <Column width={130} resizable>
-                              <HeaderCell>Applied Date</HeaderCell>
-                              <Cell>
-                                {(mydata, index) => {
-                                  const dte = mydata.timestamp.toDate();
-                                  var cdte =
-                                    dte.getDate() +
-                                    "/" +
-                                    (dte.getMonth() + 1) +
-                                    "/" +
-                                    dte.getFullYear();
-                                  return <span>{cdte}</span>;
-                                }}
-                              </Cell>
-                            </Column>
-                            <Column width={120}>
-                              <HeaderCell>Action</HeaderCell>
-
-                              <Cell>
-                                {(rowData) => {
-                                  function handleAction() {
-                                    alert(`id:${rowData.id}`);
-                                  }
-                                  return (
-                                    <span>
-                                      <a onClick={handleAction}> Edit </a> |{" "}
-                                      <a onClick={handleAction}> Remove </a>
-                                    </span>
-                                  );
-                                }}
-                              </Cell>
-                            </Column>
-                          </Table>
-                          <div style={{ padding: 20 }}>
-                            <Pagination
-                              prev
-                              next
-                              first
-                              last
-                              ellipsis
-                              boundaryLinks
-                              maxButtons={5}
-                              size="xs"
-                              layout={[
-                                "total",
-                                "-",
-                                "limit",
-                                "|",
-                                "pager",
-                                "skip",
-                              ]}
-                              total={props.jobposts.length}
-                              limitOptions={[10, 20]}
-                              limit={limit}
-                              activePage={page}
-                              onChangePage={setPage}
-                              onChangeLimit={handleChangeLimit}
+                      <Panel header="List of Jobs Posted" bordered>
+                        <Table
+                          virtualized
+                          height={400}
+                          data={getData()}
+                          loading={loading}
+                          sortColumn={sortColumn}
+                          sortType={sortType}
+                          onSortColumn={handleSortColumn}
+                          bordered
+                          cellBordered
+                          autoHeight
+                          affixHeader
+                          rowKey={rowKey}
+                          expandedRowKeys={expandedRowKeys}
+                          onRowClick={(data) => {
+                            console.log(data);
+                          }}
+                          renderRowExpanded={renderRowExpanded}
+                        >
+                          <Column width={70} align="center">
+                            <HeaderCell>#</HeaderCell>
+                            <ExpandCell
+                              dataKey="id"
+                              expandedRowKeys={expandedRowKeys}
+                              onChange={handleExpanded}
                             />
-                          </div>
-                        </Panel>
-                      </Col>
-                    </Row>
-                  </Content>
-                </Container>
-              </div>
-            </Grid>
-          </div>
-        </Container>
+                          </Column>
+                          <Column width={180} resizable sortable>
+                            <HeaderCell>Job Title</HeaderCell>
+                            <Cell dataKey="jobtitle" />
+                          </Column>
+
+                          <Column width={250} resizable>
+                            <HeaderCell>Description</HeaderCell>
+                            <Cell dataKey="jobdescrp" />
+                          </Column>
+
+                          <Column width={200} resizable>
+                            <HeaderCell>Skills Required</HeaderCell>
+                            <Cell dataKey="skill" />
+                          </Column>
+                          <Column width={130} resizable>
+                            <HeaderCell>Qualification</HeaderCell>
+                            <Cell dataKey="qualification" />
+                          </Column>
+                          <Column width={130} resizable>
+                            <HeaderCell>Notice Period</HeaderCell>
+                            <Cell dataKey="noticeperiod" />
+                          </Column>
+                          <Column width={130} resizable>
+                            <HeaderCell>Applied Date</HeaderCell>
+                            <Cell>
+                              {(mydata, index) => {
+                                const dte = mydata.timestamp.toDate();
+                                var cdte =
+                                  dte.getDate() +
+                                  "/" +
+                                  (dte.getMonth() + 1) +
+                                  "/" +
+                                  dte.getFullYear();
+                                return <span>{cdte}</span>;
+                              }}
+                            </Cell>
+                          </Column>
+                          <Column width={120}>
+                            <HeaderCell>Action</HeaderCell>
+
+                            <Cell>
+                              {(rowData) => {
+                                function handleAction() {
+                                  alert(`id:${rowData.id}`);
+                                }
+                                return (
+                                  <span>
+                                    <a onClick={handleAction}> Edit </a> |{" "}
+                                    <a onClick={handleAction}> Remove </a>
+                                  </span>
+                                );
+                              }}
+                            </Cell>
+                          </Column>
+                        </Table>
+                        <div style={{ padding: 20 }}>
+                          <Pagination
+                            prev
+                            next
+                            first
+                            last
+                            ellipsis
+                            boundaryLinks
+                            maxButtons={5}
+                            size="xs"
+                            layout={[
+                              "total",
+                              "-",
+                              "limit",
+                              "|",
+                              "pager",
+                              "skip",
+                            ]}
+                            total={props.jobposts.length}
+                            limitOptions={[10, 20]}
+                            limit={limit}
+                            activePage={page}
+                            onChangePage={setPage}
+                            onChangeLimit={handleChangeLimit}
+                          />
+                        </div>
+                      </Panel>
+                    </Col>
+                  </Row>
+                </Content>
+              </Container>
+            </div>
+          </Grid>
+        </div>
       </Container>
-    </div>
+    </Container>
   );
 };
 
