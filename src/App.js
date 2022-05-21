@@ -40,7 +40,25 @@ function App() {
         let temp = [];
         temp.push(productdb);
         setCandidates(productdb);
-        console.log("list of candidates", candidates);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
+  const [jobposts, setJobposts] = useState([]);
+
+  useEffect(() => {
+    const colRef = collection(db, "job_posts");
+    getDocs(colRef)
+      .then((snapshot) => {
+        let productdb = [];
+        snapshot.docs.forEach((doc) => {
+          productdb.push({ ...doc.data(), id: doc.id });
+        });
+        let temp = [];
+        temp.push(productdb);
+        setJobposts(productdb);
+        console.log("list of jobs posted:", jobposts);
       })
       .catch((err) => {
         console.log(err.message);
@@ -67,7 +85,7 @@ function App() {
         <Route
           exact
           path="admin/postjobs"
-          element={<PostJobs candidates={candidates} />}
+          element={<PostJobs jobposts={jobposts} />}
         />
       </Routes>
     </>

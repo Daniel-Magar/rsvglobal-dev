@@ -57,18 +57,7 @@ const CandidateList = (props) => {
       setSortType(sortType);
     }, 500);
   };
-  const [date, setDate] = useState();
-  useEffect(() => {
-    for (let i in props.candidates) {
-      //   console.log(props.candidates[i].timestamp);
-      //   var date = new Date(props.candidates[i].timestamp);
-      const dte = props.candidates[i].timestamp.toDate();
-      var cdte =
-        dte.getDate() + "/" + (dte.getMonth() + 1) + "/" + dte.getFullYear();
-      setDate(cdte);
-      console.log(cdte);
-    }
-  }, [props]);
+
   return (
     <>
       <div>

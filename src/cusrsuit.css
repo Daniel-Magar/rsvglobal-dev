@@ -43,6 +43,19 @@
 .rs-picker-toggle-wrapper {
   width: 100%;
 }
+.exp-text {
+  font-size: 14px;
+  font-weight: bold;
+  width: 100%;
+}
+.btn-submit {
+  background-color: #030441 !important;
+}
+.btn-cancel {
+  background-color: rgb(247, 71, 73) !important;
+  color: white !important;
+}
+
 @media only screen and (max-width: 600px) {
   body {
     font-size: 12px;
