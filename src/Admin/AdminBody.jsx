@@ -1,7 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Grid, Row, Col, Panel } from "rsuite";
+import { Chart } from "react-google-charts";
 
-const AdminBody = () => {
+export const options = {
+  chart: {
+    title: "Random Apply vs Job Posts",
+    subtitle: "in millions of dollars (USD)",
+  },
+};
+
+const AdminBody = (props) => {
+  console.log("admin body candidates", props.candidates);
+  const [candistesCount, setCandidateCount] = useState(0);
+  const [jobpostCount, setJobpostCount] = useState(0);
+  useEffect(() => {
+    let candidatelist = props.candidates;
+    let len = candidatelist.length;
+    console.log(len);
+    setCandidateCount(len);
+  }, [props]);
+
+  useEffect(() => {
+    let totaljobpost = props.jobposts;
+    let len2 = totaljobpost.length;
+    setJobpostCount(len2);
+  }, [props.jobposts]);
+
+  const candidatevsjobs = [
+    ["Random vs Job Posts", "Job Posts", "Job Provided"],
+    [candistesCount, jobpostCount, 55],
+  ];
+
   return (
     <>
       <div>
@@ -13,7 +42,7 @@ const AdminBody = () => {
                   <i className="bx bxs-group adminicon"></i>
                 </Col>
                 <Col xs={24} sm={24} md={6}>
-                  <h2 className="htxt">54</h2>
+                  <h2 className="htxt">{candistesCount}</h2>
                 </Col>
               </Panel>
             </Col>
@@ -23,7 +52,7 @@ const AdminBody = () => {
                   <i class="bx bxs-hard-hat adminicon"></i>
                 </Col>
                 <Col xs={24} sm={24} md={6}>
-                  <h2 className="htxt">54</h2>
+                  <h2 className="htxt">{jobpostCount}</h2>
                 </Col>
               </Panel>
             </Col>
@@ -50,7 +79,15 @@ const AdminBody = () => {
           </Row>
           <Row className="show-grid">
             <Col xs={24} sm={24} md={12}>
-              <Panel header="Lorem" bordered></Panel>
+              <Panel header="Lorem" bordered>
+                <Chart
+                  chartType="Line"
+                  width="100%"
+                  height="400px"
+                  data={candidatevsjobs}
+                  options={options}
+                />
+              </Panel>
             </Col>
             <Col xs={24} sm={24} md={12}>
               <Panel header="Lorem" bordered></Panel>

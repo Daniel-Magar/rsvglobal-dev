@@ -1,21 +1,9 @@
 import React, { useState } from "react";
-import {
-  Container,
-  Header,
-  Content,
-  Footer,
-  Sidebar,
-  Dropdown,
-  Nav,
-  Navbar,
-  Sidenav,
-} from "rsuite";
+import { Container, Header, Content } from "rsuite";
 import DashboardIcon from "@rsuite/icons/Dashboard";
 import "rsuite/dist/rsuite.min.css"; // or 'rsuite/dist/rsuite.min.css'
 import "../cusrsuit.css";
-import { Routes, Route, Link } from "react-router-dom";
-import CandidateList from "./CandidateList";
-import SideNav from "./LeftNav";
+
 import LeftNav from "./LeftNav";
 import AdminBody from "./AdminBody";
 
@@ -48,7 +36,10 @@ const Admin = (props) => {
             </Header>
             <Content>
               <div id="admin">
-                <AdminBody />
+                <AdminBody
+                  candidates={props.candidates}
+                  jobposts={props.jobposts}
+                />
               </div>
             </Content>
           </div>

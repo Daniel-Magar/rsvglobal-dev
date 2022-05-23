@@ -62,21 +62,6 @@ function App() {
         setJobposts(asperquery);
       });
     } catch (error) {}
-    // const colRef = collection(db, "job_posts");
-    // getDocs(colRef)
-    //   .then((snapshot) => {
-    //     let productdb = [];
-    //     snapshot.docs.forEach((doc) => {
-    //       productdb.push({ ...doc.data(), id: doc.id });
-    //     });
-    //     let temp = [];
-    //     temp.push(productdb);
-    //     setJobposts(productdb);
-    //     console.log("list of jobs posted:", jobposts);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err.message);
-    //   });
   }, []);
   const JobPosts = createContext();
   return (
@@ -89,8 +74,16 @@ function App() {
 
         <Route path="*" element={<Body />} />
 
-        <Route exact path="admin" element={<Admin candidates={candidates} />} />
-        <Route path="/" element={<Admin candidates={candidates} />} />
+        <Route
+          exact
+          path="admin"
+          element={<Admin candidates={candidates} jobposts={jobposts} />}
+        />
+        <Route
+          path="/"
+          element={<Admin candidates={candidates} />}
+          jobposts={jobposts}
+        />
 
         <Route
           exact

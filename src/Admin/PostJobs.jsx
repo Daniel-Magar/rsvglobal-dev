@@ -19,12 +19,23 @@ import {
   IconButton,
   Notification,
   Modal,
+  Divider,
 } from "rsuite";
 import Input from "rsuite/Input";
 import { Table, Column, HeaderCell, Cell } from "rsuite-table";
 import LeftNav from "./LeftNav";
-import { collection, addDoc, Timestamp } from "firebase/firestore";
+import RemindOutlineIcon from "@rsuite/icons/RemindOutline";
+import {
+  collection,
+  addDoc,
+  Timestamp,
+  doc,
+  updateDoc,
+  deleteDoc,
+  deleteField,
+} from "firebase/firestore";
 import { db } from "../firebase-config";
+import { async } from "@firebase/util";
 
 const selectdata = [
   { value: "Under Graduate", label: "Under Graduate" },
@@ -52,6 +63,8 @@ const TextField = React.forwardRef((props, ref) => {
 });
 const PostJobs = (props) => {
   const [show, setShow] = useState(false);
+  const [info, setInfo] = useState("");
+
   const formRef = React.useRef();
   const [formError, setFormError] = React.useState({});
   const [formValue, setFormValue] = React.useState({
@@ -80,7 +93,9 @@ const PostJobs = (props) => {
 
         timestamp: Timestamp.now(),
       });
-      setInterval(() => setShow(true));
+      setInfo("New Job has been posted successfully!");
+      setShow(true);
+      setInterval(() => setShow(false), 4000);
       console.log("Clearing Form");
       setFormValue({
         jobtitle: "",
@@ -196,6 +211,9 @@ const PostJobs = (props) => {
           ></i>
         </div>
         <p style={{ width: "100%" }}>
+          <span className="exp-text">Job Title:</span> {rowData.jobtitle}
+        </p>
+        <p style={{ width: "100%" }}>
           <span className="exp-text">Job Description:</span> {rowData.jobdescrp}
         </p>
         <p style={{ width: "100%" }}>
@@ -222,17 +240,112 @@ const PostJobs = (props) => {
 
     setExpandedRowKeys(nextExpandedRowKeys);
   };
+
   const Message = React.forwardRef(({ type, ...rest }, ref) => {
     return (
-      <Notification ref={ref} {...rest} type={type} header={type}>
-        {/* <Paragraph width={320} rows={3} /> */}
-        Data Successfully Posted!
+      <Notification ref={ref} {...rest} type={type} width="100%">
+        <Grid fluid>
+          <Row className="show-grid">
+            <Col xs={4} sm={4} md={4}>
+              <i
+                class="bx bx-info-square"
+                style={{
+                  color: "#ffb300",
+                  fontSize: 34,
+                }}
+              ></i>
+            </Col>
+            <Col xs={20} sm={20} md={20}>
+              {info}
+            </Col>
+          </Row>
+        </Grid>
       </Notification>
     );
   });
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const [openEdit, setOpenEdit] = React.useState(false);
+  const [size, setSize] = React.useState();
+  const handleOpenEdit = (value) => {
+    setSize(value);
+    setOpenEdit(true);
+  };
+  const handleCloseEdit = () => setOpenEdit(false);
+
+  const [editData, setEditData] = useState([]);
+
+  useEffect(() => {
+    console.log("Setting Data;;;;;", editData);
+    setEditFormData({
+      jobtitle: editData.jobtitle,
+      qualification: editData.qualification,
+      jobdescrp: editData.jobdescrp,
+      skill: editData.skill,
+      noticeperiod: editData.noticeperiod,
+    });
+  }, [editData]);
+
+  const editformRef = React.useRef();
+
+  const [editFormData, setEditFormData] = useState({
+    jobtitle: "",
+    qualification: "",
+    jobdescrp: "",
+    skill: "",
+    noticeperiod: "",
+  });
+
+  const handleUpdate = async () => {
+    try {
+      var ref = doc(db, "job_posts", editData.id);
+      await updateDoc(ref, {
+        jobtitle: editFormData.jobtitle,
+        qualification: editFormData.qualification,
+        jobdescrp: editFormData.jobdescrp,
+        skill: editFormData.skill,
+        noticeperiod: editFormData.noticeperiod,
+        timestamp: Timestamp.now(),
+      })
+        .then(() => {
+          setInfo("Selected Data has been updated successfully!");
+          setShow(true);
+        })
+        .catch((error) => {
+          alert("Unsuccessfull, Error:" + error);
+        });
+      setEditFormData({
+        jobtitle: "",
+        qualification: "",
+        jobdescrp: "",
+        skill: "",
+        noticeperiod: "",
+      });
+    } catch (err) {
+      alert(err);
+    }
+    setInterval(() => setShow(false), 4000);
+  };
+  const handleRemove = async () => {
+    try {
+      var ref = doc(db, "job_posts", editData.id);
+      await deleteDoc(ref)
+        .then(() => {
+          console.log("Data has been Deleted successfully!");
+        })
+        .catch((error) => {
+          alert("Unsuccessfull, Error:" + error);
+        });
+    } catch (err) {
+      alert(err);
+    }
+  };
+
+  const [openWarningModal, setOpenWarningModal] = React.useState(false);
+  const handleOpenWarning = () => setOpenWarningModal(true);
+  const handleCloseWarning = () => setOpenWarningModal(false);
   return (
     <Container>
       <LeftNav />
@@ -259,17 +372,21 @@ const PostJobs = (props) => {
                             </Button>
                           </ButtonToolbar>
 
-                          <Modal open={open} onClose={handleClose}>
+                          <Modal
+                            open={open}
+                            onClose={handleClose}
+                            overflow={true}
+                          >
                             <Modal.Header>
                               <Modal.Title>Post Job</Modal.Title>
                             </Modal.Header>
+                            {show && (
+                              <Message
+                                type="info"
+                                style={{ width: "100%" }}
+                              ></Message>
+                            )}
                             <Modal.Body>
-                              {show && (
-                                <Message
-                                  type="info"
-                                  style={{ width: "100%" }}
-                                />
-                              )}
                               <Form
                                 layout="horizontal"
                                 ref={formRef}
@@ -295,27 +412,29 @@ const PostJobs = (props) => {
                                   label="Notice Period:"
                                 />
 
-                                <Form.Group>
+                                {/* <Form.Group>
                                   <ButtonToolbar>
-                                    <Button
-                                      className="btn-submit"
-                                      appearance="primary"
-                                      onClick={handleSubmit}
-                                    >
-                                      <i class="bx bx-check"></i> Submit
-                                    </Button>
+                                   
 
                                     <Button className="btn-cancel">
                                       <i class="bx bx-x"></i>Cancel
                                     </Button>
                                   </ButtonToolbar>
-                                </Form.Group>
+                                </Form.Group> */}
                               </Form>
                             </Modal.Body>
                             <Modal.Footer>
                               <Button
+                                className="btn-submit"
+                                appearance="primary"
+                                onClick={handleSubmit}
+                              >
+                                <i class="bx bx-check"></i> Submit
+                              </Button>
+                              <Button
                                 onClick={handleClose}
                                 appearance="primary"
+                                className="btn-cancel"
                               >
                                 <i class="bx bx-x-circle"></i> Close
                               </Button>
@@ -325,6 +444,63 @@ const PostJobs = (props) => {
                       </Panel>
 
                       <Panel header="List of Jobs Posted" bordered>
+                        <Modal
+                          size={size}
+                          open={openEdit}
+                          onClose={handleCloseEdit}
+                        >
+                          <Modal.Header>
+                            <Modal.Title>Edit This Item</Modal.Title>
+                            {show && (
+                              <Message
+                                type="info"
+                                style={{ width: "100%" }}
+                              ></Message>
+                            )}
+                          </Modal.Header>
+                          <Modal.Body>
+                            <Form
+                              layout="horizontal"
+                              ref={editformRef}
+                              onChange={setEditFormData}
+                              formValue={editFormData}
+
+                              // className="adminform"
+                            >
+                              <TextField name="jobtitle" label="Job Title:" />
+                              <TextField
+                                name="qualification"
+                                label="Min. Qualification:"
+                              />
+
+                              <TextField
+                                name="jobdescrp"
+                                label="Job Description:"
+                              />
+                              <TextField name="skill" label="Skills:" />
+                              <TextField
+                                name="noticeperiod"
+                                label="Notice Period:"
+                              />
+                            </Form>
+                          </Modal.Body>
+                          <Modal.Footer>
+                            <Button
+                              className="btn-submit"
+                              onClick={handleUpdate}
+                              appearance="primary"
+                            >
+                              <i class="bx bx-check"></i> Update
+                            </Button>
+                            <Button
+                              onClick={handleCloseEdit}
+                              appearance="subtle"
+                              className="btn-cancel"
+                            >
+                              <i class="bx bx-x"></i>Cancel
+                            </Button>
+                          </Modal.Footer>
+                        </Modal>
                         <Table
                           virtualized
                           height={400}
@@ -333,18 +509,19 @@ const PostJobs = (props) => {
                           sortColumn={sortColumn}
                           sortType={sortType}
                           onSortColumn={handleSortColumn}
-                          bordered
-                          cellBordered
+                          // cellBordered
                           autoHeight
                           affixHeader
                           rowKey={rowKey}
                           expandedRowKeys={expandedRowKeys}
                           onRowClick={(data) => {
                             console.log(data);
+
+                            setEditData(data);
                           }}
                           renderRowExpanded={renderRowExpanded}
                         >
-                          <Column width={70} align="center">
+                          <Column width={50} align="center">
                             <HeaderCell>#</HeaderCell>
                             <ExpandCell
                               dataKey="id"
@@ -352,29 +529,29 @@ const PostJobs = (props) => {
                               onChange={handleExpanded}
                             />
                           </Column>
-                          <Column width={180} resizable sortable>
+                          <Column width={200} sortable flexGrow={2}>
                             <HeaderCell>Job Title</HeaderCell>
                             <Cell dataKey="jobtitle" />
                           </Column>
 
-                          <Column width={250} resizable>
+                          <Column width={200} flexGrow={2}>
                             <HeaderCell>Description</HeaderCell>
                             <Cell dataKey="jobdescrp" />
                           </Column>
 
-                          <Column width={200} resizable>
+                          <Column width={200} flexGrow={2}>
                             <HeaderCell>Skills Required</HeaderCell>
                             <Cell dataKey="skill" />
                           </Column>
-                          <Column width={130} resizable>
+                          <Column width={200} flexGrow={1}>
                             <HeaderCell>Qualification</HeaderCell>
                             <Cell dataKey="qualification" />
                           </Column>
-                          <Column width={130} resizable>
+                          <Column width={100} flexGrow={1}>
                             <HeaderCell>Notice Period</HeaderCell>
                             <Cell dataKey="noticeperiod" />
                           </Column>
-                          <Column width={130} resizable>
+                          <Column width={130} flexGrow={1}>
                             <HeaderCell>Applied Date</HeaderCell>
                             <Cell>
                               {(mydata, index) => {
@@ -389,18 +566,33 @@ const PostJobs = (props) => {
                               }}
                             </Cell>
                           </Column>
-                          <Column width={120}>
+                          <Column width={180}>
                             <HeaderCell>Action</HeaderCell>
 
                             <Cell>
                               {(rowData) => {
                                 function handleAction() {
                                   alert(`id:${rowData.id}`);
+
+                                  handleOpenEdit();
                                 }
                                 return (
                                   <span>
-                                    <a onClick={handleAction}> Edit </a> |{" "}
-                                    <a onClick={handleAction}> Remove </a>
+                                    <Button
+                                      className="btn-submit"
+                                      size="sm"
+                                      onClick={handleAction}
+                                    >
+                                      <i class="bx bx-edit-alt"></i> Edit
+                                    </Button>
+                                    |
+                                    <Button
+                                      className="btn-cancel"
+                                      size="sm"
+                                      onClick={handleOpenWarning}
+                                    >
+                                      <i class="bx bx-x"></i> Remove
+                                    </Button>
                                   </span>
                                 );
                               }}
@@ -434,6 +626,41 @@ const PostJobs = (props) => {
                           />
                         </div>
                       </Panel>
+
+                      <Modal
+                        backdrop="static"
+                        role="alertdialog"
+                        open={openWarningModal}
+                        onClose={handleCloseWarning}
+                        size="xs"
+                      >
+                        <Modal.Body>
+                          <RemindOutlineIcon
+                            style={{
+                              color: "#ffb300",
+                              fontSize: 38,
+                            }}
+                          />
+                          <br />
+                          Do you really want to remove this item?
+                        </Modal.Body>
+                        <Modal.Footer>
+                          <Button
+                            className="btn-submit"
+                            onClick={handleRemove}
+                            appearance="primary"
+                          >
+                            <i class="bx bx-check"></i> Yes
+                          </Button>
+                          <Button
+                            className="btn-cancel"
+                            onClick={handleCloseWarning}
+                            appearance="subtle"
+                          >
+                            <i class="bx bx-x"></i> No
+                          </Button>
+                        </Modal.Footer>
+                      </Modal>
                     </Col>
                   </Row>
                 </Content>
