@@ -36,6 +36,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase-config";
 import { async } from "@firebase/util";
+import Welcome from "./Welcome";
 
 const selectdata = [
   { value: "Under Graduate", label: "Under Graduate" },
@@ -211,8 +212,11 @@ const PostJobs = (props) => {
           ></i>
         </div>
         <p style={{ width: "100%" }}>
-          <span className="exp-text">Job Title:</span> {rowData.jobtitle}
+          <span className="exp-text">Job Title:</span> {rowData.jobtitle} |
+          <span className="exp-text">Qualification:</span>
+          {rowData.qualification}
         </p>
+
         <p style={{ width: "100%" }}>
           <span className="exp-text">Job Description:</span> {rowData.jobdescrp}
         </p>
@@ -341,6 +345,7 @@ const PostJobs = (props) => {
     } catch (err) {
       alert(err);
     }
+    setOpenWarningModal(false);
   };
 
   const [openWarningModal, setOpenWarningModal] = React.useState(false);
@@ -351,6 +356,7 @@ const PostJobs = (props) => {
       <LeftNav />
       <Container>
         <div className="adminboard">
+          <Welcome />
           <Grid fluid>
             <div
               className="show-fake-browser sidebar-page adminboard"
@@ -411,16 +417,6 @@ const PostJobs = (props) => {
                                   name="noticeperiod"
                                   label="Notice Period:"
                                 />
-
-                                {/* <Form.Group>
-                                  <ButtonToolbar>
-                                   
-
-                                    <Button className="btn-cancel">
-                                      <i class="bx bx-x"></i>Cancel
-                                    </Button>
-                                  </ButtonToolbar>
-                                </Form.Group> */}
                               </Form>
                             </Modal.Body>
                             <Modal.Footer>
@@ -527,6 +523,7 @@ const PostJobs = (props) => {
                               dataKey="id"
                               expandedRowKeys={expandedRowKeys}
                               onChange={handleExpanded}
+                              height={100}
                             />
                           </Column>
                           <Column width={200} sortable flexGrow={2}>
@@ -572,7 +569,7 @@ const PostJobs = (props) => {
                             <Cell>
                               {(rowData) => {
                                 function handleAction() {
-                                  alert(`id:${rowData.id}`);
+                                  // alert(`id:${rowData.id}`);
 
                                   handleOpenEdit();
                                 }

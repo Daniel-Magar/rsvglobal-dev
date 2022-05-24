@@ -3,30 +3,32 @@ import "./carousel.css";
 import Footer from "./components/Footer";
 import TopNav from "./components/TopNav";
 import Body from "./components/Body";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Pstaffing from "./components/Pstaffing";
 import Aboutus from "./components/Aboutus";
+import { useContext } from "react";
+import { AuthContext } from "./context/AuthContext";
 import CareerPage from "./components/CareerPage";
 import React, { useState, useEffect, createContext } from "react";
 import CandidateList from "./Admin/CandidateList";
 import {
   collection,
   getDocs,
-  addDoc,
-  Timestamp,
-  doc,
-  writeBatch,
   query,
-  where,
   orderBy,
-  limit,
-  updateDoc,
   onSnapshot,
 } from "firebase/firestore";
 import { db } from "./firebase-config";
 import Admin from "./Admin/Admin";
 import PostJobs from "./Admin/PostJobs";
+import Login from "./Admin/Login";
 function App() {
+  const { currentUser } = useContext(AuthContext);
+
+  const RequireAuth = ({ children }) => {
+    return currentUser ? children : <Navigate to="/login" />;
+  };
+
   const [candidates, setCandidates] = useState([]);
 
   useEffect(() => {
@@ -74,7 +76,7 @@ function App() {
 
         <Route path="*" element={<Body />} />
 
-        <Route
+        {/* <Route
           exact
           path="admin"
           element={<Admin candidates={candidates} jobposts={jobposts} />}
@@ -94,7 +96,88 @@ function App() {
           exact
           path="admin/postjobs"
           element={<PostJobs jobposts={jobposts} />}
-        />
+        /> */}
+
+        <Route path="/">
+          <Route path="login" element={<Login />}></Route>
+          <Route
+            index
+            element={
+              <RequireAuth>
+                <Admin candidates={candidates} jobposts={jobposts} />
+              </RequireAuth>
+            }
+          />
+
+          <Route
+            exact
+            path="admin/candidates"
+            element={
+              <RequireAuth>
+                <CandidateList candidates={candidates} />
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            exact
+            path="admin/postjobs"
+            element={
+              <RequireAuth>
+                <PostJobs jobposts={jobposts} />
+              </RequireAuth>
+            }
+          />
+          <Route
+            exact
+            path=""
+            element={
+              <RequireAuth>
+                <Admin candidates={candidates} jobposts={jobposts} />
+              </RequireAuth>
+            }
+          />
+        </Route>
+        {/* <Route path="/">
+          <Route
+            index
+            element={
+              <RequireAuth>
+                <Admin candidates={candidates} jobposts={jobposts} />
+              </RequireAuth>
+            }
+          />
+        </Route>
+        <Route path="/">
+          <Route
+            exact
+            path="admin/candidates"
+            element={<CandidateList candidates={candidates} />}
+          ></Route>
+          <Route
+            index
+            element={
+              <RequireAuth>
+                <CandidateList candidates={candidates} />
+              </RequireAuth>
+            }
+          />
+        </Route>
+        <Route path="/">
+          <Route
+            exact
+            path="admin/postjobs"
+            element={<PostJobs jobposts={jobposts} />}
+          ></Route>
+          <Route
+            index
+            element={
+              <RequireAuth>
+                <PostJobs jobposts={jobposts} />
+              </RequireAuth>
+            }
+          />
+        </Route> */}
+        <Route path="*" element={<Body />} />
       </Routes>
     </>
   );

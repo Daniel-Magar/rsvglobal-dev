@@ -4,6 +4,7 @@ import { Button, Pagination, Container, Header, Content } from "rsuite";
 import { set } from "firebase/database";
 import LeftNav from "./LeftNav";
 import "../cusrsuit.css";
+import Welcome from "./Welcome";
 const CandidateList = (props) => {
   const [mydata, setMydata] = useState([]);
   console.log(" Poprssssss", props.candidates);
@@ -66,6 +67,7 @@ const CandidateList = (props) => {
             <LeftNav />
             <Container>
               <div className="adminboard">
+                <Welcome />
                 <Header>
                   <h3>List of Applicants</h3>
                 </Header>

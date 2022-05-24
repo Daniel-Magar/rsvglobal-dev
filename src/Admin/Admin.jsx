@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import { Container, Header, Content } from "rsuite";
-import DashboardIcon from "@rsuite/icons/Dashboard";
+import React, { useState, useContext } from "react";
+import { Container, Content } from "rsuite";
+
 import "rsuite/dist/rsuite.min.css"; // or 'rsuite/dist/rsuite.min.css'
 import "../cusrsuit.css";
 
 import LeftNav from "./LeftNav";
 import AdminBody from "./AdminBody";
+import Welcome from "./Welcome";
 
 const headerStyles = {
   padding: 18,
@@ -31,9 +32,7 @@ const Admin = (props) => {
         <LeftNav />
         <Container>
           <div className="adminboard">
-            <Header>
-              <h3>Welcome Admin</h3>
-            </Header>
+            <Welcome />
             <Content>
               <div id="admin">
                 <AdminBody

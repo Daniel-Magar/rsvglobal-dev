@@ -1,0 +1,129 @@
+.lform {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.logform {
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  padding: 5px;
+  font-size: 16px;
+}
+.logform > input {
+  width: 200px;
+  height: 30px;
+  margin: 10px;
+}
+.logform > button {
+  width: 200px;
+  height: 45px;
+  border-radius: 4px;
+  background-color: #030441;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.logform > span {
+  font-size: 12px;
+  color: red;
+  margin-top: 10px;
+}
+.glog {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding: 5px;
+}
+.gbtn {
+  width: 200px;
+  height: 30px;
+  border: none;
+  background-color: rgb(26, 3, 230);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.flex-container {
+  display: flex;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+.flex-container > div {
+  width: 500px;
+  margin: 10px;
+  text-align: center;
+}
+.surround {
+  border: 3px solid #030441;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #e5e5ea;
+}
+button:hover {
+  opacity: 0.8;
+}
+.ggg {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+table,
+td,
+th {
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th,
+td {
+  padding: 15px;
+}
+.postForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  height: auto;
+  width: 500px;
+}
+.theform {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 400px;
+}
+.logform > input {
+  padding: 20px;
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+.theform > button {
+  padding: 10px;
+  background-color: dodgerblue;
+  border: none;
+  cursor: pointer;
+}
+.home {
+  padding: 10px;
+}
+tr:hover {
+  background-color: rgb(202, 199, 199);
+}
+.log-icon {
+  font-size: 58px;
+  /* font-weight: bold; */
+  color: rgb(247, 71, 73);
+}

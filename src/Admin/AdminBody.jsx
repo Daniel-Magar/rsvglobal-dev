@@ -79,15 +79,7 @@ const AdminBody = (props) => {
           </Row>
           <Row className="show-grid">
             <Col xs={24} sm={24} md={12}>
-              <Panel header="Lorem" bordered>
-                <Chart
-                  chartType="Line"
-                  width="100%"
-                  height="400px"
-                  data={candidatevsjobs}
-                  options={options}
-                />
-              </Panel>
+              <Panel header="Lorem" bordered></Panel>
             </Col>
             <Col xs={24} sm={24} md={12}>
               <Panel header="Lorem" bordered></Panel>

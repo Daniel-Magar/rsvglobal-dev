@@ -1,17 +1,10 @@
-import React from "react";
-import {
-  Container,
-  Header,
-  Content,
-  Footer,
-  Sidebar,
-  Dropdown,
-  Nav,
-  Navbar,
-  Sidenav,
-} from "rsuite";
+import React, { useContext, useState } from "react";
+import { Button, Sidebar, Dropdown, Nav, Navbar, Sidenav } from "rsuite";
 
 import { Routes, Route, Link } from "react-router-dom";
+import { getAuth, signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 const headerStyles = {
   padding: 18,
@@ -56,7 +49,7 @@ const LeftNav = () => {
           <Sidenav.Body className="r-nav">
             <Nav className="nav-bar">
               <Nav.Item className="nav-item" eventKey="1" active>
-                <Link to="/admin">
+                <Link to="/">
                   <i className="bx bxs-dashboard icn" />
                   <span>Dashboard</span>
                 </Link>
@@ -88,6 +81,24 @@ const LeftNav = () => {
   );
 };
 const NavToggle = ({ expand, onChange }) => {
+  const [error, setError] = useState(false);
+  const auth = getAuth();
+  const navigate = useNavigate();
+
+  const { dispatch } = useContext(AuthContext);
+  const handleLogout = (e) => {
+    e.preventDefault();
+    signOut(auth)
+      .then(() => {
+        console.log("loging out");
+        dispatch({ type: "LOGOUT", payload: null });
+        navigate("/");
+      })
+      .catch((error) => {
+        setError(true);
+      });
+  };
+  const { currentUser } = useContext(AuthContext);
   return (
     <Navbar appearance="subtle" className="nav-toggle">
       <Navbar.Body className="rnav">
@@ -101,7 +112,9 @@ const NavToggle = ({ expand, onChange }) => {
           >
             <Dropdown.Item>Help</Dropdown.Item>
             <Dropdown.Item>Settings</Dropdown.Item>
-            <Dropdown.Item>Sign out</Dropdown.Item>
+            <Dropdown.Item>
+              <Button onClick={handleLogout}>Log out</Button>
+            </Dropdown.Item>
           </Dropdown>
         </Nav>
 
