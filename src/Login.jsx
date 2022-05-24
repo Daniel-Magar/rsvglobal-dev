@@ -1,13 +1,9 @@
 import React, { useContext, useState } from "react";
-import "../login.css";
-import {
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  GoogleAuthProvider,
-} from "firebase/auth";
-import { auth } from "../firebase-config";
+import "./login.css";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "./firebase-config";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "./context/AuthContext";
 import UserBadgeIcon from "@rsuite/icons/UserBadge";
 
 const Login = () => {
@@ -32,7 +28,7 @@ const Login = () => {
         const user = userCredential.user;
         setLoggedUser(user.displayName);
         dispatch({ type: "LOGIN", payload: user });
-        navigate("/");
+        navigate("/admin");
       })
       .catch((error) => {
         setError(true);

@@ -1,13 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Grid, Row, Col, Panel } from "rsuite";
-import { Chart } from "react-google-charts";
-
-export const options = {
-  chart: {
-    title: "Random Apply vs Job Posts",
-    subtitle: "in millions of dollars (USD)",
-  },
-};
 
 const AdminBody = (props) => {
   console.log("admin body candidates", props.candidates);

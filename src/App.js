@@ -21,12 +21,12 @@ import {
 import { db } from "./firebase-config";
 import Admin from "./Admin/Admin";
 import PostJobs from "./Admin/PostJobs";
-import Login from "./Admin/Login";
+import Login from "./Login";
 function App() {
   const { currentUser } = useContext(AuthContext);
 
   const RequireAuth = ({ children }) => {
-    return currentUser ? children : <Navigate to="/login" />;
+    return currentUser ? children : <Navigate to="/home" />;
   };
 
   const [candidates, setCandidates] = useState([]);
@@ -76,30 +76,8 @@ function App() {
 
         <Route path="*" element={<Body />} />
 
-        {/* <Route
-          exact
-          path="admin"
-          element={<Admin candidates={candidates} jobposts={jobposts} />}
-        />
-        <Route
-          path="/"
-          element={<Admin candidates={candidates} />}
-          jobposts={jobposts}
-        />
-
-        <Route
-          exact
-          path="admin/candidates"
-          element={<CandidateList candidates={candidates} />}
-        />
-        <Route
-          exact
-          path="admin/postjobs"
-          element={<PostJobs jobposts={jobposts} />}
-        /> */}
-
-        <Route path="/">
-          <Route path="login" element={<Login />}></Route>
+        <Route>
+          <Route exact path="/login" element={<Login />}></Route>
           <Route
             index
             element={
@@ -129,7 +107,7 @@ function App() {
           />
           <Route
             exact
-            path=""
+            path="/admin"
             element={
               <RequireAuth>
                 <Admin candidates={candidates} jobposts={jobposts} />
@@ -137,46 +115,7 @@ function App() {
             }
           />
         </Route>
-        {/* <Route path="/">
-          <Route
-            index
-            element={
-              <RequireAuth>
-                <Admin candidates={candidates} jobposts={jobposts} />
-              </RequireAuth>
-            }
-          />
-        </Route>
-        <Route path="/">
-          <Route
-            exact
-            path="admin/candidates"
-            element={<CandidateList candidates={candidates} />}
-          ></Route>
-          <Route
-            index
-            element={
-              <RequireAuth>
-                <CandidateList candidates={candidates} />
-              </RequireAuth>
-            }
-          />
-        </Route>
-        <Route path="/">
-          <Route
-            exact
-            path="admin/postjobs"
-            element={<PostJobs jobposts={jobposts} />}
-          ></Route>
-          <Route
-            index
-            element={
-              <RequireAuth>
-                <PostJobs jobposts={jobposts} />
-              </RequireAuth>
-            }
-          />
-        </Route> */}
+
         <Route path="*" element={<Body />} />
       </Routes>
     </>
