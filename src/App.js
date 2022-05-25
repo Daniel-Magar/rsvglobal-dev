@@ -21,6 +21,7 @@ import { db } from "./firebase-config";
 import Admin from "./Admin/Admin";
 import PostJobs from "./Admin/PostJobs";
 import Login from "./Login";
+import Career from "./components/Career";
 function App() {
   const { currentUser } = useContext(AuthContext);
 
@@ -78,10 +79,11 @@ function App() {
           <Route exact path="/" element={<Body />} />
           <Route path="/home" element={<Body />} />
           <Route path="permanentstaffing" element={<Pstaffing />} />
-          <Route
+          {/* <Route
             path="career"
             element={<CareerPage candidates={candidates} />}
-          />
+          /> */}
+          <Route path="career" element={<Career jobposts={jobposts} />} />
 
           <Route path="*" element={<Body />} />
           <Route path="/login" element={<Login />} />
