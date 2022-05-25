@@ -53,7 +53,7 @@ const Login = () => {
   // };
   return (
     <>
-      <div className="flex-container">
+      <div className="lgcontainer">
         <div className="surround">
           <div>
             {/* <i class="bx bx-user-circle log-icon"></i> */}

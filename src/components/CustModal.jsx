@@ -6,7 +6,7 @@ const CustModal = () => {
   const [modalIsOpen, setIsOpen] = React.useState(false);
   return (
     <>
-      <div className="App">
+      <div>
         <button onClick={() => setIsOpen(true)}>Open Modal</button>
         <Modal
           isOpen={modalIsOpen}

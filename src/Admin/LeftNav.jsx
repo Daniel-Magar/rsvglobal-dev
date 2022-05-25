@@ -49,7 +49,7 @@ const LeftNav = () => {
           <Sidenav.Body className="r-nav">
             <Nav className="nav-bar">
               <Nav.Item className="nav-item" eventKey="1" active>
-                <Link to="/">
+                <Link to="/admin">
                   <i className="bx bxs-dashboard icn" />
                   <span>Dashboard</span>
                 </Link>

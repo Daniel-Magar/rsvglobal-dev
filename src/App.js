@@ -1,7 +1,6 @@
 import "./App.css";
 import "./carousel.css";
-import Footer from "./components/Footer";
-import TopNav from "./components/TopNav";
+
 import Body from "./components/Body";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Pstaffing from "./components/Pstaffing";
@@ -9,7 +8,7 @@ import Aboutus from "./components/Aboutus";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
 import CareerPage from "./components/CareerPage";
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect } from "react";
 import CandidateList from "./Admin/CandidateList";
 import {
   collection,
@@ -26,7 +25,7 @@ function App() {
   const { currentUser } = useContext(AuthContext);
 
   const RequireAuth = ({ children }) => {
-    return currentUser ? children : <Navigate to="/home" />;
+    return currentUser ? children : <Navigate to="/login" />;
   };
 
   const [candidates, setCandidates] = useState([]);
@@ -51,10 +50,11 @@ function App() {
   const [jobposts, setJobposts] = useState([]);
 
   useEffect(() => {
+    const abortCont = new AbortController();
     try {
       const colRef = collection(db, "job_posts");
       const q = query(colRef, orderBy("timestamp", "desc"));
-      onSnapshot(q, (snapshot) => {
+      onSnapshot(q, { signal: abortCont.signal }, (snapshot) => {
         let asperquery = [];
         snapshot.docs.forEach((doc) => {
           asperquery.push({ ...doc.data(), id: doc.id });
@@ -63,61 +63,62 @@ function App() {
         temp.push(asperquery);
         setJobposts(asperquery);
       });
-    } catch (error) {}
+    } catch (error) {
+      if (error.name === "AbortError") {
+        console.log("fetch aborted!"); // catching error in updating component
+      }
+    }
+    return () => abortCont.abort();
   }, []);
-  const JobPosts = createContext();
+
   return (
     <>
-      <Routes>
-        <Route exact path="/" element={<Body />} />
-        <Route path="/home" element={<Body />} />
-        <Route path="permanentstaffing" element={<Pstaffing />} />
-        <Route path="career" element={<CareerPage candidates={candidates} />} />
-
-        <Route path="*" element={<Body />} />
-
-        <Route>
-          <Route exact path="/login" element={<Login />}></Route>
+      <div>
+        <Routes>
+          <Route exact path="/" element={<Body />} />
+          <Route path="/home" element={<Body />} />
+          <Route path="permanentstaffing" element={<Pstaffing />} />
           <Route
-            index
-            element={
-              <RequireAuth>
-                <Admin candidates={candidates} jobposts={jobposts} />
-              </RequireAuth>
-            }
+            path="career"
+            element={<CareerPage candidates={candidates} />}
           />
 
-          <Route
-            exact
-            path="admin/candidates"
-            element={
-              <RequireAuth>
-                <CandidateList candidates={candidates} />
-              </RequireAuth>
-            }
-          ></Route>
-          <Route
-            exact
-            path="admin/postjobs"
-            element={
-              <RequireAuth>
-                <PostJobs jobposts={jobposts} />
-              </RequireAuth>
-            }
-          />
-          <Route
-            exact
-            path="/admin"
-            element={
-              <RequireAuth>
-                <Admin candidates={candidates} jobposts={jobposts} />
-              </RequireAuth>
-            }
-          />
-        </Route>
+          <Route path="*" element={<Body />} />
+          <Route path="/login" element={<Login />} />
 
-        <Route path="*" element={<Body />} />
-      </Routes>
+          <Route exact path="/admin">
+            <Route
+              index
+              element={
+                <RequireAuth>
+                  <Admin candidates={candidates} jobposts={jobposts} />
+                </RequireAuth>
+              }
+            />
+          </Route>
+
+          <Route exact path="/admin/candidates">
+            <Route
+              index
+              element={
+                <RequireAuth>
+                  <CandidateList candidates={candidates} />
+                </RequireAuth>
+              }
+            />
+          </Route>
+          <Route exact path="/admin/postjobs">
+            <Route
+              index
+              element={
+                <RequireAuth>
+                  <PostJobs jobposts={jobposts} />
+                </RequireAuth>
+              }
+            />
+          </Route>
+        </Routes>
+      </div>
     </>
   );
 }

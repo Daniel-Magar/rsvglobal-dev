@@ -75,39 +75,43 @@ const PostJobs = (props) => {
     skill: "",
     noticeperiod: "",
   });
-  const clearState = () => {
-    setFormValue({});
-  };
+
   const handleSubmit = async () => {
+    const abortCont = new AbortController();
     if (!formRef.current.check()) {
       console.error("Form Error");
       return;
     }
     console.log(formValue, "Form Value");
     try {
-      await addDoc(collection(db, "job_posts"), {
-        jobtitle: formValue.jobtitle,
-        qualification: formValue.qualification,
-        jobdescrp: formValue.jobdescrp,
-        skill: formValue.skill,
-        noticeperiod: formValue.noticeperiod,
+      await addDoc(
+        collection(db, "job_posts"),
+        {
+          jobtitle: formValue.jobtitle,
+          qualification: formValue.qualification,
+          jobdescrp: formValue.jobdescrp,
+          skill: formValue.skill,
+          noticeperiod: formValue.noticeperiod,
 
-        timestamp: Timestamp.now(),
-      });
-      setInfo("New Job has been posted successfully!");
-      setShow(true);
-      setInterval(() => setShow(false), 4000);
-      console.log("Clearing Form");
-      setFormValue({
-        jobtitle: "",
-        qualification: "",
-        jobdescrp: "",
-        skill: "",
-        noticeperiod: "",
-      });
+          timestamp: Timestamp.now(),
+        },
+        { signal: abortCont.signal }
+      );
     } catch (err) {
-      alert(err);
+      alert("sfsfsfsdsdfs", err.name);
     }
+    setInfo("New Job has been posted successfully!");
+    setShow(true);
+    setInterval(() => setShow(false), 4000);
+    console.log("Clearing Form");
+    setFormValue({
+      jobtitle: "",
+      qualification: "",
+      jobdescrp: "",
+      skill: "",
+      noticeperiod: "",
+    });
+    return () => abortCont.abort();
   };
   const [mydata, setMydata] = useState([]);
   const [loading, setLoading] = React.useState(false);
@@ -282,16 +286,32 @@ const PostJobs = (props) => {
   const [editData, setEditData] = useState([]);
 
   useEffect(() => {
-    console.log("Setting Data;;;;;", editData);
-    setEditFormData({
-      jobtitle: editData.jobtitle,
-      qualification: editData.qualification,
-      jobdescrp: editData.jobdescrp,
-      skill: editData.skill,
-      noticeperiod: editData.noticeperiod,
-    });
+    if (editData.length == 0) {
+      console.log("no data");
+    } else {
+      console.log("Setting Data;;;;;", editData);
+      setTimeout(() => {
+        setEditFormData({
+          jobtitle: editData.jobtitle,
+          qualification: editData.qualification,
+          jobdescrp: editData.jobdescrp,
+          skill: editData.skill,
+          noticeperiod: editData.noticeperiod,
+        });
+      }, 100);
+    }
   }, [editData]);
 
+  const initialState = {
+    jobtitle: "",
+    qualification: "",
+    jobdescrp: "",
+    skill: "",
+    noticeperiod: "",
+  };
+  const clearState = () => {
+    setEditFormData({ ...initialState });
+  };
   const editformRef = React.useRef();
 
   const [editFormData, setEditFormData] = useState({
@@ -303,41 +323,49 @@ const PostJobs = (props) => {
   });
 
   const handleUpdate = async () => {
+    const abortCont = new AbortController();
     try {
       var ref = doc(db, "job_posts", editData.id);
-      await updateDoc(ref, {
-        jobtitle: editFormData.jobtitle,
-        qualification: editFormData.qualification,
-        jobdescrp: editFormData.jobdescrp,
-        skill: editFormData.skill,
-        noticeperiod: editFormData.noticeperiod,
-        timestamp: Timestamp.now(),
-      })
+      await updateDoc(
+        ref,
+
+        {
+          jobtitle: editFormData.jobtitle,
+          qualification: editFormData.qualification,
+          jobdescrp: editFormData.jobdescrp,
+          skill: editFormData.skill,
+          noticeperiod: editFormData.noticeperiod,
+          timestamp: Timestamp.now(),
+        },
+        { signal: abortCont.signal }
+      )
         .then(() => {
-          setInfo("Selected Data has been updated successfully!");
-          setShow(true);
+          console.log("Dataa updated");
         })
         .catch((error) => {
           alert("Unsuccessfull, Error:" + error);
         });
-      setEditFormData({
-        jobtitle: "",
-        qualification: "",
-        jobdescrp: "",
-        skill: "",
-        noticeperiod: "",
-      });
     } catch (err) {
-      alert(err);
+      alert("errororororor", err);
     }
-    setInterval(() => setShow(false), 4000);
+
+    // setInfo("Selected Data has been updated successfully!");
+    // setShow(true);
+
+    // setInterval(() => setShow(false), 4000);
+    return () => abortCont.abort();
   };
   const handleRemove = async () => {
+    const abortCont = new AbortController();
     try {
       var ref = doc(db, "job_posts", editData.id);
-      await deleteDoc(ref)
+      await deleteDoc(ref, { signal: abortCont.signal })
         .then(() => {
           console.log("Data has been Deleted successfully!");
+          setInfo("Data has been Deleted successfully");
+          setTimeout(() => {
+            setShow(true);
+          }, 100);
         })
         .catch((error) => {
           alert("Unsuccessfull, Error:" + error);
@@ -346,6 +374,7 @@ const PostJobs = (props) => {
       alert(err);
     }
     setOpenWarningModal(false);
+    return () => abortCont.abort();
   };
 
   const [openWarningModal, setOpenWarningModal] = React.useState(false);
@@ -623,7 +652,12 @@ const PostJobs = (props) => {
                           />
                         </div>
                       </Panel>
-
+                      {show && (
+                        <Message
+                          type="info"
+                          style={{ width: "100%" }}
+                        ></Message>
+                      )}
                       <Modal
                         backdrop="static"
                         role="alertdialog"

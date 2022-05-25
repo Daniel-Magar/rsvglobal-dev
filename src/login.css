@@ -1,7 +1,28 @@
-.lform {
+/* .lform {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+*/
+.lgcontainer {
+  display: flex;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+.lgcontainer > div {
+  margin: 0 auto;
+  width: 500px;
+  margin: 10px;
+  text-align: center;
+}
+.surround {
+  border: 3px solid #030441;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #e5e5ea;
 }
 .logform {
   display: flex;
@@ -47,25 +68,7 @@
   font-weight: bold;
   cursor: pointer;
 }
-.flex-container {
-  display: flex;
-  align-items: center;
-  /* flex-wrap: wrap; */
-  justify-content: center;
-  flex-direction: column;
-  height: 100vh;
-}
-.flex-container > div {
-  width: 500px;
-  margin: 10px;
-  text-align: center;
-}
-.surround {
-  border: 3px solid #030441;
-  padding: 20px;
-  border-radius: 5px;
-  background-color: #e5e5ea;
-}
+
 button:hover {
   opacity: 0.8;
 }
@@ -75,21 +78,7 @@ button:hover {
   justify-content: center;
   align-items: center;
 }
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-table,
-td,
-th {
-  border: 1px solid #ddd;
-  text-align: left;
-}
 
-th,
-td {
-  padding: 15px;
-}
 .postForm {
   display: flex;
   flex-direction: column;
@@ -116,12 +105,7 @@ td {
   border: none;
   cursor: pointer;
 }
-.home {
-  padding: 10px;
-}
-tr:hover {
-  background-color: rgb(202, 199, 199);
-}
+
 .log-icon {
   font-size: 58px;
   /* font-weight: bold; */
