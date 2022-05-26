@@ -18,6 +18,7 @@ import {
 import { db } from "../firebase-config";
 import TopNav from "./TopNav";
 import Footer from "./Footer";
+
 const CareerPage = (props) => {
   const [imgUrl, setImgUrl] = useState(null);
   const [progresspercent, setProgresspercent] = useState(0);
