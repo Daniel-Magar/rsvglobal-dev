@@ -16,14 +16,14 @@ const TopNav = () => {
           <Link
             href="#home"
             to="/home"
-            style={{ textDecoration: "none!important" }}
+            style={{ textDecoration: "none!important", padding: "0 12px" }}
           >
             {/* <a href="#home"> */}
             <div className="flex-logo">
               <div>
                 <img src="./RSVglobal.png" alt="" style={{ width: "50px" }} />
               </div>
-              <div style={{ paddingTop: "25px" }}>
+              <div>
                 {" "}
                 <span style={{ color: "#F74749" }}>RSV</span> Global
               </div>

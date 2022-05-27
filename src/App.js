@@ -22,6 +22,7 @@ import Admin from "./Admin/Admin";
 import PostJobs from "./Admin/PostJobs";
 import Login from "./Login";
 import Career from "./components/Career";
+import ApplyJob from "./components/ApplyJob";
 function App() {
   const { currentUser } = useContext(AuthContext);
 
@@ -79,6 +80,7 @@ function App() {
           <Route exact path="/" element={<Body />} />
           <Route path="/home" element={<Body />} />
           <Route path="permanentstaffing" element={<Pstaffing />} />
+          <Route path="/applyjob" element={<ApplyJob />} />
           {/* <Route
             path="career"
             element={<CareerPage candidates={candidates} />}

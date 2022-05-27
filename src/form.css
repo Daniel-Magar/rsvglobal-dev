@@ -17,8 +17,15 @@ select {
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
+  border-radius: 4px;
 }
-
+select {
+  cursor: pointer;
+  background-color: none;
+}
+option {
+  cursor: pointer;
+}
 frm-btn {
   background-color: #04aa6d;
   color: white;

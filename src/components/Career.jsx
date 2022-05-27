@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import Modal from "react-modal";
 import "../modal.css";
+import "../career.css";
 import {
   collection,
   addDoc,
@@ -16,6 +17,7 @@ import { storage } from "../firebase-config";
 import ProgressBar from "./ProgressBar";
 import { db } from "../firebase-config";
 import { async } from "@firebase/util";
+import { Link, useNavigate } from "react-router-dom";
 import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
@@ -28,6 +30,8 @@ import {
   ThemeProvider,
   createMuiTheme,
 } from "@material-ui/core/styles";
+import { CheckPicker } from "rsuite";
+import ApplyJob from "./ApplyJob";
 const useStyles = makeStyles(() =>
   createStyles({
     componentStyle: {
@@ -217,15 +221,27 @@ const Career = (props) => {
   const [j_skill, setsJ_skill] = useState("");
   const [j_notice_period, setsJ_notice_period] = useState("");
 
-  const selectApply = async (selected_data) => {
-    setJobIsOpen(true);
-    setJobpostid(selected_data.id);
-    setJob_title(selected_data.jobtitle);
-    setC_qual(selected_data.qualification);
-    setsJ_descrp(selected_data.jobdescrp);
-    setsJ_skill(selected_data.skill);
-    setsJ_notice_period(selected_data.noticeperiod);
+  const [reqdData, setReqdData] = useState("");
+  const navigate = useNavigate();
+
+  const selectApply = (selected_data) => {
+    setReqdData(selected_data);
+
+    // setJobpostid(selected_data.id);
+    // setJob_title(selected_data.jobtitle);
+    // setC_qual(selected_data.qualification);
+    // setsJ_descrp(selected_data.jobdescrp);
+    // setsJ_skill(selected_data.skill);
+    // setsJ_notice_period(selected_data.noticeperiod);
   };
+  useEffect(() => {
+    setReqdData((state) => {
+      console.log("callling state", state); // "React is awesome!"
+
+      return state;
+    });
+  }, [reqdData]);
+
   const applyJon = async () => {
     try {
       await addDoc(collection(db, "job_posts"), {
@@ -448,7 +464,7 @@ const Career = (props) => {
               <div className="incontainer">
                 {props.jobposts.map((data, idx) => (
                   <div className="card" key={idx}>
-                    <div className="container">
+                    <div className="car-container">
                       <div className="cargrid">
                         <div className="cargrid-item-left">
                           <h6>Role: </h6>
@@ -495,16 +511,21 @@ const Career = (props) => {
                       </div>
                     </div>
                     <div className="btngrid">
-                      <div className="btn-item-left ">
-                        <button className="btn">Apply</button>
-                      </div>
+                      <div className="btn-item-left "></div>
                       <div className="btn-item-right ">
-                        <button
-                          className="btn"
-                          onClick={() => selectApply(data)}
+                        <Link
+                          to={{
+                            pathname: "/applyjob",
+                          }}
+                          state={{ data }} // <-- from the array being mapped
                         >
-                          Apply
-                        </button>
+                          <button
+                            className="btn"
+                            onClick={() => selectApply(data)}
+                          >
+                            Apply
+                          </button>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -512,226 +533,6 @@ const Career = (props) => {
               </div>
             </div>
           </div>
-          <Modal
-            isOpen={jobmodalIsOpen}
-            onRequestClose={() => setJobIsOpen(false)}
-            overlayClassName={{
-              base: "overlay-base",
-              afterOpen: "overlay-after",
-              beforeClose: "overlay-before",
-            }}
-            className={{
-              base: "content-base",
-              afterOpen: "content-after",
-              beforeClose: "content-before",
-            }}
-            closeTimeoutMS={500}
-          >
-            <div>
-              <div className=" cls-flex">
-                <div className="cls div1">
-                  <button onClick={closebtn} className="cls-btn">
-                    <i class="bx bx-x"></i>
-                  </button>
-                </div>
-
-                <div className="div2">
-                  <h4>Enter Your Details (Job Posts)</h4>
-                </div>
-              </div>
-
-              <div className="modal-body" style={{ border: "1px solid blue" }}>
-                <form className="upl-form" style={{ width: "70%" }}>
-                  <div>
-                    <b>Role:</b> <span>{job_title}</span>
-                  </div>
-                  <div>{showMsg ? <Message msg={msg} /> : null}</div>
-                  <div className="form-body">
-                    <div class="apply-flex">
-                      <div class="apply-flex-item">
-                        <label for="fullname">First Name</label>
-                        <input
-                          type="text"
-                          id="fullname"
-                          name="fullname"
-                          placeholder="Your Full name.."
-                          onChange={(e) => setFirstname(e.target.value)}
-                          required
-                        />
-                      </div>
-                      <div className="apply-flex-item">
-                        <label for="gender">Gender</label>
-                        <div className="cus_radio">
-                          <label className="cust_label">
-                            <input
-                              className="cust_inp"
-                              type="radio"
-                              name="radio"
-                            />
-                            <span>Male</span>
-                          </label>
-                          <label className="cust_label">
-                            <input
-                              className="cust_inp"
-                              type="radio"
-                              name="radio"
-                            />
-                            <span>Female</span>
-                          </label>
-                          <label className="cust_label">
-                            <input
-                              className="cust_inp"
-                              type="radio"
-                              name="radio"
-                            />
-                            <span>Prefer not to say</span>
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="apply-flex">
-                      <div class="apply-flex-item">
-                        <label for="gender">Date of Birth</label>
-                        <ThemeProvider theme={theme}>
-                          <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                            <div
-                              style={{
-                                display: "inline-flex",
-                                flexDirection: "column",
-                                gap: 10,
-                                width: "100%",
-                              }}
-                            >
-                              <KeyboardDatePicker
-                                value={selectedDate}
-                                inputVariant="outlined"
-                                onChange={handleDateChange}
-                                className={`muiinp ${classes.componentStyle}`}
-                              />
-                            </div>
-                          </MuiPickersUtilsProvider>
-                        </ThemeProvider>
-                      </div>
-                      <div className="apply-flex-item">
-                        <label for="fullname">Phone Number</label>
-                        <input
-                          type="text"
-                          id="phno"
-                          name="phno"
-                          placeholder="Phone Number.."
-                          onChange={(e) => setFirstname(e.target.value)}
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div class="apply-flex">
-                      <div class="apply-flex-item">
-                        <label for="fullname">Alternate Phone Number</label>
-                        <input
-                          type="text"
-                          id="fullname"
-                          name="fullname"
-                          placeholder="Alternate Phone Number.."
-                          onChange={(e) => setFirstname(e.target.value)}
-                          required
-                        />
-                      </div>
-                      <div className="apply-flex-item">
-                        <label for="gender">Email Address</label>
-                        <input
-                          type="text"
-                          id="email"
-                          name="email"
-                          placeholder="Email Address.."
-                          onChange={(e) => setFirstname(e.target.value)}
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div class="apply-flex">
-                      <div class="apply-flex-item">
-                        <label for="clocation">Current Location</label>
-                        <input
-                          type="text"
-                          id="clocation"
-                          name="clocation"
-                          placeholder="Current Location.."
-                          onChange={(e) => setFirstname(e.target.value)}
-                          required
-                        />
-                      </div>
-                      <div className="apply-flex-item">
-                        <label for="prelocation">Preferred Location</label>
-                        <input
-                          type="text"
-                          id="prelocation"
-                          name="prelocation"
-                          placeholder="Preferred Location.."
-                          onChange={(e) => setFirstname(e.target.value)}
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div class="apply-flex">
-                      <div class="apply-flex-item">
-                        <label for="prelocation">
-                          Highest Education Qualification
-                        </label>
-                        <select
-                          id="qualification"
-                          name="qualification"
-                          onChange={(e) => setQualification(e.target.value)}
-                          required
-                        >
-                          <option>Select Qualification</option>
-                          <option value="Post-Graduate">Post Graudate</option>
-                          <option value="Graduate">Graduate</option>
-                          <option value="12th Pass">12th Pass</option>
-                          <option value="10th Pass">10th Pass</option>
-                          <option value="8th Pass">8th Pass</option>
-                        </select>
-                      </div>
-                      <div className="apply-flex-item">
-                        <label for="clocation">Total Experience</label>
-                        <input
-                          type="text"
-                          id="experience"
-                          name="experience"
-                          placeholder="Experience.."
-                          onChange={(e) => setFirstname(e.target.value)}
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div class="apply-flex">
-                      <div class="apply-flex-item">
-                        <label for="clocation">Relevant Experience</label>
-                        <input
-                          type="text"
-                          id="rexperience"
-                          name="rexperience"
-                          placeholder="Relevant Experience.."
-                          onChange={(e) => setFirstname(e.target.value)}
-                          required
-                        />
-                      </div>
-                      <div className="apply-flex-item">
-                        <label for="clocation">Total Experience</label>
-                        <input
-                          type="text"
-                          id="experience"
-                          name="experience"
-                          placeholder="Experience.."
-                          onChange={(e) => setFirstname(e.target.value)}
-                          required
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </Modal>
         </section>
         <Footer />
       </div>
