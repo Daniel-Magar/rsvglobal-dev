@@ -122,7 +122,50 @@ const ApplyJob = () => {
       <div>
         <TopNav />
         <section id="applyjob" className="career">
-          <div>{selectedData.data.jobtitle}</div>
+          <div className="career-flex-container">
+            <div className="flex-item">
+              <div className="card upldcard" style={{ height: "auto" }}>
+                <div className="jobsinfo">
+                  <div className="jobinfo-head">
+                    <i className="bx bxs-info-square icn"></i>
+                  </div>
+                  <div style={{ width: "100%" }}>
+                    <h5>Job Details</h5>
+                  </div>
+                </div>
+                <div>
+                  <div class="info-grid-container">
+                    <div class="info-grid-item">
+                      <b>Role: </b>
+
+                      <span>{selectedData.data.jobtitle}</span>
+                    </div>
+                    <div class="info-grid-item">
+                      <b>Skill Required: </b>
+                      <span>{selectedData.data.skill}</span>
+                    </div>
+                    <div class="info-grid-item">
+                      <b>Job Description: </b>
+                      <span>{selectedData.data.jobdescrp}</span>
+                    </div>
+                    <div class="info-grid-item">
+                      <b>Qualification: </b>
+                      <span>{selectedData.data.qualification}</span>
+                    </div>
+                    <div class="info-grid-item">
+                      <b>Notice Period: </b>
+                      <span>{selectedData.data.noticeperiod}</span>
+                    </div>
+                    <div class="info-grid-item">
+                      <b>Job Posted On: </b>
+                      <span>{selectedData.data.noticeperiod}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="career-flex-container">
             <div className="career-flex-item-left">
               <div className="card upldcard" style={{ height: "auto" }}>

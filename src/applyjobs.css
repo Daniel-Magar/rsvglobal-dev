@@ -49,7 +49,42 @@
   padding: 13px;
   border: 1px solid #ccc;
 }
+.jobsinfo {
+  background-color: #f1f1f1;
+  padding: 2px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
 
+  /* justify-content: center; */
+}
+.jobinfo-head {
+  font-size: 22px;
+  width: 42px !important;
+}
+.icn {
+  font-size: 42px;
+  color: #1675e0;
+}
+.jobsinfo > div {
+  background-color: #f1f1f1;
+  width: 100px;
+  margin: 5px;
+  text-align: left;
+}
+.info-grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  /* background-color: #2196f3; */
+  padding: 10px;
+}
+.info-grid-item {
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  /* border: 1px solid rgba(0, 0, 0, 0.8); */
+  padding: 8px;
+  font-size: 14px;
+  text-align: left;
+}
 /* Responsive layout - makes a one column-layout instead of two-column layout */
 @media (max-width: 800px) {
   .career-flex-container {
