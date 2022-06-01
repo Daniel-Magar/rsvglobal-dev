@@ -100,9 +100,7 @@ const vaccinated = [
 ];
 const allValue = data.map((item) => item.value);
 
-const { StringType, NumberType } = Schema.Types;
-
-const ApplyJob = () => {
+const CareerCVupload = () => {
   //   console.log("Geting data on button click:", props.selected_data);
 
   const picker = React.useRef();
@@ -120,9 +118,6 @@ const ApplyJob = () => {
   const [eduvalue, setEduvalue] = React.useState(null);
   const [vaccine, setVaccine] = React.useState(null);
   const reference = useRef(null);
-
-  const location = useLocation();
-  const selectedData = location.state;
 
   const [selectedDate, setSelectedDate] = useState(new Date());
 
@@ -336,13 +331,7 @@ const ApplyJob = () => {
             console.log("url --------------", downloadURL);
 
             addDoc(collection(db, "candidates"), {
-              job_post_id: selectedData.data.id,
-              jobtitle: selectedData.data.jobtitle,
-              qualification_reqd: selectedData.data.qualification,
-              jobdescrp: selectedData.data.jobdescrp,
-              skill: selectedData.data.skill,
-              noticeperiod: selectedData.data.noticeperiod,
-              applied_type: "Job Post",
+              applied_type: "Random CV upload",
               first_name: fullname,
               gender: gender,
               emial_id: email,
@@ -361,7 +350,7 @@ const ApplyJob = () => {
               current_ctc: currentCTC,
               expected_ctc: expectedCTC,
               vaccinated: vaccine,
-              applied_date: selectedDate,
+
               fileURL: downloadURL,
               timestamp: Timestamp.now(),
             });
@@ -394,18 +383,6 @@ const ApplyJob = () => {
     setSelectedDate(date);
   };
 
-  const [mycustDate, setMycustDate] = useState();
-  const [mydate, setMydate] = useState(selectedData.data);
-  const [finalDate, setFinalDate] = useState();
-
-  useEffect(() => {
-    console.log("==========================", mydate?.timestamp);
-    var d = new Date(mydate?.timestamp?.seconds * 1000);
-    console.log("uuuuuuuuuuuuuuuuuuuuu", d);
-    var cdte = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
-    console.log(cdte);
-    setFinalDate(cdte);
-  }, [mydate]);
   return (
     <>
       <div>
@@ -415,41 +392,8 @@ const ApplyJob = () => {
             <div className="flex-item">
               <div className="card upldcard" style={{ height: "auto" }}>
                 <div className="jobsinfo">
-                  <div className="jobinfo-head">
-                    <i className="bx bxs-info-square icn-apply"></i>
-                  </div>
                   <div style={{ width: "100%" }}>
-                    <h5>Job Details</h5>
-                  </div>
-                </div>
-                <div>
-                  <div class="info-grid-container">
-                    <div class="info-grid-item">
-                      <b>Role: </b>
-
-                      <span>{selectedData.data.jobtitle}</span>
-                    </div>
-                    <div class="info-grid-item">
-                      <b>Skill Required: </b>
-                      <span>{selectedData.data.skill}</span>
-                    </div>
-                    <div class="info-grid-item">
-                      <b>Job Description: </b>
-                      <span>{selectedData.data.jobdescrp}</span>
-                    </div>
-                    <div class="info-grid-item">
-                      <b>Qualification: </b>
-                      <span>{selectedData.data.qualification}</span>
-                    </div>
-                    <div class="info-grid-item">
-                      <b>Notice Period: </b>
-                      <span>{selectedData.data.noticeperiod}</span>
-                    </div>
-                    <div class="info-grid-item">
-                      <b>Job Posted On: </b>
-
-                      <span>{finalDate}</span>
-                    </div>
+                    <h5>Upload Resume/CV to get Perfect Job</h5>
                   </div>
                 </div>
               </div>
@@ -929,4 +873,4 @@ const Results = (props) => (
     </div>
   </div>
 );
-export default ApplyJob;
+export default CareerCVupload;

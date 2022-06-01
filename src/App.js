@@ -23,6 +23,7 @@ import PostJobs from "./Admin/PostJobs";
 import Login from "./Login";
 import Career from "./components/Career";
 import ApplyJob from "./components/ApplyJob";
+import CareerCVupload from "./components/CareerCVupload";
 function App() {
   const { currentUser } = useContext(AuthContext);
 
@@ -104,6 +105,8 @@ function App() {
           <Route path="/home" element={<Body />} />
           <Route path="permanentstaffing" element={<Pstaffing />} />
           <Route path="/applyjob" element={<ApplyJob />} />
+          <Route path="/cvupload" element={<CareerCVupload />} />
+
           {/* <Route
             path="career"
             element={<CareerPage candidates={candidates} />}

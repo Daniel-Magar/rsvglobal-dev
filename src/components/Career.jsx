@@ -266,12 +266,17 @@ const Career = (props) => {
                   <div className="upld">
                     <h3>Upload your CV</h3>
                     <h3>to get your Dream Job</h3>
-                    <button
+                    {/* <button
                       className="btn-upload"
                       onClick={() => setIsOpen(true)}
                     >
                       Upload CV
-                    </button>
+                    </button> */}
+
+                    <Link className="btn" to="/cvupload">
+                      Upload CV
+                    </Link>
+
                     <Modal
                       isOpen={modalIsOpen}
                       onRequestClose={() => setIsOpen(false)}

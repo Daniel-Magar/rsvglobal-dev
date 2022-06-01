@@ -67,7 +67,6 @@ const TopNav = () => {
               </li>
               <li>
                 <a href="#" id="subnav">
-                  {" "}
                   Payroll
                 </a>
               </li>
