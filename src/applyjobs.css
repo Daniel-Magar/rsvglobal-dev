@@ -62,7 +62,7 @@
   font-size: 22px;
   width: 42px !important;
 }
-.icn {
+.icn-apply {
   font-size: 42px;
   color: #1675e0;
 }
@@ -85,6 +85,53 @@
   font-size: 14px;
   text-align: left;
 }
+
+.toolbody {
+  display: flex;
+  text-align: left;
+  /* justify-content: center; */
+  align-items: center;
+}
+.tooltip {
+  position: relative;
+  /* display: inline-block; */
+  /* border-bottom: 1px dotted black; */
+}
+
+.tooltip .tooltiptext {
+  visibility: visible;
+  width: 220px;
+  border: 1px solid black;
+  background-color: rgb(255 255 255);
+  color: rgb(10, 10, 10);
+  text-align: center;
+  border-radius: 6px;
+  padding: 6px 0;
+  position: absolute;
+  z-index: 1;
+  top: 150%;
+  left: 50%;
+  /* margin-left: -60px; */
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 10%;
+  margin-left: -5px;
+  border-width: 10px;
+  border-style: dashed;
+
+  border-color: transparent transparent black transparent;
+}
+.reqrd {
+  color: orange;
+  font-size: 30px;
+}
+/* .tooltip:hover .tooltiptext {
+  visibility: visible;
+} */
 /* Responsive layout - makes a one column-layout instead of two-column layout */
 @media (max-width: 800px) {
   .career-flex-container {

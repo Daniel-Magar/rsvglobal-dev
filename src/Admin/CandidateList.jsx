@@ -20,6 +20,10 @@ const CandidateList = (props) => {
   useEffect(() => {
     setMydata(props.candidates);
   }, []);
+  useEffect(() => {
+    console.log("HEHEHEHEH");
+    console.log(mydata);
+  }, [mydata]);
   const data = props.candidates.filter((v, i) => {
     const start = limit * (page - 1);
     const end = start + limit;
@@ -116,6 +120,10 @@ const CandidateList = (props) => {
                     <Column width={200} resizable>
                       <HeaderCell>Applied For</HeaderCell>
                       <Cell dataKey="appliedfor" />
+                    </Column>
+                    <Column width={200} resizable>
+                      <HeaderCell>Applied Type</HeaderCell>
+                      <Cell dataKey="applied_type" />
                     </Column>
                     <Column width={200} resizable>
                       <HeaderCell>Applied Date</HeaderCell>

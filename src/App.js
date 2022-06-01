@@ -32,11 +32,30 @@ function App() {
 
   const [candidates, setCandidates] = useState([]);
 
+  // useEffect(() => {
+  //   console.log("----------------------");
+  //   const colRef = collection(db, "candidates");
+  //   getDocs(colRef, orderBy("timestamp", "desc"))
+  //     .then((snapshot) => {
+  //       let productdb = [];
+  //       snapshot.docs.forEach((doc) => {
+  //         productdb.push({ ...doc.data(), id: doc.id });
+  //       });
+  //       let temp = [];
+  //       temp.push(productdb);
+  //       setCandidates(productdb);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err.message);
+  //     });
+  // }, []);
+  /* FECTHING ALL CANDIDATES () */
   useEffect(() => {
-    console.log("----------------------");
-    const colRef = collection(db, "candidates");
-    getDocs(colRef)
-      .then((snapshot) => {
+    const abortCont = new AbortController();
+    try {
+      const colRef = collection(db, "candidates");
+      const q = query(colRef, orderBy("timestamp", "desc"));
+      onSnapshot(q, (snapshot) => {
         let productdb = [];
         snapshot.docs.forEach((doc) => {
           productdb.push({ ...doc.data(), id: doc.id });
@@ -44,11 +63,15 @@ function App() {
         let temp = [];
         temp.push(productdb);
         setCandidates(productdb);
-      })
-      .catch((err) => {
-        console.log(err.message);
       });
+    } catch (error) {
+      if (error.name === "AbortError") {
+        console.log("fetch aborted!"); // catching error in updating component
+      }
+    }
+    return () => abortCont.abort();
   }, []);
+
   const [jobposts, setJobposts] = useState([]);
 
   useEffect(() => {
@@ -56,7 +79,7 @@ function App() {
     try {
       const colRef = collection(db, "job_posts");
       const q = query(colRef, orderBy("timestamp", "desc"));
-      onSnapshot(q, { signal: abortCont.signal }, (snapshot) => {
+      onSnapshot(q, (snapshot) => {
         let asperquery = [];
         snapshot.docs.forEach((doc) => {
           asperquery.push({ ...doc.data(), id: doc.id });

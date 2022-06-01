@@ -169,14 +169,15 @@ const Career = (props) => {
           });
         }
       );
+      setInterval(() => setShowResults(false), 5000);
+      setStatus("Completed!");
     } catch (error) {
       setMsg("Oops! Please try again.");
       setShowMsg(true);
       e.target.reset();
       // setInterval(() => setShowMsg(false), 4000);
     }
-    setInterval(() => setShowResults(false), 5000);
-    setStatus("Completed!");
+
     e.target.reset();
   };
 
@@ -214,13 +215,6 @@ const Career = (props) => {
     } catch (error) {}
   }, [email]);
 
-  const [jobpostid, setJobpostid] = useState("");
-  const [job_title, setJob_title] = useState("");
-  const [c_qual, setC_qual] = useState("");
-  const [j_descrp, setsJ_descrp] = useState("");
-  const [j_skill, setsJ_skill] = useState("");
-  const [j_notice_period, setsJ_notice_period] = useState("");
-
   const [reqdData, setReqdData] = useState("");
   const navigate = useNavigate();
 
@@ -242,22 +236,6 @@ const Career = (props) => {
     });
   }, [reqdData]);
 
-  const applyJon = async () => {
-    try {
-      await addDoc(collection(db, "job_posts"), {
-        job_post_id: jobpostid,
-        jobtitle: job_title,
-        qualification: c_qual,
-        jobdescrp: j_descrp,
-        skill: j_skill,
-        noticeperiod: j_notice_period,
-        applied_type: "Job Post",
-        timestamp: Timestamp.now(),
-      });
-    } catch (err) {
-      alert("sfsfsfsdsdfs", err.name);
-    }
-  };
   const handleDateChange = (date) => {
     console.log(date);
     setSelectedDate(date);
