@@ -4,10 +4,10 @@ import "./carousel.css";
 import Body from "./components/Body";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Pstaffing from "./components/Pstaffing";
-import Aboutus from "./components/Aboutus";
+
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
-import CareerPage from "./components/CareerPage";
+
 import React, { useState, useEffect } from "react";
 import CandidateList from "./Admin/CandidateList";
 import {
@@ -24,6 +24,7 @@ import Login from "./Login";
 import Career from "./components/Career";
 import ApplyJob from "./components/ApplyJob";
 import CareerCVupload from "./components/CareerCVupload";
+import WhyRsv from "./components/WhyRsv";
 function App() {
   const { currentUser } = useContext(AuthContext);
 
@@ -106,6 +107,7 @@ function App() {
           <Route path="permanentstaffing" element={<Pstaffing />} />
           <Route path="/applyjob" element={<ApplyJob />} />
           <Route path="/cvupload" element={<CareerCVupload />} />
+          <Route path="/whyrsv" element={<WhyRsv />} />
 
           {/* <Route
             path="career"

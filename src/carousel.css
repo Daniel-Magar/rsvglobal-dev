@@ -3,11 +3,13 @@
   overflow: hidden;
   width: auto;
   /* border: 5px solid dodgerblue; */
+  background-color: #ccced1;
+  height: 900px;
 }
 .inner {
   white-space: nowrap;
   transition: transform 0.3s;
-  background-color: black;
+  /* background-color: black; */
   position: relative;
 }
 .carousel-item {
@@ -16,9 +18,10 @@
   justify-content: center;
   /* border: 1px solid yellow; */
   width: 100%;
-  height: auto;
-  background-color: green;
+  /* height: 650px; */
+  /* background-color: green; */
   color: #fff;
+  margin-top: 10px;
   transition: all 0.6s ease-in;
 }
 /* Indicators Next -- previous buttons */
@@ -26,7 +29,7 @@
   display: flex;
   justify-content: center;
   position: absolute;
-  top: 80%;
+  top: 96%;
   right: 45%;
   left: 45%;
 }
@@ -56,15 +59,113 @@
   /* max-width: 400px; */
 
   height: 700px;
-  object-fit: cover;
+  /* object-fit: cover; */
 }
 @media (max-width: 768px) {
   .indicators {
     display: flex;
     justify-content: center;
     position: absolute;
-    top: 76%;
-    right: 38%;
-    left: 38%;
+    top: 94%;
+    right: 20%;
+    left: 20%;
+  }
+  .indicators button {
+    height: 20px;
+    width: 20px;
+    border: 1px solid pink;
+    /* border-radius: 100px; */
+    cursor: pointer;
+    border-style: none;
+    background-color: #99f;
+    margin: 2px;
+  }
+  .carousel {
+    overflow: hidden;
+    width: auto;
+    /* border: 5px solid dodgerblue; */
+    background-color: #ccced1;
+    height: 700px;
+  }
+}
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
+  .indicators {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 94%;
+    right: 20%;
+    left: 20%;
+  }
+  .indicators button {
+    height: 20px;
+    width: 20px;
+    border: 1px solid pink;
+    /* border-radius: 100px; */
+    cursor: pointer;
+    border-style: none;
+    background-color: #99f;
+    margin: 2px;
+  }
+  .carousel {
+    overflow: hidden;
+    width: auto;
+    /* border: 5px solid dodgerblue; */
+    background-color: #ccced1;
+    height: 700px;
+  }
+}
+@media (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
+  .indicators {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 94%;
+    right: 20%;
+    left: 20%;
+  }
+  .indicators button {
+    height: 20px;
+    width: 20px;
+    border: 1px solid pink;
+    /* border-radius: 100px; */
+    cursor: pointer;
+    border-style: none;
+    background-color: #99f;
+    margin: 2px;
+  }
+  .carousel {
+    overflow: hidden;
+    width: auto;
+    /* border: 5px solid dodgerblue; */
+    background-color: #ccced1;
+    height: 700px;
+  }
+}
+@media (max-device-width: 800px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+  .indicators {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 94%;
+    right: 20%;
+    left: 20%;
+  }
+  .indicators button {
+    height: 20px;
+    width: 20px;
+    border: 1px solid pink;
+    /* border-radius: 100px; */
+    cursor: pointer;
+    border-style: none;
+    background-color: #99f;
+    margin: 2px;
+  }
+  .carousel {
+    overflow: hidden;
+    width: auto;
+    /* border: 5px solid dodgerblue; */
+    background-color: #ccced1;
+    height: 700px;
   }
 }

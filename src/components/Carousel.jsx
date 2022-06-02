@@ -29,7 +29,7 @@ const Carousel = ({ children }) => {
       if (!paused) {
         updateIndex(activeIndex + 1);
       }
-    }, 2000);
+    }, 4000);
     return () => {
       if (interval) {
         clearInterval(interval);

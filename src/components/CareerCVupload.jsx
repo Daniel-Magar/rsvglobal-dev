@@ -390,10 +390,13 @@ const CareerCVupload = () => {
         <section id="applyjob" className="career">
           <div className="career-flex-container">
             <div className="flex-item">
-              <div className="card upldcard" style={{ height: "auto" }}>
-                <div className="jobsinfo">
-                  <div style={{ width: "100%" }}>
-                    <h5>Upload Resume/CV to get Perfect Job</h5>
+              <div className="jobsinfo">
+                <div className="career-head">
+                  <div className="career-head-item">
+                    <img src="./resume.svg" alt="My Happy SVG" width="100" />
+                  </div>
+                  <div className="career-head-item">
+                    <h4>Upload Resume/CV to get Perfect Job</h4>
                   </div>
                 </div>
               </div>
@@ -769,7 +772,7 @@ const CareerCVupload = () => {
                               <input
                                 type="file"
                                 hidden=""
-                                accept={".pdf"}
+                                accept={(".pdf", ".docx")}
                                 onChange={changeHandler}
                                 ref={reference}
                               />

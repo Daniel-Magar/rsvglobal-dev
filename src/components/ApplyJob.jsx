@@ -122,7 +122,9 @@ const ApplyJob = () => {
   const reference = useRef(null);
 
   const location = useLocation();
-  const selectedData = location.state;
+  const selectedItem = location.state;
+
+  const [selectedData, setSelectedData] = useState(selectedItem);
 
   const [selectedDate, setSelectedDate] = useState(new Date());
 
@@ -395,10 +397,11 @@ const ApplyJob = () => {
   };
 
   const [mycustDate, setMycustDate] = useState();
-  const [mydate, setMydate] = useState(selectedData.data);
+  const [mydate, setMydate] = useState();
   const [finalDate, setFinalDate] = useState();
 
   useEffect(() => {
+    setMydate(selectedData.data);
     console.log("==========================", mydate?.timestamp);
     var d = new Date(mydate?.timestamp?.seconds * 1000);
     console.log("uuuuuuuuuuuuuuuuuuuuu", d);

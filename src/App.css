@@ -14,6 +14,7 @@ body {
   /* 
   font-family: 'Quicksand', sans-serif; */
   line-height: 1.6;
+
   margin: 0;
   /* min-height: 100vh; */
   background-color: #e5e5e5;
@@ -90,9 +91,9 @@ a {
   display: none;
 }
 
-.footer {
+.rsv-footer {
   height: 300px;
-
+  border-radius: 1px solid purple;
   left: 0px;
   background: #030441;
 }
@@ -149,9 +150,7 @@ a {
   background: #e5e5e5;
   padding: 0 10px;
 }
-#about {
-  padding: 2% 0 0 0;
-}
+
 /* ================================= 
   Nav Sub menu
 ====================-item================ */
@@ -208,6 +207,9 @@ ul li ul li {
   text-align: center;
   padding: 10px 128px;
   width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 .flex-container .flex-item {
   color: #030441;
@@ -221,9 +223,6 @@ ul li ul li {
 }
 .flex-item-left {
   padding: 10px;
-  /* flex: 50%;
-  width: 50%; */
-  /* border: 1px solid blue; */
 }
 
 .flex-item-right {
@@ -302,6 +301,7 @@ ul li ul li {
   width: 80%;
   /* border: 1px solid blue; */
   margin: 0 auto;
+  font-size: 20px;
 }
 .about-section {
   display: flex;
@@ -315,7 +315,7 @@ ul li ul li {
   margin: 10px;
 
   padding: 20px 110px 32px 0;
-  font-size: 16px;
+  font-size: 20px;
 }
 .abt-text {
   font-size: 2rem;
@@ -383,6 +383,47 @@ ul li ul li {
   object-fit: contain;
   object-position: bottom;
 }
+.abt-grid {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 35px;
+
+  padding: 10px;
+}
+
+.abt-grid > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgb(230, 228, 228);
+  text-align: center;
+  font-size: 30px;
+}
+.card-abt {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  height: 300px;
+  width: 100%;
+}
+
+.card-abt:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.abt-card-container {
+  display: flex;
+  padding: 2px 16px;
+  text-align: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.card-top {
+  padding: 20px;
+}
+.myh5 {
+  padding: 20px 0 0 0;
+}
+.myh5 > b {
+  text-align: center;
+}
 /* ================================= 
   Media Queries
 ==================================== */
@@ -415,15 +456,19 @@ ul li ul li {
     justify-content: start;
     align-items: center;
   }
+  /* border: 1px solid red; */
+
   .about-section .about-abt {
     width: 100% !important;
     margin: 0 auto;
-    /* border: 1px solid red; */
+
+    padding: 0px 0px 0px 0;
+    font-size: 20px;
   }
   .text {
     align-items: center;
     text-align: justify;
-    border: 1px solid green;
+    /* border: 1px solid green; */
     width: 100% !important;
   }
 
@@ -490,6 +535,16 @@ ul li ul li {
     flex-direction: column;
     justify-content: space-between;
   }
+  .flex-item-left {
+    padding: 10px;
+    width: 400px;
+  }
+  .responsiveimg {
+    /* width: 100%; */
+    /* border: 1px solid red; */
+    object-fit: contain;
+    object-position: bottom;
+  }
 
   .navbar .hamburger-lines .line {
     display: block;
@@ -511,6 +566,26 @@ ul li ul li {
   .navbar .hamburger-lines .line3 {
     transform-origin: 0% 100%;
     transition: transform 0.3s ease-in-out;
+  }
+  .abt-grid {
+    display: grid;
+
+    grid-template-columns: auto;
+    gap: 10px;
+    /* background-color: #2196f3; */
+    padding: 10px;
+  }
+  .abt-img {
+    width: 100%;
+    height: 200px;
+  }
+
+  .abt-grid > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgb(230, 228, 228);
+
+    text-align: center;
+    font-size: 30px;
   }
 
   .navbar .main-nav {
@@ -602,6 +677,10 @@ ul li ul li {
 
     padding: 44px 0 44px 10px;
   }
+  .flex-item-left {
+    padding: 10px;
+    width: 400px;
+  }
 }
 @media screen and (max-width: 936px) {
   .abt-subcontent-content {
@@ -625,6 +704,21 @@ ul li ul li {
   #about {
     padding: 7% 0 0 0;
   }
+  .about-section .about-abt {
+    width: 100% !important;
+    margin: 0 auto;
+
+    padding: 0px 0px 0px 0;
+    font-size: 20px;
+  }
+
+  .about-section .about-abt {
+    width: 100% !important;
+    margin: 0 auto;
+
+    padding: 0px 0px 0px 0;
+    font-size: 20px;
+  }
   .logo-text {
     padding-top: 0 !important;
   }
@@ -634,6 +728,10 @@ ul li ul li {
   .navbar input[type="checkbox"],
   .navbar .hamburger-lines {
     display: block;
+  }
+  .flex-item-left {
+    padding: 10px;
+    width: 400px;
   }
 
   .navbar {
@@ -842,6 +940,10 @@ ul li ul li {
     gap: 10px;
 
     padding: 44px 0 44px 10px;
+  }
+  .card-top > img {
+    width: 100%;
+    height: 200px;
   }
   #about {
     padding: 7% 0 0 0;

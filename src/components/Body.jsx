@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Footer } from "rsuite";
+
+import Footer from "./Footer";
 import Aboutus from "./Aboutus";
 import Container from "./Container";
 import TopNav from "./TopNav";
+import WhyRsv from "./WhyRsv";
 
 const Body = () => {
   useEffect(() => {
@@ -13,17 +15,22 @@ const Body = () => {
     // Product List Data
 
     <>
-      <TopNav />
-      <main>
-        <section id="home">
-          <Container />
-        </section>
+      <div>
+        <TopNav />
+        <main>
+          <section id="home">
+            <Container />
+          </section>
 
-        <section id="about">
-          <Aboutus />
-        </section>
-      </main>
-      <Footer />
+          <section id="about">
+            <Aboutus />
+          </section>
+          <section id="whyrsv">
+            <WhyRsv />
+          </section>
+        </main>
+        <Footer />
+      </div>
     </>
   );
 };

@@ -45,7 +45,7 @@ const TopNav = () => {
             <NavHashLink to="/#about">About</NavHashLink>
           </li>
           <li>
-            <NavHashLink to="/#why">Why RSV</NavHashLink>
+            <NavHashLink to="/#whyrsv">Why RSV</NavHashLink>
           </li>
           <li className="submenu">
             <a href="#services">

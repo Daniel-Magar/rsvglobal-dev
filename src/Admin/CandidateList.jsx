@@ -119,7 +119,7 @@ const CandidateList = (props) => {
                     </Column>
                     <Column width={200} resizable>
                       <HeaderCell>Applied For</HeaderCell>
-                      <Cell dataKey="appliedfor" />
+                      <Cell dataKey="job_preference" />
                     </Column>
                     <Column width={200} resizable>
                       <HeaderCell>Applied Type</HeaderCell>
