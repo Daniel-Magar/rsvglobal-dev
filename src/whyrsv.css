@@ -1,0 +1,56 @@
+.bullet {
+  font-size: 38px;
+  color: #030441;
+}
+
+.why-flex {
+  display: flex;
+  flex-direction: row;
+  font-size: 18px;
+  text-align: center;
+  width: 100%;
+  /* border: 1px solid rgb(19, 18, 19); */
+}
+
+.why-flex-left {
+  /* border: 1px solid purple; */
+  display: flex;
+  padding: 10px;
+  /* flex: 10%; */
+  text-align: left;
+  justify-content: center;
+  align-items: center;
+}
+
+.why-flex-right {
+  /* border: 1px solid rgb(19, 18, 19); */
+  display: flex;
+  padding: 10px;
+  /* flex: 80%; */
+  align-items: center;
+  text-align: left;
+  justify-content: center;
+}
+.why-content {
+  padding: 10px 20px;
+}
+.why-content-parent {
+  display: flex;
+  /* border: 1px solid purple; */
+}
+@media (max-width: 800px) {
+  .why-content-parent {
+    display: inline;
+    /* border: 1px solid purple; */
+  }
+}
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+}
+
+/* ----------- Retina Screens ----------- */
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
+}
+@media (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
+}
+@media (max-device-width: 800px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+}

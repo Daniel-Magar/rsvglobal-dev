@@ -150,7 +150,12 @@ a {
   background: #e5e5e5;
   padding: 0 10px;
 }
-
+.heropic {
+  width: 480.98px;
+}
+.ellipse {
+  width: "200px";
+}
 /* ================================= 
   Nav Sub menu
 ====================-item================ */
@@ -205,7 +210,8 @@ ul li ul li {
   flex-direction: row;
   font-size: 30px;
   text-align: center;
-  padding: 10px 128px;
+
+  padding: 5px 200px 0 204px;
   width: 100%;
   text-align: center;
   align-items: center;
@@ -223,16 +229,18 @@ ul li ul li {
 }
 .flex-item-left {
   padding: 10px;
+  flex: 70%;
+  width: 100%;
 }
 
 .flex-item-right {
   padding: 10px;
-  flex: 70%;
-  width: 50%;
+  flex: 30%;
+  /* width: 50%; */
 }
 .hero-text {
   position: relative;
-  width: 500px;
+  width: 695.24px;
   top: 50px;
   height: 500px;
   flex-direction: column;
@@ -243,26 +251,25 @@ ul li ul li {
 
   width: 140px;
   height: 140px;
-  left: 59px;
-  /* top: 140px; */
+
+  top: 34px;
 }
 .hero-txt {
   position: absolute;
-  width: 319px;
+  width: 100%;
   height: 228px;
-  left: 100px;
-  border: 1px solid black;
+  padding: 8px;
+
   text-align: left;
-  /* top: 164px; */
+  top: 56px;
 
-  /* font-family: "Poppins"; */
   font-style: normal;
-  font-weight: 600;
-  font-size: 60px;
-  line-height: 76px;
+  font-weight: 400;
+  font-size: 45.69px;
 
-  /* or 127% */
-  letter-spacing: -0.03em;
+  /* line-height: 76px; */
+
+  /* letter-spacing: -0.03em; */
 
   color: #0c003d;
 }
@@ -302,6 +309,7 @@ ul li ul li {
   /* border: 1px solid blue; */
   margin: 0 auto;
   font-size: 20px;
+  margin-top: 40px;
 }
 .about-section {
   display: flex;
@@ -309,12 +317,13 @@ ul li ul li {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  padding: 40px 0 24px 0;
 }
 .about-section .about-abt {
   /* background-color: grey; */
   margin: 10px;
 
-  padding: 20px 110px 32px 0;
+  padding: 20px 0px 0px 0;
   font-size: 20px;
 }
 .abt-text {
@@ -448,7 +457,9 @@ ul li ul li {
     flex: 100%;
     width: 100%;
   }
-
+  .heropic {
+    width: 300px;
+  }
   .about-section {
     display: grid;
     margin: 0 auto;
@@ -497,6 +508,21 @@ ul li ul li {
   .flex-logo > div {
     padding: 0 0 0 0;
   }
+  .hero-txt {
+    position: absolute;
+    left: 0px;
+    padding: 0 20px;
+    text-align: left;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22.69px;
+    line-height: 36px;
+    color: #0c003d;
+    top: 33px;
+  }
+  .ellipse {
+    width: 80px;
+  }
   .navbar input[type="checkbox"],
   .navbar .hamburger-lines {
     display: block;
@@ -544,6 +570,14 @@ ul li ul li {
     /* border: 1px solid red; */
     object-fit: contain;
     object-position: bottom;
+  }
+  .hero-ellipse {
+    position: absolute;
+    width: 0px;
+    height: 115px;
+    left: 10px;
+    /* top: 12px; */
+    top: 12px;
   }
 
   .navbar .hamburger-lines .line {
@@ -694,6 +728,7 @@ ul li ul li {
 
     padding: 44px 0 44px 10px;
   }
+
   .flex-logo {
     display: flex;
     justify-content: space-between;
@@ -731,7 +766,7 @@ ul li ul li {
   }
   .flex-item-left {
     padding: 10px;
-    width: 400px;
+    width: 100%;
   }
 
   .navbar {
@@ -888,8 +923,19 @@ ul li ul li {
     display: none;
   }
   .flex-container {
-    flex-direction: column;
+    border: 1px solid purple;
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    text-align: center;
+    /* padding: 10px 128px; */
+    padding: 0 0 0 0;
+
+    text-align: center;
+    align-items: center;
+    justify-content: center;
   }
+
   .about {
     flex-direction: column;
   }
@@ -899,6 +945,16 @@ ul li ul li {
 
     /* width: 100%; */
   }
+  .hero-text {
+    /* border: 1px solid purple; */
+    position: relative;
+    width: 100%;
+    top: 50px;
+    /* height: 232px; */
+    flex-direction: column;
+    /* border: 1px solid red; */
+  }
+
   .abt-subcontent-content {
     justify-items: start;
     align-items: center;
@@ -919,7 +975,8 @@ ul li ul li {
     display: none;
   }
   .flex-container {
-    flex-direction: column;
+    flex-direction: column-reverse;
+    padding: 0 0 0 0;
   }
   .about {
     flex-direction: column;
@@ -939,7 +996,7 @@ ul li ul li {
     grid-template-columns: 1fr;
     gap: 10px;
 
-    padding: 44px 0 44px 10px;
+    padding: 0px 0 0 0;
   }
   .card-top > img {
     width: 100%;
@@ -947,5 +1004,17 @@ ul li ul li {
   }
   #about {
     padding: 7% 0 0 0;
+  }
+  .hero-text {
+    left: 0;
+  }
+  .ellipse {
+    width: 74px;
+  }
+  .hero-text {
+    /* font-size: 30px;
+     */
+    top: 0;
+    height: 232px;
   }
 }

@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import TopNav from "./TopNav";
 import Footer from "./Footer";
-import { useLocation } from "react-router-dom";
+
+import "../form.css";
 import "../applyjobs.css";
 import {
   MuiPickersUtilsProvider,

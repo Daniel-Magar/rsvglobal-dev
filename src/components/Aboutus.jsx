@@ -92,11 +92,11 @@ const Aboutus = () => {
             objectives.
           </p>
         </div>
-        <div className="flex-container">
+        {/* <div className="flex-container">
           <div className="flex-item-left">
             <img src="./group.png" alt="about" className="responsiveimg" />
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

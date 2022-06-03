@@ -5,6 +5,7 @@ import Aboutus from "./Aboutus";
 import Container from "./Container";
 import TopNav from "./TopNav";
 import WhyRsv from "./WhyRsv";
+import Contact from "./Contact";
 
 const Body = () => {
   useEffect(() => {
@@ -27,6 +28,9 @@ const Body = () => {
           </section>
           <section id="whyrsv">
             <WhyRsv />
+          </section>
+          <section id="contact">
+            <Contact />
           </section>
         </main>
         <Footer />

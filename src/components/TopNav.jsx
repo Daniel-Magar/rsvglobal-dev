@@ -73,7 +73,7 @@ const TopNav = () => {
             </ul>
           </li>
           <li>
-            <a href="#">Contact </a>
+            <NavHashLink to="/#contact">Contact</NavHashLink>
           </li>
           <li>
             <Link to="/career">Career</Link>

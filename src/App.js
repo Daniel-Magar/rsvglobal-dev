@@ -25,6 +25,7 @@ import Career from "./components/Career";
 import ApplyJob from "./components/ApplyJob";
 import CareerCVupload from "./components/CareerCVupload";
 import WhyRsv from "./components/WhyRsv";
+import Contact from "./components/Contact";
 function App() {
   const { currentUser } = useContext(AuthContext);
 
@@ -108,6 +109,7 @@ function App() {
           <Route path="/applyjob" element={<ApplyJob />} />
           <Route path="/cvupload" element={<CareerCVupload />} />
           <Route path="/whyrsv" element={<WhyRsv />} />
+          <Route path="/contact" element={<Contact />} />
 
           {/* <Route
             path="career"
