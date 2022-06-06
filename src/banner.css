@@ -1,0 +1,129 @@
+.banner-flex-container {
+  display: flex;
+  /* border: 2px solid red; */
+  width: 82%;
+  margin: 0 auto;
+  justify-content: space-between;
+  padding: 48px 0 48px 0;
+}
+
+.banner-flex-item-left {
+  /* margin: 0 auto; */
+  justify-content: space-between;
+  padding: 10px;
+  flex: 50%;
+}
+
+.banner-flex-item-right {
+  flex: 50%;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 10px;
+}
+.banner-left {
+  display: flex;
+}
+.banner-svg {
+  /* border: 1px solid purple; */
+  position: absolute;
+}
+.banner-txt {
+  /* border: 1px solid red; */
+  position: relative;
+  width: 100%;
+  font-size: 42px;
+  top: 50px;
+  left: 8%;
+  color: #030441;
+  font-weight: 700;
+}
+.heropic {
+  width: 480.98px;
+  float: right;
+}
+.services-container {
+  width: 82%;
+  margin: auto;
+}
+.services {
+  width: 100%;
+  background-color: #f1f1f1;
+  /* border: 1px solid purple; */
+}
+.service-container {
+  display: grid;
+  /* flex-direction: row; */
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  font-size: 30px;
+  text-align: center;
+  /* justify-content: center; */
+}
+.service-item {
+  padding: 40px;
+
+  /* flex: 50%; */
+}
+
+@media (max-width: 800px) {
+  .banner-flex-container {
+    flex-direction: column-reverse;
+
+    width: 100%;
+  }
+
+  .banner-txt {
+    /* border: 1px solid red; */
+    position: absolute;
+    width: 100%;
+    text-align: left;
+    font-size: 28px;
+    top: 30px;
+    left: 10%;
+    color: #030441;
+  }
+  .service-container {
+    display: grid;
+    /* flex-direction: row; */
+    grid-template-columns: 1fr;
+    font-size: 30px;
+    text-align: center;
+    /* justify-content: center; */
+  }
+  .banner-item-left {
+    background-color: #f1f1f1;
+    padding: 0px;
+    /* flex: 30%; */
+    text-align: left;
+  }
+  .banner-item-right {
+    background-color: #f1f1f1;
+    padding: 0px;
+    /* flex: 70%; */
+    text-align: left;
+  }
+  .banner-svg {
+    /* border: 1px solid purple; */
+    position: absolute;
+  }
+  .banner-txt {
+    /* border: 1px solid red; */
+    position: relative;
+    width: 85%;
+    font-size: 22px;
+    /* top: 30%; */
+    left: 8%;
+  }
+  .heropic {
+    width: 300px;
+  }
+}
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+}
+
+/* ----------- Retina Screens ----------- */
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
+}
+@media (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
+}
+@media (max-device-width: 800px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+}

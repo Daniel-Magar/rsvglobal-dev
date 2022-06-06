@@ -150,9 +150,7 @@ a {
   background: #e5e5e5;
   padding: 0 10px;
 }
-.heropic {
-  width: 480.98px;
-}
+
 .ellipse {
   width: "200px";
 }
@@ -433,6 +431,7 @@ ul li ul li {
 .myh5 > b {
   text-align: center;
 }
+
 /* ================================= 
   Media Queries
 ==================================== */
@@ -518,7 +517,7 @@ ul li ul li {
     font-size: 22.69px;
     line-height: 36px;
     color: #0c003d;
-    top: 33px;
+    /* top: 33px; */
   }
   .ellipse {
     width: 80px;
@@ -949,7 +948,7 @@ ul li ul li {
     /* border: 1px solid purple; */
     position: relative;
     width: 100%;
-    top: 50px;
+    top: 0px;
     /* height: 232px; */
     flex-direction: column;
     /* border: 1px solid red; */
