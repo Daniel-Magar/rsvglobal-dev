@@ -58,7 +58,7 @@ const Contact = () => {
                     <input type="tel" name="phone" />
                     <label htmlFor="email">Email Address</label>
                     <input type="email" name="email" />
-                    <label for="clocation">Languages Known</label>
+                    <label for="clocation">Requirement</label>
                     <div className="example-item" style={{ marginTop: "5px" }}>
                       <CheckPicker
                         data={buzReqd}

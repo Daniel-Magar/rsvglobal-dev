@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-// import { Footer } from "rsuite";
+import WhyRsv from "./WhyRsv";
+import Contact from "./Contact";
 import TopNav from "./TopNav";
 import Footer from "./Footer";
 import "../banner.css";
@@ -62,6 +63,12 @@ const Pstaffing = () => {
             </div>
           </div>
         </div>
+      </section>
+      <section id="whyrsv">
+        <WhyRsv />
+      </section>
+      <section id="contact">
+        <Contact />
       </section>
       <Footer />
     </>

@@ -75,7 +75,8 @@ a {
   /* padding-left: 0.5em;
   padding-bottom: 0.5em; */
   height: 80px;
-  padding-left: 0.5em;
+  /* padding-left: 0.5em; */
+  padding-left: 9.2em;
   padding-bottom: 0px;
   /* border: 1px solid #a2a2a2; */
   background-color: #ffffff;
@@ -438,6 +439,8 @@ ul li ul li {
 @media (max-width: 768px) {
   .navbar {
     opacity: 0.95;
+
+    padding-left: 0.5em;
   }
 
   .about {

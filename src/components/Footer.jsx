@@ -1,11 +1,68 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import "../footer.css";
 
 const Footer = () => {
+  const [date, setDate] = useState();
+
+  const getYear = () => setDate(new Date().getFullYear());
+
+  useEffect(() => {
+    getYear();
+  }, []);
   return (
     <>
       <footer className="rsv-footer">
-        <div>
-          <small>&copy;Company A</small> Date
+        <div className="main-footer">
+          <div className="logoinfo" data-aos="fade-up">
+            <h2>RSV Global</h2>
+
+            <div className="contact-details">
+              <h1>Contact Us</h1>
+
+              <li>
+                <div className="bx bxs-phone footer-icn"></div>
+                <a href="tel:+919326048690">+91 8610869322</a>
+              </li>
+              <li>
+                <div className="bx bxs-envelope footer-icn"></div>
+                <a href="mailto:yourmail@gmail.com"> balaji@rsvglobal.in</a>
+              </li>
+            </div>
+          </div>
+          <div className="com ">
+            <h1>About</h1>
+            <ul>
+              <li>
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <a href="#">About</a>
+              </li>
+              <li>
+                <a href="#">Why RSV?</a>
+              </li>
+              <li>
+                <a href="#">Contact</a>
+              </li>
+              <li>
+                <a href="#">Career</a>
+              </li>
+            </ul>
+          </div>
+          <div className="info" data-aos="fade-up">
+            <h1>Social Media</h1>
+            <div className="sociallogos">
+              <div className="logobox">
+                <a href="#" class="bx bxl-instagram footer-icn"></a>
+                <a href="#" class="bx bxl-linkedin footer-icn"></a>
+                <a href="#" class="bx bxl-facebook footer-icn"></a>
+                <a href="#" class="bx bxl-youtube footer-icn"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="copyrt">
+          © Copyright RSV Global-{date} All Rights Reserved
         </div>
       </footer>
     </>
