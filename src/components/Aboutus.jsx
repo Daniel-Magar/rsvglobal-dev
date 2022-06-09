@@ -1,13 +1,120 @@
 import React, { useEffect } from "react";
+import "../banner.css";
+
 import Footer from "./Footer";
 
 const Aboutus = () => {
   return (
     <>
-      <div className="abt-main">
+      <div className="services">
+        <div className="services-container">
+          <div className="about-serv">
+            <div className="about-abt" style={{ width: "30%" }}>
+              {/* <p className="abt-text"> About</p> */}
+              <p className="text">
+                <b className="rsv-global">RSV</b>
+                <b className="global">Global</b>
+              </p>
+            </div>
+            <div className="abt-main">
+              <div className="about-abt">
+                <p className="text">
+                  RSV Global, with leadership experience of 25+ years in the
+                  fields of Staffing, Recruitment, entire gamut of HR Operations
+                  and Customer Relationship, is geared to be a partner in the
+                  areas of:
+                </p>
+              </div>
+            </div>
+          </div>
+          {/* <div className="services-txt">
+            <h3>Services We Offer</h3>
+          </div> */}
+
+          <div class="service-container">
+            <div class="service-item">
+              <div>
+                <img
+                  src="./pstaff.svg"
+                  className="serv-img"
+                  alt="Permanent Staffing"
+                />
+                <p>
+                  Permanent <br /> Staffing
+                </p>
+              </div>
+            </div>
+            <div class="service-item">
+              <div>
+                <img
+                  src="./temprstaff.svg"
+                  className="serv-img"
+                  alt="Temporary Staffing"
+                />
+                <p>
+                  Temporary <br /> Staffing
+                </p>
+              </div>
+            </div>
+            <div class="service-item">
+              <div>
+                <img
+                  src="./payroll123.svg"
+                  className="serv-img"
+                  alt="Payroll Management"
+                />
+                <p>
+                  Payroll <br /> Management
+                </p>
+              </div>
+            </div>
+            <div class="service-item">
+              <div>
+                <img
+                  src="./compliance.svg"
+                  className="serv-img"
+                  alt="Compliance Management"
+                />
+                <p>
+                  Compliance <br /> Management
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="mission-txt abt-nature">
+            Each of the above, by nature, are heavy on time and cost. By
+            undertaking these processes for you, we provide you the opportunity
+            to grow lean, focusing and growing on your core business objectives
+          </div>
+          <div className="">
+            <div className="services-txt">
+              <h3>Our Vision</h3>
+              <div className="mission-txt">
+                <p style={{ textAlign: "center" }}>
+                  To uphold the common welfare and enhance the benefits of all
+                  stakeholders.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="">
+            <div className="services-txt">
+              <h3>Our Mission</h3>
+              <div className="mission-txt">
+                <p>
+                  Endeavour to pass optimum benefit to Customers, business
+                  partners and employees; contribute to the society by spreading
+                  awareness of available employment opportunities by optimum use
+                  of technology
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <div className="abt-main">
         <div className="about-section">
           <div className="about-abt" style={{ width: "30%" }}>
-            {/* <p className="abt-text"> About</p> */}
             <p className="text">
               <b className="rsv-global">RSV</b>
               <b className="global">Global</b>
@@ -92,12 +199,7 @@ const Aboutus = () => {
             objectives.
           </p>
         </div>
-        {/* <div className="flex-container">
-          <div className="flex-item-left">
-            <img src="./group.png" alt="about" className="responsiveimg" />
-          </div>
-        </div> */}
-      </div>
+      </div> */}
     </>
   );
 };

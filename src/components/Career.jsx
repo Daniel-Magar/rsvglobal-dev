@@ -264,255 +264,102 @@ const Career = (props) => {
               <div className="card upldcard">
                 <div className="container">
                   <div className="upld">
-                    <h3>Upload your CV</h3>
-                    <h3>to get your Dream Job</h3>
-                    {/* <button
-                      className="btn-upload"
-                      onClick={() => setIsOpen(true)}
-                    >
-                      Upload CV
-                    </button> */}
+                    <h3>Help Us Help You !!</h3>
+                    <h4>Upload your CV</h4>
 
                     <Link className="btn" to="/cvupload">
                       Upload CV
                     </Link>
-
-                    <Modal
-                      isOpen={modalIsOpen}
-                      onRequestClose={() => setIsOpen(false)}
-                      overlayClassName={{
-                        base: "overlay-base",
-                        afterOpen: "overlay-after",
-                        beforeClose: "overlay-before",
-                      }}
-                      className={{
-                        base: "content-base",
-                        afterOpen: "content-after",
-                        beforeClose: "content-before",
-                      }}
-                      closeTimeoutMS={500}
-                    >
-                      <div>
-                        <div className=" cls-flex">
-                          <div className="cls div1">
-                            <button onClick={closebtn} className="cls-btn">
-                              <i class="bx bx-x"></i>
-                            </button>
-                          </div>
-
-                          <div className="div2">
-                            <h2>Enter Your Details</h2>
-                          </div>
-                        </div>
-
-                        <div className="modal-body">
-                          <form onSubmit={handleSubmit} className="upl-form">
-                            <div>{showMsg ? <Message msg={msg} /> : null}</div>
-                            <div className="form-body">
-                              <label for="fname">First Name</label>
-                              <input
-                                type="text"
-                                id="fname"
-                                name="firstname"
-                                placeholder="Your Full name.."
-                                onChange={(e) => setFirstname(e.target.value)}
-                                required
-                              />
-
-                              <label for="email">Email</label>
-                              <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                placeholder="Your email id.."
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
-                              />
-                              <label for="phno">Mobile Number</label>
-                              <input
-                                type="number"
-                                id="phno"
-                                name="phno"
-                                placeholder="Your contact number.."
-                                onChange={(e) => setPhno(e.target.value)}
-                                required
-                              />
-
-                              <label for="qualification">Qualification</label>
-                              <select
-                                id="qualification"
-                                name="qualification"
-                                onChange={(e) =>
-                                  setQualification(e.target.value)
-                                }
-                                required
-                              >
-                                <option>Select Qualification</option>
-                                <option value="Post-Graduate">
-                                  Post Graudate
-                                </option>
-                                <option value="Graduate">Graduate</option>
-                                <option value="Under-Graduate">
-                                  Under Graduate
-                                </option>
-                              </select>
-                              <label for="degree">Applied For</label>
-                              <select
-                                id="degree"
-                                name="degree"
-                                onChange={(e) => setAppliedfor(e.target.value)}
-                                required
-                              >
-                                <option>Select Role</option>
-                                <option value="Front End Developer">
-                                  Front End Developer
-                                </option>
-                                <option value="Back End Developer">
-                                  Back End Developer
-                                </option>
-                                <option value="Python Developer">
-                                  Python Developer
-                                </option>
-                                <option value="Java Developer">
-                                  Java Developer
-                                </option>
-                                <option value="Java Script Developer">
-                                  Java Script Developer
-                                </option>
-                                <option value="Node JS Developer">
-                                  Node JS Developer
-                                </option>
-                                <option value="React JS Developer">
-                                  React JS Developer
-                                </option>
-                              </select>
-                              <div>
-                                {showResults ? (
-                                  <Results
-                                    imgUrl={imgUrl}
-                                    progresspercent={progresspercent}
-                                    status={status}
-                                    isFilePicked={isFilePicked}
-                                    selectedFile={selectedFile}
-                                  />
-                                ) : null}
-                              </div>
-                              <div className="up">
-                                <div className="upd-file">
-                                  <label class="btn fileUpload btn-default">
-                                    Select file
-                                    <input
-                                      type="file"
-                                      hidden=""
-                                      accept={".pdf"}
-                                      onChange={changeHandler}
-                                      ref={reference}
-                                    />
-                                    <i
-                                      class="bx bx-file"
-                                      style={{
-                                        color: "white",
-                                        fontSize: "20px",
-                                      }}
-                                    ></i>
-                                  </label>
-                                  <button className="btn-upload" type="submit">
-                                    <div className="btn-content">
-                                      <div className="btn-sub">Upload</div>
-                                      <div className="btn-sub">
-                                        <i
-                                          class="bx bx-upload"
-                                          style={{
-                                            color: "white",
-                                            fontSize: "22px",
-                                          }}
-                                        ></i>
-                                      </div>
-                                    </div>
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                    </Modal>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="career-flex-container">
-            <div className="flex-item">
-              <div className="incontainer">
-                {props.jobposts.map((data, idx) => (
-                  <div className="card" key={idx}>
-                    <div className="car-container">
-                      <div className="cargrid">
-                        <div className="cargrid-item-left">
-                          <h6>Role: </h6>
-                        </div>
-                        <div className="cargrid-item-right">
-                          <div className="cargrid-item">- {data.jobtitle}</div>
-                        </div>
-                      </div>
-                      <div className="cargrid">
-                        <div className="cargrid-item-left">
-                          <h6>Skills Required: </h6>
-                        </div>
-                        <div className="cargrid-item-right">
-                          <div className="cargrid-item">- {data.skill}</div>
-                        </div>
-                      </div>
-                      <div className="cargrid">
-                        <div className="cargrid-item-left">
-                          <h6>Description: </h6>
-                        </div>
-                        <div className="cargrid-item-right">
-                          <div className="cargrid-item">- {data.jobdescrp}</div>
-                        </div>
-                      </div>
-                      <div className="cargrid">
-                        <div className="cargrid-item-left">
-                          <h6>Qualification: </h6>
-                        </div>
-                        <div className="cargrid-item-right">
-                          <div className="cargrid-item">
-                            - {data.qualification}
-                          </div>
-                        </div>
-                      </div>
-                      <div className="cargrid">
-                        <div className="cargrid-item-left">
-                          <h6>Notice Period: </h6>
-                        </div>
-                        <div className="cargrid-item-right">
-                          <div className="cargrid-item">
-                            - {data.noticeperiod}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="btngrid">
-                      <div className="btn-item-left "></div>
-                      <div className="btn-item-right ">
-                        <Link
-                          to={{
-                            pathname: "/applyjob",
-                          }}
-                          state={{ data }} // <-- from the array being mapped
-                        >
-                          <button
-                            className="btn"
-                            onClick={() => selectApply(data)}
-                          >
-                            Apply
-                          </button>
-                        </Link>
-                      </div>
-                    </div>
+          <div className="oppr-area">
+            <div className="career-flex-container">
+              <div className="flex-item">
+                <div className="oppurtunity">
+                  <div>
+                    <i className="bx bxs-briefcase-alt-2 oppr-icn"></i>
                   </div>
-                ))}
+
+                  <div>
+                    <h3 className="career-h3">Current Opportunities</h3>
+                  </div>
+                </div>
+                <div className="incontainer">
+                  {props.jobposts.map((data, idx) => (
+                    <div className="card" key={idx}>
+                      <div className="car-container">
+                        <div className="cargrid">
+                          <div className="cargrid-item-left">
+                            <h6>Role: </h6>
+                          </div>
+                          <div className="cargrid-item-right">
+                            <div className="cargrid-item">
+                              - {data.jobtitle}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="cargrid">
+                          <div className="cargrid-item-left">
+                            <h6>Skills Required: </h6>
+                          </div>
+                          <div className="cargrid-item-right">
+                            <div className="cargrid-item">- {data.skill}</div>
+                          </div>
+                        </div>
+                        <div className="cargrid">
+                          <div className="cargrid-item-left">
+                            <h6>Description: </h6>
+                          </div>
+                          <div className="cargrid-item-right">
+                            <div className="cargrid-item">
+                              - {data.jobdescrp}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="cargrid">
+                          <div className="cargrid-item-left">
+                            <h6>Qualification: </h6>
+                          </div>
+                          <div className="cargrid-item-right">
+                            <div className="cargrid-item">
+                              - {data.qualification}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="cargrid">
+                          <div className="cargrid-item-left">
+                            <h6>Notice Period: </h6>
+                          </div>
+                          <div className="cargrid-item-right">
+                            <div className="cargrid-item">
+                              - {data.noticeperiod}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="btngrid">
+                        <div className="btn-item-right ">
+                          <Link
+                            to={{
+                              pathname: "/applyjob",
+                            }}
+                            state={{ data }} // <-- from the array being mapped
+                          >
+                            <button
+                              className="appy-btn"
+                              onClick={() => selectApply(data)}
+                            >
+                              Apply
+                            </button>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -554,10 +401,6 @@ const Results = (props) => (
 const Message = (props) => (
   <>
     <div>
-      {/* <div class="bar">Plain message</div>
-          <div class="bar info">Information message</div>
-          <div class="bar success">Successful message</div>
-          <div class="bar warn">Warning message</div> */}
       <div className="bar error">{props.msg}</div>
     </div>
   </>

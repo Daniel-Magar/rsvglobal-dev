@@ -13,7 +13,7 @@
   margin-top: 30px;
 }
 .contact-form {
-  padding: 28px 26px 6px 26px;
+  padding: 30px 166px 10px 116px;
   margin-top: 6%;
   margin-bottom: 2%;
   border: 1px solid rgb(227 223 223);
@@ -36,7 +36,7 @@ select {
   border-radius: 4px;
 }
 .cont-h {
-  font-size: 38px;
+  font-size: 36px;
 }
 .contact-btn {
   background-color: #2b00d4;
@@ -112,6 +112,20 @@ select {
   .contact-container {
     text-align: center;
     padding: 50px 50px;
+    background-color: #f6f6f6;
+  }
+  .contact-form {
+    padding: 30px 180px 10px 180px;
+    margin-top: 6%;
+    margin-bottom: 2%;
+    border: 1px solid rgb(227 223 223);
+    border-radius: 4px;
+    height: auto;
+    text-align: left;
+  }
+  .contact-container {
+    text-align: center;
+    padding: 34px 200px;
     background-color: #f6f6f6;
   }
 }

@@ -310,6 +310,13 @@ ul li ul li {
   font-size: 20px;
   margin-top: 40px;
 }
+
+.contact-main {
+  /* border: 1px solid blue; */
+  margin: 0 auto;
+  font-size: 20px;
+  margin-top: 40px;
+}
 .about-section {
   display: flex;
   margin: 0 auto;

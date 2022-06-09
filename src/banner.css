@@ -4,7 +4,7 @@
   width: 82%;
   margin: 0 auto;
   justify-content: space-between;
-  padding: 48px 0 48px 0;
+  padding: 240px 0 240px 0;
 }
 
 .banner-flex-item-left {
@@ -27,18 +27,23 @@
   /* border: 1px solid purple; */
   position: absolute;
 }
+
 .banner-txt {
   /* border: 1px solid red; */
   position: relative;
-  width: 100%;
-  font-size: 42px;
+  /* font-family: "Iowan Old Style"; */
+  font-style: normal;
+  font-weight: 400;
+  font-size: 45.6935px;
+  line-height: 62px;
   top: 50px;
   left: 8%;
   color: #030441;
-  font-weight: 700;
+  font-weight: 500;
 }
 .heropic {
   width: 480.98px;
+  height: 370px;
   float: right;
 }
 .services-container {
@@ -50,27 +55,64 @@
   background-color: #f1f1f1;
   /* border: 1px solid purple; */
 }
+.about-serv {
+  display: flex;
+  margin: 10px;
+  padding: 23px 0 24px 70px;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+}
 .service-container {
   display: grid;
-  /* flex-direction: row; */
+  padding: 0px 0 62px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  font-size: 30px;
+  font-size: 20px;
   text-align: center;
   /* justify-content: center; */
 }
 .service-item {
-  padding: 40px;
+  padding: 12px;
 
   /* flex: 50%; */
 }
-
+.services-txt > h3 {
+  text-align: center;
+  padding: 20px 72px;
+  line-height: 42px;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 49px;
+  color: #030441;
+}
+.mission-txt {
+  padding: 0px 0px 36px 85px;
+  font-size: 20px;
+}
+.staffing-head {
+  background-color: #ebc5c6;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 @media (max-width: 800px) {
   .banner-flex-container {
     flex-direction: column-reverse;
 
     width: 100%;
   }
-
+  .banner-flex-container {
+    display: flex;
+    /* border: 2px solid red; */
+    width: 82%;
+    margin: 0 auto;
+    justify-content: space-between;
+    padding: 88px 0 240px 0;
+  }
+  .info {
+    background-color: #030441;
+  }
   .banner-txt {
     /* border: 1px solid red; */
     position: absolute;
@@ -85,9 +127,23 @@
     display: grid;
     /* flex-direction: row; */
     grid-template-columns: 1fr;
-    font-size: 30px;
+    font-size: 16px;
     text-align: center;
     /* justify-content: center; */
+  }
+  .about-serv {
+    display: inline;
+    margin: 10px;
+    padding: 23px 0 24px 70px;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .serv-img {
+    /* border: 1px solid purple; */
+    width: 44%;
+    min-width: 0;
   }
   .banner-item-left {
     background-color: #f1f1f1;
@@ -108,20 +164,66 @@
   .banner-txt {
     /* border: 1px solid red; */
     position: relative;
-    width: 85%;
+    width: 100%;
     font-size: 22px;
     /* top: 30%; */
     left: 8%;
   }
   .heropic {
-    width: 300px;
+    width: 340px;
+    height: auto;
+  }
+  .services-txt > h3 {
+    text-align: center;
+    padding: 20px 20px;
+    line-height: 42px;
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 49px;
+    color: #030441;
+  }
+  .service-item {
+    font-size: 26px;
+    padding: 28px 40px;
+  }
+  .service-item p {
+    font-size: 16px;
+    padding: 30px 0px 0px;
   }
 }
 @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+  .banner-flex-container {
+    display: flex;
+    /* border: 2px solid red; */
+    width: 82%;
+    margin: 0 auto;
+    justify-content: space-between;
+    padding: 240px 0 240px 0;
+  }
 }
 
 /* ----------- Retina Screens ----------- */
 @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
+  .banner-flex-container {
+    display: flex;
+    /* border: 2px solid red; */
+    width: 82%;
+    margin: 0 auto;
+    justify-content: space-between;
+    padding: 48px 0 26px 0;
+  }
+  .banner-txt {
+    position: relative;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 54px;
+    top: 50px;
+    left: 8%;
+    color: #030441;
+    font-weight: 500;
+  }
 }
 @media (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
 }

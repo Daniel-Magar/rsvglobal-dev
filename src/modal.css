@@ -121,8 +121,8 @@
     font-size: 12px;
   }
   img {
-    min-width: 100%;
-    width: 100%;
+    /* min-width: 100%; */
+    width: 48%;
   }
   .btn-upload {
     background-color: #2b00d4; /* Green */
@@ -139,5 +139,10 @@
     cursor: pointer;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
+  }
+
+  .career-head-item {
+    background-color: #fff;
+    /* padding: 5px; */
   }
 }

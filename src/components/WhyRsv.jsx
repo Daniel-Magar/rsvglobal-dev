@@ -38,33 +38,28 @@ const WhyRsv = () => {
                   <div class="why-flex-left">
                     <i class="bx bx-radio-circle-marked bullet" />
                   </div>
-                  <div class="why-flex-right">
-                    Proactive Responsive Driven by Passion Governed by Ethics
-                  </div>
+                  <div class="why-flex-right">Proactive </div>
                 </div>
                 <div class="why-flex">
                   <div class="why-flex-left">
                     <i class="bx bx-radio-circle-marked bullet" />
                   </div>
-                  <div class="why-flex-right">State-of-the-art Technology </div>
+                  <div class="why-flex-right">Responsive</div>
+                </div>
+                <div class="why-flex">
+                  <div class="why-flex-left">
+                    <i class="bx bx-radio-circle-marked bullet" />
+                  </div>
+                  <div class="why-flex-right">Driven by Passion </div>
+                </div>
+                <div class="why-flex">
+                  <div class="why-flex-left">
+                    <i class="bx bx-radio-circle-marked bullet" />
+                  </div>
+                  <div class="why-flex-right">Governed by Ethics </div>
                 </div>
               </div>
             </div>
-
-            {/* <p className="text">
-              <b className="rsv-global">Why RSV</b>
-              <b className="global">Global?</b>
-            </p>
-            <p className="text">
-              We engage : <br />
-              <i class="bx bx-radio-circle-marked bullet"></i> Highly competent
-              professionals across domains <br />
-              <i class="bx bx-radio-circle-marked bullet"></i> State-of-the-art
-              Technology of
-            </p>
-            <p className="text">
-              We are : Proactive Responsive Driven by Passion Governed by Ethics
-            </p> */}
           </div>
         </div>
       </div>

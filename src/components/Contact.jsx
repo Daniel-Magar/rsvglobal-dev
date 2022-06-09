@@ -39,18 +39,18 @@ const Contact = () => {
   return (
     <>
       <div className="cont">
-        <div className="abt-main contact-abt">
+        <div className="contact-main contact-abt">
           <div className="about-section">
             <div className="contact">
               <div className="contact-container">
                 <h4 className="cont-h">
-                  Contact us for your Business Requirements
+                  Tell us about yourself, we will connect.
                 </h4>
                 <form className="contact-form">
                   <div className="form-content">
                     <label htmlFor="name">Name</label>
                     <input type="text" name="companyname" />
-                    <label htmlFor="companyname">Company Name</label>
+                    <label htmlFor="companyname">Company</label>
                     <input type="text" name="companyname" />
                     <label htmlFor="designation">Designation</label>
                     <input type="text" name="designation" />
