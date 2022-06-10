@@ -8,6 +8,7 @@ import { AuthContext } from "../context/AuthContext";
 
 const headerStyles = {
   padding: 18,
+  paddingLeft: 54,
   fontSize: 16,
   height: 56,
   background: "#030441",
@@ -36,9 +37,15 @@ const LeftNav = () => {
       >
         <Sidenav.Header>
           <div className="headerstyle" style={headerStyles}>
-            {/* <LogoAnalytics style={{ fontSize: 20 }} /> */}
-            <span style={{ marginLeft: 12 }}> BRAND</span>
+            <span
+              style={{ color: "#F74749", marginLeft: "18", fontSize: "28px" }}
+            >
+              RSV
+            </span>{" "}
+            &nbsp;
+            <span style={{ color: "#fff", fontSize: "28px" }}>Global</span>
           </div>
+          {/* <span style={{ marginLeft: 12 }}> RSV Global</span> */}
         </Sidenav.Header>
         <Sidenav
           expanded={expand}

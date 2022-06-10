@@ -94,7 +94,7 @@ const CandidateList = (props) => {
                   >
                     <Column
                       className="wid"
-                      width={200}
+                      width={180}
                       align="left"
                       fixed
                       sortable
@@ -104,28 +104,37 @@ const CandidateList = (props) => {
                       <Cell dataKey="first_name" />
                     </Column>
 
-                    <Column className="wid" width={250} resizable>
+                    <Column className="wid" width={180} resizable>
                       <HeaderCell>Email Id</HeaderCell>
                       <Cell dataKey="emial_id" />
                     </Column>
 
-                    <Column width={200} resizable>
+                    <Column width={120} resizable>
                       <HeaderCell>Mobile No.</HeaderCell>
                       <Cell dataKey="phone_no" />
                     </Column>
-                    <Column width={200} resizable>
+
+                    <Column width={180} resizable>
                       <HeaderCell>Qualification</HeaderCell>
                       <Cell dataKey="qualification" />
                     </Column>
                     <Column width={200} resizable>
                       <HeaderCell>Applied For</HeaderCell>
-                      <Cell dataKey="job_preference" />
+                      <Cell dataKey="jobtitle" />
                     </Column>
                     <Column width={200} resizable>
                       <HeaderCell>Applied Type</HeaderCell>
                       <Cell dataKey="applied_type" />
                     </Column>
-                    <Column width={200} resizable>
+                    <Column width={130} resizable>
+                      <HeaderCell>Preferred Location</HeaderCell>
+                      <Cell dataKey="preferred_location" />
+                    </Column>
+                    <Column width={130} resizable>
+                      <HeaderCell>Covid Vaccinated</HeaderCell>
+                      <Cell dataKey="vaccinated" />
+                    </Column>
+                    <Column width={100} resizable>
                       <HeaderCell>Applied Date</HeaderCell>
                       <Cell>
                         {(mydata, index) => {
@@ -141,7 +150,7 @@ const CandidateList = (props) => {
                       </Cell>
                     </Column>
 
-                    <Column width={200} resizable>
+                    <Column width={100} resizable>
                       <HeaderCell>CV</HeaderCell>
 
                       <Cell>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import TopNav from "./TopNav";
 import Footer from "./Footer";
 import "../form.css";
@@ -30,6 +30,7 @@ import {
 } from "firebase/firestore";
 import { storage } from "../firebase-config";
 import { db } from "../firebase-config";
+import { LocationContext } from "../context/LocationContext";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -105,7 +106,7 @@ const { StringType, NumberType } = Schema.Types;
 
 const ApplyJob = () => {
   //   console.log("Geting data on button click:", props.selected_data);
-
+  const [locationData, setLocationData] = useContext(LocationContext);
   const picker = React.useRef();
   const [value, setValue] = React.useState([]);
 
@@ -289,37 +290,14 @@ const ApplyJob = () => {
         return;
       }
     }
+
+    let extension = file.name.split(".").pop();
+
     const filename = file.name.replace(/(\.[\w\d_-]+)$/i, random);
-    const storageRef = ref(storage, `resume/${filename}`);
+    const storageRef = ref(storage, `resume/${filename + "." + extension}`);
+
     const uploadTask = uploadBytesResumable(storageRef, file);
     try {
-      // addDoc(collection(db, "job_posts"), {
-      //   job_post_id: selectedData.data.id,
-      //   jobtitle: selectedData.data.jobtitle,
-      //   qualification_reqd: selectedData.data.qualification,
-      //   jobdescrp: selectedData.data.jobdescrp,
-      //   skill: selectedData.data.skill,
-      //   noticeperiod: selectedData.data.noticeperiod,
-      //   applied_type: "Job Post",
-      //   full_name: fullname,
-      //   gender: gender,
-      //   email_id: email,
-      // phone_no: phoneNumber,
-      // alt_ph_no: altPhNumber,
-      // qualification: eduvalue,
-      // languages_known: value,
-      // total_experience: experience,
-      // relevant_experience: relvExperience,
-      // currentLastEmployee: currentLastEmp,
-      // currentLastJobRole: currentLastRole,
-      // job_preference: jobpref,
-      // candidate_noticeperiod: selfNoticePeriod,
-      //current_ctc: currentCTC,
-      //expected_ctc: expectedCTC,
-      // vaccinated: vaccine,
-      //    applied_date: selectedDate,
-      //   timestamp: Timestamp.now(),
-      // });
       uploadTask.on(
         "state_changed",
         (snapshot) => {
@@ -350,17 +328,17 @@ const ApplyJob = () => {
               gender: gender,
               emial_id: email,
               phone_no: phoneNumber,
-              alt_ph_no: altPhNumber,
+              // alt_ph_no: altPhNumber,
               qualification: eduvalue,
               languages_known: value,
-              total_experience: experience,
-              relevant_experience: relvExperience,
+              total_experience: experience + "Year(s)",
+              relevant_experience: relvExperience + "Year(s)",
               currentLastEmployee: currentLastEmp,
               currentLastJobRole: currentLastRole,
               cuurent_location: currentLocation,
               preferred_location: preferredLocation,
               job_preference: jobpref,
-              candidate_noticeperiod: selfNoticePeriod,
+              candidate_noticeperiod: selfNoticePeriod + "Days",
               current_ctc: currentCTC,
               expected_ctc: expectedCTC,
               vaccinated: vaccine,
@@ -375,13 +353,13 @@ const ApplyJob = () => {
       setMsg("Oops! Please try again.");
       setShowMsg(true);
       e.target.reset();
-
-      // setInterval(() => setShowMsg(false), 4000);
     }
     setValue([]);
     setJobpref(null);
     setEduvalue(null);
     setVaccine(null);
+    setCurrentLocation(null);
+    setPreferredLocation(null);
     e.target.reset();
     setInterval(() => setShowResults(false), 4000);
     setStatus("Completed!");
@@ -538,6 +516,22 @@ const ApplyJob = () => {
                         </div>
                       </div>
                       <div className="box b">
+                        <label for="phno">Phone Number</label>
+
+                        <input
+                          type="tel"
+                          id="phno"
+                          pattern="[0-9]{10}"
+                          name="phno"
+                          min="10"
+                          max="10"
+                          maxLength="10"
+                          onChange={(e) => setPhoneNumber(e.target.value)}
+                          required
+                        />
+                        <span className="validity"></span>
+                      </div>
+                      {/* <div className="box b">
                         <label for="gender">Date of Birth</label>
                         <ThemeProvider theme={theme}>
                           <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -558,25 +552,9 @@ const ApplyJob = () => {
                             </div>
                           </MuiPickersUtilsProvider>
                         </ThemeProvider>
-                      </div>
+                      </div> */}
                     </div>
-                    <div className="wrapper">
-                      <div className="box a">
-                        <label for="phno">Phone Number</label>
-
-                        <input
-                          type="tel"
-                          id="phno"
-                          pattern="[0-9]{10}"
-                          name="phno"
-                          min="10"
-                          max="10"
-                          maxLength="10"
-                          onChange={(e) => setPhoneNumber(e.target.value)}
-                          required
-                        />
-                        <span className="validity"></span>
-                      </div>
+                    {/* <div className="wrapper">
                       <div className="box b">
                         <label for="altphno">Alternate Phone Number</label>
                         <input
@@ -592,27 +570,39 @@ const ApplyJob = () => {
                         />
                         <span className="validity"></span>
                       </div>
-                    </div>
+                    </div> */}
                     <div className="wrapper">
                       <div className="box a">
                         <label for="location">Current Location</label>
-                        <input
+                        <SelectPicker
+                          value={currentLocation}
+                          onChange={setCurrentLocation}
+                          data={locationData}
+                          block
+                        />
+                        {/* <input
                           type="text"
                           id="location"
                           name="location"
                           onChange={(e) => setCurrentLocation(e.target.value)}
                           required
-                        />
+                        /> */}
                       </div>
                       <div className="box b">
                         <label for="prelocation">Preferred Location</label>
-                        <input
+                        <SelectPicker
+                          value={preferredLocation}
+                          onChange={setPreferredLocation}
+                          data={locationData}
+                          block
+                        />
+                        {/* <input
                           type="text"
                           id="prelocation"
                           name="prelocation"
                           onChange={(e) => setPreferredLocation(e.target.value)}
                           required
-                        />
+                        /> */}
                       </div>
                     </div>
                     <div className="wrapper">
@@ -704,10 +694,13 @@ const ApplyJob = () => {
                           Total Experience (in Years)
                         </label>
                         <input
-                          type="text"
+                          type="tel"
                           id="experience"
                           name="experience"
                           onChange={(e) => setExperience(e.target.value)}
+                          min="2"
+                          max="2"
+                          maxLength="2"
                           required
                         />
                       </div>
@@ -716,11 +709,14 @@ const ApplyJob = () => {
                           Relevant Experience (in Years)
                         </label>
                         <input
-                          type="text"
+                          type="tel"
                           id="rexperience"
                           name="rexperience"
                           onChange={(e) => setRelvExperience(e.target.value)}
                           required
+                          min="2"
+                          max="2"
+                          maxLength="2"
                         />
                       </div>
                     </div>
@@ -748,55 +744,50 @@ const ApplyJob = () => {
                         />
                       </div>
                     </div>
-                    <div className="wrapper">
-                      <div className="box a">
-                        <label for="jpreference">Job Preference</label>
-                        <SelectPicker
-                          value={jobpref}
-                          onChange={setJobpref}
-                          data={jobprefrence}
-                          block
-                          style={{ marginTop: "5px" }}
-                          searchable={false}
-                        />
-                      </div>
-                      <div className="box b">
-                        <label for="notice">Notice Period (Days)</label>
-                        <input
-                          type="text"
-                          id="notice"
-                          name="notice"
-                          onChange={(e) => setSelfNoticePeriod(e.target.value)}
-                          required
-                        />
-                      </div>
-                    </div>
+
                     <div className="wrapper">
                       <div className="box a">
                         <label for="clocation">Current CTC (LPA)</label>
                         <input
-                          type="number"
+                          type="tel"
                           id="experience"
                           name="experience"
                           onChange={(e) => setCurrentCTC(e.target.value)}
                           required
+                          min="2"
+                          max="2"
                           maxLength="2"
                         />
                       </div>
                       <div className="box b">
                         <label for="clocation">Expected CTC (LPA)</label>
                         <input
-                          type="text"
+                          type="tel"
                           id="experience"
                           name="experience"
                           onChange={(e) => setExpectedCTC(e.target.value)}
                           required
+                          min="2"
+                          max="2"
                           maxLength="2"
                         />
                       </div>
                     </div>
                     <div className="wrapper">
                       <div className="box a">
+                        <label for="notice">Notice Period (Days)</label>
+                        <input
+                          type="tel"
+                          id="notice"
+                          name="notice"
+                          min="2"
+                          max="2"
+                          maxLength="2"
+                          onChange={(e) => setSelfNoticePeriod(e.target.value)}
+                          required
+                        />
+                      </div>
+                      <div className="box b">
                         <label for="clocation">
                           Are you 100% vaccinated for Covid-19?{" "}
                         </label>
@@ -821,6 +812,9 @@ const ApplyJob = () => {
                           )}
                         </div>
                       </div>
+                    </div>
+                    <div className="wrapper">
+                      <div className="box a"></div>
                       <div className="box b">
                         <div className="up">
                           <div className="upd-file">
@@ -879,6 +873,7 @@ const ApplyJob = () => {
                               </div>
                             </button>
                           </div>
+                          <span>(PDF or word file only)</span>
                         </div>
                         <div>
                           {showResults ? (

@@ -8,14 +8,14 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase-config";
 
-export const BusinessRequiredContext = createContext();
+export const LocationContext = createContext();
 
-export const BusinessRequiredProvider = (props) => {
-  const [buzReqd, setBuzReqd] = useState([]);
+export const LocationProvider = (props) => {
+  const [locationData, setLocationData] = useState([]);
 
   useEffect(() => {
     try {
-      const colRef = collection(db, "buz_requirement");
+      const colRef = collection(db, "location");
       const q = query(colRef, orderBy("label", "asc"));
       onSnapshot(q, (snapshot) => {
         let asperquery = [];
@@ -25,8 +25,8 @@ export const BusinessRequiredProvider = (props) => {
 
         let temp = [];
         temp.push(asperquery);
-        setBuzReqd(asperquery);
-        setBuzReqd((state) => {
+        setLocationData(asperquery);
+        setLocationData((state) => {
           return state;
         });
       });
@@ -35,8 +35,8 @@ export const BusinessRequiredProvider = (props) => {
     }
   }, []);
   return (
-    <BusinessRequiredContext.Provider value={[buzReqd, setBuzReqd]}>
+    <LocationContext.Provider value={[locationData, setLocationData]}>
       {props.children}
-    </BusinessRequiredContext.Provider>
+    </LocationContext.Provider>
   );
 };
