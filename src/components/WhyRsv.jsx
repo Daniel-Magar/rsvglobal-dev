@@ -34,29 +34,34 @@ const WhyRsv = () => {
               </div>
               <div className="why-content">
                 <h4> We are:</h4>
-                <div class="why-flex">
-                  <div class="why-flex-left">
-                    <i class="bx bx-radio-circle-marked bullet" />
+
+                <div className="why-left-div">
+                  <div class="why-flex">
+                    <div class="why-flex-left">
+                      <i class="bx bx-radio-circle-marked bullet" />
+                    </div>
+                    <div class="why-flex-right">Proactive </div>
                   </div>
-                  <div class="why-flex-right">Proactive </div>
+                  <div class="why-flex">
+                    <div class="why-flex-left">
+                      <i class="bx bx-radio-circle-marked bullet" />
+                    </div>
+                    <div class="why-flex-right">Responsive</div>
+                  </div>
                 </div>
-                <div class="why-flex">
-                  <div class="why-flex-left">
-                    <i class="bx bx-radio-circle-marked bullet" />
+                <div className="why-right-div">
+                  <div class="why-flex">
+                    <div class="why-flex-left">
+                      <i class="bx bx-radio-circle-marked bullet" />
+                    </div>
+                    <div class="why-flex-right">Driven by Passion </div>
                   </div>
-                  <div class="why-flex-right">Responsive</div>
-                </div>
-                <div class="why-flex">
-                  <div class="why-flex-left">
-                    <i class="bx bx-radio-circle-marked bullet" />
+                  <div class="why-flex">
+                    <div class="why-flex-left">
+                      <i class="bx bx-radio-circle-marked bullet" />
+                    </div>
+                    <div class="why-flex-right">Governed by Ethics </div>
                   </div>
-                  <div class="why-flex-right">Driven by Passion </div>
-                </div>
-                <div class="why-flex">
-                  <div class="why-flex-left">
-                    <i class="bx bx-radio-circle-marked bullet" />
-                  </div>
-                  <div class="why-flex-right">Governed by Ethics </div>
                 </div>
               </div>
             </div>

@@ -1,59 +1,65 @@
-import React, { useEffect } from "react";
-import WhyRsv from "./WhyRsv";
-import Contact from "./Contact";
-import TopNav from "./TopNav";
+import React from "react";
 import Footer from "./Footer";
-import "../banner.css";
+import TopNav from "./TopNav";
 
-const Pstaffing = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+const TempStaffing = () => {
   return (
     <>
       <TopNav />
-      <section id="permanentstaffing">
+      <section id="tempstaffing">
         <div className="staffing-head">
           <div className="staffing-content">
             <div className="pstaff-txt">
-              <h2>Permanent Staffing </h2>
+              <h2>Temporary Staffing </h2>
             </div>
             <div className="staff-pic-div">
-              <img src="./hire.svg" alt="hire" className="staffpics" />
+              <img
+                src="./tempstaffing.svg"
+                alt="temporarystaffing"
+                className="staffpics"
+              />
             </div>
           </div>
         </div>
 
         <div className="perstaff-content">
           <div className="phiring-right">
-            <img src="./phiring.svg" alt="hire" className="staffpics" />
+            <img src="./tempstaffing2.svg" alt="hire" className="staffpics" />
           </div>
           <div className="phiring-right">
-            <h3>Recruitment</h3>
+            <h3>Temp Staffing : The Resource is yours and the Human ours!!</h3>
             <p>
-              Hiring the right people in right time is one of the most
-              challenging areas of the HR which impacts business. Two of the
-              major factors being :
+              We endeavor to provide businesses the desired flexibility with
+              temporary resources to be associated only functionally.We will
+              handle all other aspects of employment of these resources –
+              onboarding to exit:
             </p>
             <p>
               <div className="points-txt">
                 <div>
                   <i class="bx bx-radio-circle-marked bullet" />
                 </div>
-                <div>Time Consumed in scouting for the right fit</div>
+                <div>
+                  Disengagement of the resources, if required, post projects
+                  instead of benching them OR
+                </div>
               </div>
+              <br />
               <div className="points-txt">
                 <div>
                   <i class="bx bx-radio-circle-marked bullet" />
                 </div>
-                <div>Cost incurred in the process</div>
+                <div>
+                  Absorption and regularization of valuable resources and
+                  letting go off the remaining seamlessly
+                </div>
               </div>
             </p>
             <p>
               We address these with finesse which lets you focus on your core
               business Based on the position we hire for, we employ both
               conventional and unconventional methods using a wide database and
-              Platform
+              Platform.
             </p>
             <p>
               We have found success in using a combination of methodologies used
@@ -74,4 +80,4 @@ const Pstaffing = () => {
   );
 };
 
-export default Pstaffing;
+export default TempStaffing;

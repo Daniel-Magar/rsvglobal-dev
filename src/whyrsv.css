@@ -8,6 +8,7 @@
   flex-direction: row;
   font-size: 18px;
   text-align: center;
+  padding: 2px 14px 28px 0;
   width: 100%;
   /* border: 1px solid rgb(19, 18, 19); */
 }
@@ -34,6 +35,14 @@
 .why-content {
   padding: 10px 20px;
 }
+
+.why-left-div {
+  display: flex;
+}
+.why-right-div {
+  display: flex;
+}
+
 .why-content-parent {
   display: flex;
   /* border: 1px solid purple; */
@@ -41,7 +50,9 @@
 @media (max-width: 800px) {
   .why-content-parent {
     display: inline;
-    /* border: 1px solid purple; */
+  }
+  .why-content {
+    padding: 10px 0 0 0;
   }
 }
 @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {

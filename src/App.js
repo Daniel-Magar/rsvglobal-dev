@@ -28,6 +28,9 @@ import WhyRsv from "./components/WhyRsv";
 import Contact from "./components/Contact";
 import { BusinessRequiredProvider } from "./context/BussinessRquiredContext";
 import { LocationProvider } from "./context/LocationContext";
+import TempStaffing from "./components/TempStaffing";
+import HrStatutoryComp from "./components/HrStatutoryComp";
+import Payroll from "./components/Payroll";
 function App() {
   const { currentUser } = useContext(AuthContext);
 
@@ -110,6 +113,13 @@ function App() {
               <Route exact path="/" element={<Body />} />
               <Route path="/home" element={<Body />} />
               <Route path="permanentstaffing" element={<Pstaffing />} />
+              <Route path="/tempstaffing" element={<TempStaffing />} />
+              <Route path="/payroll" element={<Payroll />} />
+              <Route
+                path="/statutoryCompliance"
+                element={<HrStatutoryComp />}
+              />
+
               <Route path="/applyjob" element={<ApplyJob />} />
               <Route path="/cvupload" element={<CareerCVupload />} />
               <Route path="/whyrsv" element={<WhyRsv />} />

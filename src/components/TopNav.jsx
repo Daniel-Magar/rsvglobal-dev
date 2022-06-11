@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { NavHashLink } from "react-router-hash-link";
 
 import "boxicons";
@@ -56,19 +56,13 @@ const TopNav = () => {
                 <Link to="/permanentstaffing">Permanent Staffing</Link>
               </li>
               <li>
-                <a href="#" id="subnav">
-                  Temp Staffing
-                </a>
+                <Link to="/tempstaffing"> Temp Staffing</Link>
               </li>
               <li>
-                <a href="#" id="subnav">
-                  HR Statutory Compliance
-                </a>
+                <Link to="/statutoryCompliance">HR Statutory Compliance</Link>
               </li>
               <li>
-                <a href="#" id="subnav">
-                  Payroll
-                </a>
+                <Link to="/payroll">Payroll</Link>
               </li>
             </ul>
           </li>

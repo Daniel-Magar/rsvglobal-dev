@@ -256,7 +256,7 @@ const Career = (props) => {
             <div className="career-flex-item-left">
               <div className="card upldcard">
                 <div className="container">
-                  <img src="./career1.svg" alt="" className="career-img" />
+                  <img src="./career.svg" alt="" className="career-img" />
                 </div>
               </div>
             </div>

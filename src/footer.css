@@ -9,7 +9,7 @@
 }
 
 .main-footer h1 {
-  font-size: 22px;
+  font-size: 34px;
   line-height: 117%;
   color: #ffffff;
   margin-bottom: 10px;
@@ -28,7 +28,7 @@
 
 .copyrt {
   background-color: #030441;
-  /* border-top: 1px solid #6eb981; */
+
   font-size: 17px;
   padding: 15px 5px;
   color: #ffffff;
@@ -47,7 +47,7 @@
 }
 
 .contact-details {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .contact-details li {
@@ -88,22 +88,55 @@ li:focus-within {
   color: white;
 }
 @media only screen and (max-width: 749px) {
+  .rsv-footer {
+    height: auto;
+  }
+  .main-footer {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .info {
+    padding: 20px 0;
+  }
+  .main-footer h1 {
+    font-size: 20px;
+    line-height: 117%;
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .main-footer h3 {
+    font-size: 20px;
+    line-height: 42px;
+  }
+}
+@media (max-width: 800px) {
   .main-footer {
     padding: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  .info {
-    padding: 20px 0;
+  .main-footer > div {
+    align-items: center;
+    justify-content: center;
   }
 }
-
 @media (max-width: 480px) {
   .main-footer {
-    grid-template-columns: 1fr;
+    justify-content: space-between;
+    grid-template-columns: 1fr 1fr;
   }
   .sociallogos {
     padding: 20px 0;
+  }
+  .copyrt {
+    background-color: #030441;
+    font-size: 12px;
+    padding: 15px 5px;
+    color: #ffffff;
+    text-align: center;
   }
   .com {
     padding: 20px 0;

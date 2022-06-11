@@ -34,12 +34,12 @@
   /* font-family: "Iowan Old Style"; */
   font-style: normal;
   font-weight: 400;
-  font-size: 45.6935px;
-  line-height: 62px;
+  font-size: 60.6935px;
+  line-height: 84px;
   top: 50px;
   left: 8%;
   color: #030441;
-  font-weight: 500;
+  font-weight: 650;
 }
 .heropic {
   width: 480.98px;
@@ -89,12 +89,48 @@
   padding: 0px 0px 36px 85px;
   font-size: 20px;
 }
+
 .staffing-head {
-  background-color: #ebc5c6;
+  background-color: #e9eaff;
   height: 300px;
+}
+.staffing-content {
+  width: 82%;
+  /* border: 1px solid purple; */
+  padding: 50px 12px 30px 20px;
   display: flex;
+
+  margin-left: 8%;
   align-items: center;
   justify-content: space-between;
+}
+.staff-pic-div {
+  width: 450px;
+}
+.staffpics {
+  width: 100%;
+}
+.perstaff-content {
+  width: 72%;
+  padding: 30px 30px 30px 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 200px;
+  margin-left: 14%;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  align-items: center;
+  background-color: white;
+}
+.phiring-right > p {
+  font-size: 18px;
+  text-align: justify;
+}
+.points-txt {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  /* justify-content: center; */
 }
 @media (max-width: 800px) {
   .banner-flex-container {
@@ -162,12 +198,15 @@
     position: absolute;
   }
   .banner-txt {
-    /* border: 1px solid red; */
+    font-weight: 700;
     position: relative;
     width: 100%;
-    font-size: 22px;
-    /* top: 30%; */
-    left: 8%;
+    font-size: 40px;
+    padding: 0 0 0 0;
+    left: 0%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
   }
   .heropic {
     width: 340px;
@@ -189,6 +228,51 @@
   .service-item p {
     font-size: 16px;
     padding: 30px 0px 0px;
+  }
+  .mission-txt {
+    padding: 0px 0px 24px 0px;
+    font-size: 16px;
+    justify-content: center;
+    text-align: justify;
+  }
+  .staffing-head {
+    background-color: #e9eaff;
+    height: auto;
+  }
+  .staffing-content {
+    padding: 50px 12px 30px 20px;
+    display: flex;
+    gap: 20%;
+
+    align-items: center;
+    justify-content: space-between;
+  }
+  .staff-pic-div {
+    width: 100%;
+    padding: 0px;
+  }
+  .pstaff-txt > h2 {
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+  }
+  .perstaff-content {
+    width: 88%;
+    border: 1px solid purple;
+    padding: 30px 30px 30px 20px;
+    display: contents;
+    margin-left: 6%;
+    align-items: center;
+  }
+  .phiring-right {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .phiring-right > p {
+    font-size: 16px;
+    text-align: justify;
   }
 }
 @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
