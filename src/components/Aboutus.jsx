@@ -12,7 +12,7 @@ const Aboutus = () => {
             <div className="about-abt" style={{ width: "30%" }}>
               {/* <p className="abt-text"> About</p> */}
               <p className="text">
-                <b className="rsv-global">RSV</b>
+                <b className="rsv-global">RSV</b> &nbsp;
                 <b className="global">Global</b>
               </p>
             </div>

@@ -340,10 +340,12 @@ ul li ul li {
 .rsv-global {
   text-align: left;
   font-size: 50px;
+
   color: rgb(247, 71, 73);
 }
 .global {
-  font-size: 28px;
+  font-size: 50px;
+  font-weight: normal;
   color: #030441;
 }
 .abt-subcontent {
