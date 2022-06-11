@@ -140,7 +140,7 @@ select {
   }
   .contact-container {
     text-align: center;
-    padding: 34px 200px;
+    padding: 34px 0px;
     background-color: #f6f6f6;
   }
 }

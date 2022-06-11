@@ -13,9 +13,9 @@ const TopNav = () => {
     <>
       <nav className="navbar">
         <h1 className="logo">
-          <Link
-            href="#home"
-            to="/home"
+          <NavHashLink 
+        
+            to="/#home"
             style={{ textDecoration: "none!important", padding: "0 12px" }}
           >
             {/* <a href="#home"> */}
@@ -29,7 +29,7 @@ const TopNav = () => {
               </div>
             </div>
             {/* </a> */}
-          </Link>
+          </NavHashLink>
         </h1>
         <input type="checkbox" name="" id="" />
         <div className="hamburger-lines">

@@ -122,6 +122,12 @@ li:focus-within {
     align-items: center;
     justify-content: center;
   }
+  .rsv-footer {
+    /* height: 300px; */
+    border-radius: 1px solid purple;
+    left: 0px;
+    background: #030441;
+}
 }
 @media (max-width: 480px) {
   .main-footer {

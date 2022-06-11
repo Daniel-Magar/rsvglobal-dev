@@ -141,10 +141,10 @@
   .banner-flex-container {
     display: flex;
     /* border: 2px solid red; */
-    width: 82%;
+    width: 100%;
     margin: 0 auto;
     justify-content: space-between;
-    padding: 88px 0 240px 0;
+    padding: 5px 0 20px 0;
   }
   .info {
     background-color: #030441;
@@ -198,10 +198,10 @@
     position: absolute;
   }
   .banner-txt {
-    font-weight: 700;
+    font-weight: 400;
     position: relative;
     width: 100%;
-    font-size: 40px;
+    font-size: 48px;
     padding: 0 0 0 0;
     left: 0%;
     text-align: center;
@@ -310,6 +310,40 @@
   }
 }
 @media (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
+   
+
 }
 @media (max-device-width: 800px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+}
+
+@media (min-width: 600px) and (max-width: 800px) {
+
+      .banner-flex-container {
+        display: flex;
+        /* border: 2px solid red; */
+        width: 82%;
+        margin: 0 auto;
+        justify-content: space-between;
+        /* background-color: green; */
+        padding: 0px 0 0px 0;
+    }
+  
+  
+  }
+ 
+
+@media only screen   
+and (orientation : landscape)   
+and (-webkit-min-device-pixel-ratio: 1)  
+and (min-device-width : 768px)   
+and (max-device-width : 1007px)   
+{ 
+  .banner-flex-container {
+    display: flex;
+
+    width: 100%;
+    margin: 0 auto;
+    justify-content: space-between;
+
+}
 }

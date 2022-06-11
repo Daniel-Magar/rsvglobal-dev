@@ -93,8 +93,8 @@ a {
 }
 
 .rsv-footer {
-  height: 300px;
-  border-radius: 1px solid purple;
+  /* height: 300px; */
+  /* border-radius: 1px solid purple; */
   left: 0px;
   background: #030441;
 }
@@ -757,18 +757,55 @@ ul li ul li {
   #about {
     padding: 7% 0 0 0;
   }
+  .contact-container {
+    text-align: center;
+    padding: 30px 0;
+    background-color: #f6f6f6;
+}
+  .about-section {
+    display: contents;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 40px 0 24px 0;
+}
+.contact-container {
+  text-align: center;
+  padding: 30px 0;
+  background-color: #f6f6f6;
+}
+.banner-flex-container {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+.about-serv {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px 0 16px 0!important;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.abt-main {
+  width: 100%;
+
+  margin: 0 auto;
+  font-size: 20px;
+  margin-top: 40px;
+}
+.mission-txt {
+  padding: 0px 0px 24px 0px;
+  font-size: 20px;
+}
   .about-section .about-abt {
     width: 100% !important;
     margin: 0 auto;
-
-    padding: 0px 0px 0px 0;
-    font-size: 20px;
-  }
-
-  .about-section .about-abt {
-    width: 100% !important;
-    margin: 0 auto;
-
+    text-align: center;
     padding: 0px 0px 0px 0;
     font-size: 20px;
   }
@@ -795,6 +832,12 @@ ul li ul li {
     top: 0;
     z-index: 100;
   }
+  .rsv-footer {
+    /* height: 300px; */
+    border-radius: 1px solid purple;
+    left: 0px;
+    background: #030441;
+}
 
   .navbar input[type="checkbox"] {
     position: absolute;
