@@ -9,7 +9,7 @@ const Aboutus = () => {
       <div className="services">
         <div className="services-container">
           <div className="about-serv">
-            <div className="about-abt" style={{ width: "30%" }}>
+            <div className="about-abt">
               {/* <p className="abt-text"> About</p> */}
               <p className="text">
                 <b className="rsv-global">RSV</b> &nbsp;
@@ -17,7 +17,7 @@ const Aboutus = () => {
               </p>
             </div>
             <div className="abt-main">
-              <div className="about-abt">
+              <div className="about-abt" style={{width:"100%"}}>
                 <p className="text">
                   RSV Global, with leadership experience of 25+ years in the
                   fields of Staffing, Recruitment, entire gamut of HR Operations
@@ -84,7 +84,7 @@ const Aboutus = () => {
           <div className="mission-txt abt-nature">
             Each of the above, by nature, are heavy on time and cost. By
             undertaking these processes for you, we provide you the opportunity
-            to grow lean, focusing and growing on your core business objectives
+            to grow lean, focusing and growing on your core business objectives.
           </div>
           <div className="">
             <div className="services-txt">
@@ -105,7 +105,7 @@ const Aboutus = () => {
                   Endeavour to pass optimum benefit to Customers, business
                   partners and employees; contribute to the society by spreading
                   awareness of available employment opportunities by optimum use
-                  of technology
+                  of technology.
                 </p>
               </div>
             </div>

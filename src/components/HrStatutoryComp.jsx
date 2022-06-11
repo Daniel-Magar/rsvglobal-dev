@@ -32,7 +32,7 @@ const HrStatutoryComp = () => {
             <p>
               Compliance with statutes is critical and often complex by nature
               of its tedious process And extensive documentation which again has
-              a TIME and COST implication on businesses
+              a TIME and COST implication on businesses.
             </p>
 
             <p>
@@ -43,7 +43,7 @@ const HrStatutoryComp = () => {
             <p>
               We also aid in framing HR Policy, which makes room for
               organizations, particularly startups to be focused on the core
-              business
+              business.
             </p>
           </div>
         </div>

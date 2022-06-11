@@ -51,7 +51,7 @@ const TempStaffing = () => {
                 </div>
                 <div>
                   Absorption and regularization of valuable resources and
-                  letting go off the remaining seamlessly
+                  letting go off the remaining seamlessly.
                 </div>
               </div>
             </p>
@@ -64,12 +64,12 @@ const TempStaffing = () => {
             <p>
               We have found success in using a combination of methodologies used
               in Recruitment, Talent Acquisition, Head Hunting, Lateral Hiring
-              among conventional methods in the organised sectors
+              among conventional methods in the organised sectors.
             </p>
             <p>
               Most often than not, we have found success through out-of-the-box
               thinking and adapting unconventional approaches in domains
-              experiencing highly volatile work-force
+              experiencing highly volatile work-force.
             </p>
           </div>
         </div>
