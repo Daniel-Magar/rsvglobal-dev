@@ -13,7 +13,7 @@ const Container = (props) => {
               <img src="./ellipse1.png" alt="ellipse" className="ellipse" />
             </div>
             <div className="banner-txt">
-              <p>Your Trusted Partners </p>
+              <p>Trusted Partners </p>
               <p>for all your HR requirements</p>
             </div>
           </div>
