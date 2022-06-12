@@ -19,6 +19,7 @@ import {
 import ProgressBar from "./ProgressBar";
 import { CheckPicker, Checkbox, Button, SelectPicker, Schema } from "rsuite";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
+import ReactReadMoreReadLess from "react-read-more-read-less";
 
 import {
   collection,
@@ -381,9 +382,9 @@ const ApplyJob = () => {
 
   useEffect(() => {
     setMydate(selectedData.data);
-    console.log("==========================", mydate?.timestamp);
+
     var d = new Date(mydate?.timestamp?.seconds * 1000);
-    console.log("uuuuuuuuuuuuuuuuuuuuu", d);
+
     var cdte = d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
     console.log(cdte);
     setFinalDate(cdte);
@@ -405,33 +406,67 @@ const ApplyJob = () => {
                   </div>
                 </div>
                 <div>
-                  <div class="info-grid-container">
-                    <div class="info-grid-item">
+                <div class="info-grid-item">
                       <b>Role: </b>
 
                       <span>{selectedData.data.jobtitle}</span>
                     </div>
+                  <div class="info-grid-container">
+                   
                     <div class="info-grid-item">
-                      <b>Skill Required: </b>
-                      <span>{selectedData.data.skill}</span>
+                      <b>Primary Skill Required: </b>
+                      <span>
+                      <ReactReadMoreReadLess
+                            charLimit={100}
+                            readMoreText={"Read more ▼"}
+                            readLessText={"Read less ▲"}
+                        >
+                              {selectedData.data.skill}
+                        </ReactReadMoreReadLess>
+                     
+                        
+                        </span>
                     </div>
                     <div class="info-grid-item">
-                      <b>Job Description: </b>
-                      <span>{selectedData.data.jobdescrp}</span>
+                      <b>Secondary Skill: </b>
+                      <span>
+                      <ReactReadMoreReadLess
+                            charLimit={100}
+                            readMoreText={"Read more ▼"}
+                            readLessText={"Read less ▲"}
+                        >
+                              {selectedData.data.secskill}
+                        </ReactReadMoreReadLess>
+                       
+                        </span>
                     </div>
                     <div class="info-grid-item">
-                      <b>Qualification: </b>
-                      <span>{selectedData.data.qualification}</span>
+                      <b>Description: </b>
+                      <span>
+                      <ReactReadMoreReadLess
+                            charLimit={100}
+                            readMoreText={"Read more ▼"}
+                            readLessText={"Read less ▲"}
+                        >
+                              {selectedData.data.jobdescrp}
+                        </ReactReadMoreReadLess>
+                       
+                        </span>
                     </div>
+                   
                     <div class="info-grid-item">
+                      <div>
                       <b>Notice Period: </b>
                       <span>{selectedData.data.noticeperiod}</span>
-                    </div>
-                    <div class="info-grid-item">
+                      </div>
+                    
+                      <div>
                       <b>Job Posted On: </b>
 
-                      <span>{finalDate}</span>
+                        <span>{finalDate}</span>
+                      </div>
                     </div>
+                 
                   </div>
                 </div>
               </div>
