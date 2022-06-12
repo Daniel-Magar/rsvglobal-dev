@@ -166,6 +166,12 @@
   .career {
     margin: 15px 12px;
   }
+  .info-grid-container {
+    display: grid;
+    grid-template-columns: auto;
+    /* background-color: #2196f3; */
+    padding: 10px;
+}
   .wrapper {
     display: grid;
     grid-template-columns: 1fr;
