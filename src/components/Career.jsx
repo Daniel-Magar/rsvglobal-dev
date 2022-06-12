@@ -292,53 +292,41 @@ const Career = (props) => {
                     <div className="card" key={idx}>
                       <div className="car-container">
                         <div className="cargrid">
-                          <div className="cargrid-item-left">
-                            <h6>Role: </h6>
-                          </div>
+                         
                           <div className="cargrid-item-right">
                             <div className="cargrid-item">
-                              - {data.jobtitle}
+                              <h3> {data.jobtitle}</h3>
                             </div>
                           </div>
                         </div>
                         <div className="cargrid">
-                          <div className="cargrid-item-left">
-                            <h6>Skills Required: </h6>
-                          </div>
-                          <div className="cargrid-item-right">
-                            <div className="cargrid-item">- {data.skill}</div>
-                          </div>
-                        </div>
+                         
+                         <div className="cargrid-item-right">
+                           <div className="cargrid-item">
+                              <p>{data.ctc}</p> 
+                              
+                              </div>
+                         </div>
+                       </div>
                         <div className="cargrid">
-                          <div className="cargrid-item-left">
-                            <h6>Description: </h6>
-                          </div>
+                         
                           <div className="cargrid-item-right">
                             <div className="cargrid-item">
-                              - {data.jobdescrp}
+                               <p>{data.experience}</p> 
+                               
+                               </div>
+                          </div>
+                        </div>
+                       
+                        <div className="cargrid">
+                         
+                          <div className="cargrid-item-right">
+                            <div className="cargrid-item">
+                               {data.location}
                             </div>
                           </div>
                         </div>
-                        <div className="cargrid">
-                          <div className="cargrid-item-left">
-                            <h6>Qualification: </h6>
-                          </div>
-                          <div className="cargrid-item-right">
-                            <div className="cargrid-item">
-                              - {data.qualification}
-                            </div>
-                          </div>
-                        </div>
-                        <div className="cargrid">
-                          <div className="cargrid-item-left">
-                            <h6>Notice Period: </h6>
-                          </div>
-                          <div className="cargrid-item-right">
-                            <div className="cargrid-item">
-                              - {data.noticeperiod}
-                            </div>
-                          </div>
-                        </div>
+                  
                       </div>
                       <div className="btngrid">
                         <div className="btn-item-right ">

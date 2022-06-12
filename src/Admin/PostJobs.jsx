@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import {
   Grid,
@@ -21,8 +21,9 @@ import {
   Modal,
   Divider,
 } from "rsuite";
-import Input from "rsuite/Input";
+
 import { Table, Column, HeaderCell, Cell } from "rsuite-table";
+// import { CheckPicker, Checkbox, Button, SelectPicker, Schema } from "rsuite";
 import LeftNav from "./LeftNav";
 import RemindOutlineIcon from "@rsuite/icons/RemindOutline";
 import {
@@ -35,8 +36,9 @@ import {
   deleteField,
 } from "firebase/firestore";
 import { db } from "../firebase-config";
-import { async } from "@firebase/util";
+
 import Welcome from "./Welcome";
+import { LocationContext } from "../context/LocationContext";
 
 const selectdata = [
   { value: "Under Graduate", label: "Under Graduate" },
@@ -64,6 +66,8 @@ const TextField = React.forwardRef((props, ref) => {
 });
 
 const PostJobs = (props) => {
+
+  const [locationData, setLocationData] = useContext(LocationContext);
   const [show, setShow] = useState(false);
   const [info, setInfo] = useState("");
 
@@ -74,6 +78,10 @@ const PostJobs = (props) => {
     qualification: "",
     jobdescrp: "",
     skill: "",
+    secskill: "",
+    experience: "",
+    location: "",
+    ctc: "",
     noticeperiod: "",
   });
 
@@ -91,9 +99,12 @@ const PostJobs = (props) => {
           jobtitle: formValue.jobtitle,
           qualification: formValue.qualification,
           jobdescrp: formValue.jobdescrp,
+          experience: formValue.experience,
           skill: formValue.skill,
+          secskill: formValue.secskill,
+          ctc: formValue.ctc,
           noticeperiod: formValue.noticeperiod,
-
+          location: formValue.location,
           timestamp: Timestamp.now(),
         },
         { signal: abortCont.signal }
@@ -320,9 +331,14 @@ const PostJobs = (props) => {
     qualification: "",
     jobdescrp: "",
     skill: "",
+    secskill: "",
+    experience: "",
+    ctc: "",
     noticeperiod: "",
   });
 
+  const [location, setLocation] = useState();
+  const [ctc, setCtc] = useState();
   const handleUpdate = async () => {
     const abortCont = new AbortController();
     try {
@@ -334,7 +350,11 @@ const PostJobs = (props) => {
           jobtitle: editFormData.jobtitle,
           qualification: editFormData.qualification,
           jobdescrp: editFormData.jobdescrp,
-          skill: editFormData.skill,
+          experience: editData.experience,
+          primaryskill: editFormData.skill,
+          secondaryskill: editFormData.secskill,
+          location: editFormData.location,
+          ctc: editFormData.ctc,
           noticeperiod: editFormData.noticeperiod,
           timestamp: Timestamp.now(),
         },
@@ -442,7 +462,11 @@ const PostJobs = (props) => {
                                   name="jobdescrp"
                                   label="Job Description:"
                                 />
-                                <TextField name="skill" label="Skills:" />
+                                 <TextField name="location" label="Location:" />
+                                 <TextField name="experience" label="Experience Reqd.:" />
+                                <TextField name="skill" label="Primary Skills:" />
+                                <TextField name="secskill" label="Secondary Skills:" />
+                                <TextField name="ctc" label="CTC:" />
                                 <TextField
                                   name="noticeperiod"
                                   label="Notice Period:"

@@ -290,33 +290,7 @@ const CareerCVupload = () => {
     const storageRef = ref(storage, `resume/${filename + "." + extension}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
     try {
-      // addDoc(collection(db, "job_posts"), {
-      //   job_post_id: selectedData.data.id,
-      //   jobtitle: selectedData.data.jobtitle,
-      //   qualification_reqd: selectedData.data.qualification,
-      //   jobdescrp: selectedData.data.jobdescrp,
-      //   skill: selectedData.data.skill,
-      //   noticeperiod: selectedData.data.noticeperiod,
-      //   applied_type: "Job Post",
-      //   full_name: fullname,
-      //   gender: gender,
-      //   email_id: email,
-      // phone_no: phoneNumber,
-      // alt_ph_no: altPhNumber,
-      // qualification: eduvalue,
-      // languages_known: value,
-      // total_experience: experience,
-      // relevant_experience: relvExperience,
-      // currentLastEmployee: currentLastEmp,
-      // currentLastJobRole: currentLastRole,
-      // job_preference: jobpref,
-      // candidate_noticeperiod: selfNoticePeriod,
-      //current_ctc: currentCTC,
-      //expected_ctc: expectedCTC,
-      // vaccinated: vaccine,
-      //    applied_date: selectedDate,
-      //   timestamp: Timestamp.now(),
-      // });
+     
       uploadTask.on(
         "state_changed",
         (snapshot) => {
@@ -346,6 +320,7 @@ const CareerCVupload = () => {
               languages_known: value,
               total_experience: experience,
               jobtitle: "NA",
+
               // relevant_experience: relvExperience,
               // currentLastEmployee: currentLastEmp,
               // currentLastJobRole: currentLastRole,
@@ -502,45 +477,10 @@ const CareerCVupload = () => {
                         />
                         <span className="validity"></span>
                       </div>
-                      {/* <div className="box b">
-                        <label for="gender">Date of Birth</label>
-                        <ThemeProvider theme={theme}>
-                          <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                            <div
-                              style={{
-                                display: "inline-flex",
-                                flexDirection: "column",
-                                gap: 10,
-                                width: "100%",
-                              }}
-                            >
-                              <KeyboardDatePicker
-                                value={selectedDate}
-                                inputVariant="outlined"
-                                onChange={handleDateChange}
-                                className={`muiinp ${classes.componentStyle}`}
-                              />
-                            </div>
-                          </MuiPickersUtilsProvider>
-                        </ThemeProvider>
-                      </div> */}
+                    
                     </div>
                     <div className="wrapper">
-                      {/* <div className="box b">
-                        <label for="altphno">Alternate Phone Number</label>
-                        <input
-                          type="tel"
-                          id="altphno"
-                          name="altphno"
-                          pattern="[0-9]{10}"
-                          max="10"
-                          min="10"
-                          maxLength="10"
-                          onChange={(e) => setAltPhNumber(e.target.value)}
-                          required
-                        />
-                        <span className="validity"></span>
-                      </div> */}
+                     
                     </div>
                     <div className="wrapper">
                       <div className="box a">
