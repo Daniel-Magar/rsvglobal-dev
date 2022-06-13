@@ -292,41 +292,55 @@ const Career = (props) => {
                     <div className="card" key={idx}>
                       <div className="car-container">
                         <div className="cargrid">
-                         
                           <div className="cargrid-item-right">
                             <div className="cargrid-item">
-                              <h3> {data.jobtitle}</h3>
+                              <h4> {data.jobtitle}</h4>
                             </div>
                           </div>
                         </div>
                         <div className="cargrid">
-                         
-                         <div className="cargrid-item-right">
-                           <div className="cargrid-item">
-                              <p>{data.ctc}</p> 
-                              
+                          <div className="cargrid-item-right">
+                            <div className="cargrid-item">
+                              <div className="oppr-flex">
+                                <div>
+                                  <i class="bx bxs-wallet career-icn"></i>
+                                </div>
+                                <div>
+                                  <p>{data.ctc}</p>
+                                </div>
                               </div>
-                         </div>
-                       </div>
-                        <div className="cargrid">
-                         
-                          <div className="cargrid-item-right">
-                            <div className="cargrid-item">
-                               <p>{data.experience}</p> 
-                               
-                               </div>
-                          </div>
-                        </div>
-                       
-                        <div className="cargrid">
-                         
-                          <div className="cargrid-item-right">
-                            <div className="cargrid-item">
-                               {data.location}
                             </div>
                           </div>
                         </div>
-                  
+                        <div className="cargrid">
+                          <div className="cargrid-item-right">
+                            <div className="cargrid-item">
+                              <div className="oppr-flex">
+                                <div>
+                                  <i class="bx bxs-briefcase-alt career-icn"></i>
+                                </div>
+                                <div>
+                                  <p>{data.experience}</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="cargrid">
+                          <div className="cargrid-item-right">
+                            <div className="cargrid-item">
+                              <div className="oppr-flex">
+                                <div>
+                                  <i class="bx bxs-map career-icn"></i>
+                                </div>
+                                <div>
+                                  <p> {data.location}</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                       <div className="btngrid">
                         <div className="btn-item-right ">

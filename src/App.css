@@ -332,7 +332,7 @@ ul li ul li {
   padding: 20px 0px 0px 0;
   font-size: 20px;
 }
-.about-abt{
+.about-abt {
   width: 30%;
 }
 .abt-text {
@@ -491,14 +491,16 @@ ul li ul li {
     padding: 0px 0px 0px 0;
     font-size: 20px;
   }
-  .about-abt{
-       width: 100%;
+  .about-abt {
+    width: 100%;
   }
   .text {
-    align-items: center;
+    /* align-items: center; */
     text-align: justify;
     font-size: 16px;
-    /* border: 1px solid green; */
+    display: flex;
+    text-align: center;
+    justify-content: center;
     width: 100% !important;
   }
   .abt-main {
@@ -769,7 +771,7 @@ ul li ul li {
     text-align: center;
     padding: 30px 0;
     background-color: #f6f6f6;
-}
+  }
   .about-section {
     display: contents;
     margin: 0 auto;
@@ -777,39 +779,39 @@ ul li ul li {
     align-items: center;
     width: 100%;
     padding: 40px 0 24px 0;
-}
-.contact-container {
-  text-align: center;
-  padding: 30px 0;
-  background-color: #f6f6f6;
-}
-.banner-flex-container {
-  display: flex;
-  flex-direction: column-reverse;
-  width: 100%;
-  margin: 0 auto;
-  justify-content: space-between;
-}
-.about-serv {
-  display: flex;
-  flex-direction: column;
-  margin: 10px;
-  padding: 10px 0 16px 0!important;
-  font-size: 20px;
-  justify-content: center;
-  align-items: center;
-}
-.abt-main {
-  width: 100%;
+  }
+  .contact-container {
+    text-align: center;
+    padding: 30px 0;
+    background-color: #f6f6f6;
+  }
+  .banner-flex-container {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: space-between;
+  }
+  .about-serv {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    padding: 10px 0 16px 0 !important;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  .abt-main {
+    width: 100%;
 
-  margin: 0 auto;
-  font-size: 20px;
-  margin-top: 40px;
-}
-.mission-txt {
-  padding: 0px 0px 24px 0px;
-  font-size: 20px;
-}
+    margin: 0 auto;
+    font-size: 20px;
+    margin-top: 40px;
+  }
+  .mission-txt {
+    padding: 0px 0px 24px 0px;
+    font-size: 20px;
+  }
   .about-section .about-abt {
     width: 100% !important;
     margin: 0 auto;
@@ -845,7 +847,7 @@ ul li ul li {
     border-radius: 1px solid purple;
     left: 0px;
     background: #030441;
-}
+  }
 
   .navbar input[type="checkbox"] {
     position: absolute;

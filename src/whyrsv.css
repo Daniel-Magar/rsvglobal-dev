@@ -54,6 +54,10 @@
   .why-content {
     padding: 10px 0 0 0;
   }
+  .bullet {
+    font-size: 26px;
+    color: #030441;
+  }
 }
 @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
 }

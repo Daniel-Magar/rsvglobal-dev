@@ -252,8 +252,8 @@
     padding: 0px;
   }
   .pstaff-txt > h2 {
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 30px;
+    line-height: 34px;
     text-align: left;
   }
   .perstaff-content {
@@ -310,40 +310,28 @@
   }
 }
 @media (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
-   
-
 }
 @media (max-device-width: 800px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
 }
 
 @media (min-width: 600px) and (max-width: 800px) {
-
-      .banner-flex-container {
-        display: flex;
-        /* border: 2px solid red; */
-        width: 82%;
-        margin: 0 auto;
-        justify-content: space-between;
-        /* background-color: green; */
-        padding: 0px 0 0px 0;
-    }
-  
-  
+  .banner-flex-container {
+    display: flex;
+    /* border: 2px solid red; */
+    width: 82%;
+    margin: 0 auto;
+    justify-content: space-between;
+    /* background-color: green; */
+    padding: 0px 0 0px 0;
   }
- 
+}
 
-@media only screen   
-and (orientation : landscape)   
-and (-webkit-min-device-pixel-ratio: 1)  
-and (min-device-width : 768px)   
-and (max-device-width : 1007px)   
-{ 
+@media only screen and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) and (min-device-width: 768px) and (max-device-width: 1007px) {
   .banner-flex-container {
     display: flex;
 
     width: 100%;
     margin: 0 auto;
     justify-content: space-between;
-
-}
+  }
 }

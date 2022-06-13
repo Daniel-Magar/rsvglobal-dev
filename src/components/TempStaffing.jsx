@@ -14,7 +14,7 @@ const TempStaffing = () => {
             </div>
             <div className="staff-pic-div">
               <img
-                src="./tempstaffing.svg"
+                src="./tempstaff.svg"
                 alt="temporarystaffing"
                 className="staffpics"
               />
@@ -54,22 +54,6 @@ const TempStaffing = () => {
                   letting go off the remaining seamlessly.
                 </div>
               </div>
-            </p>
-            <p>
-              We address these with finesse which lets you focus on your core
-              business Based on the position we hire for, we employ both
-              conventional and unconventional methods using a wide database and
-              Platform.
-            </p>
-            <p>
-              We have found success in using a combination of methodologies used
-              in Recruitment, Talent Acquisition, Head Hunting, Lateral Hiring
-              among conventional methods in the organised sectors.
-            </p>
-            <p>
-              Most often than not, we have found success through out-of-the-box
-              thinking and adapting unconventional approaches in domains
-              experiencing highly volatile work-force.
             </p>
           </div>
         </div>

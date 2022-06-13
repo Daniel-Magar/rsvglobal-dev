@@ -53,17 +53,20 @@ const Pstaffing = () => {
               We address these with finesse which lets you focus on your core
               business Based on the position we hire for, we employ both
               conventional and unconventional methods using a wide database and
-              Platform
+              Platform.
             </p>
             <p>
               We have found success in using a combination of methodologies used
-              in Recruitment, Talent Acquisition, Head Hunting, Lateral Hiring
-              among conventional methods in the organised sectors
+              in &nbsp;
+              <b>
+                Recruitment, Talent Acquisition, Head Hunting, Lateral Hiring
+              </b>
+              &nbsp; among conventional methods in the organised sectors.
             </p>
             <p>
               Most often than not, we have found success through out-of-the-box
               thinking and adapting unconventional approaches in domains
-              experiencing highly volatile work-force
+              experiencing highly volatile work-force.
             </p>
           </div>
         </div>

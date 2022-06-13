@@ -128,7 +128,7 @@
 }
 .cargrid-item {
   padding: 5px;
-  font-size: 14px;
+  font-size: 16px;
   text-align: left;
 }
 .btngrid {
@@ -221,9 +221,16 @@
 .MuiInputBase-input {
   border: none !important;
 }
-.fixed-btn {
+.oppr-flex {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 30px;
 }
-
+.career-icn {
+  font-size: 30px;
+  color: rgb(43, 0, 212);
+}
 /* Responsive layout - makes a one column-layout instead of two-column layout */
 @media (max-width: 800px) {
   .career-flex-container {
@@ -250,20 +257,20 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     width: 100%;
-    height: 480px;
+    height: 384px;
   }
   .car-container {
     gap: 50px;
-    padding: 18px 16px;
-    height: 390px;
+    padding: 4px 6px;
+    height: 312px;
     background-color: #f1f1f1;
   }
   .cargrid-item {
     /* background-color: rgb(212, 34, 34); */
     /* border: 1px solid rgba(0, 0, 0, 0.8); */
     padding: 10px;
-    font-size: 10px;
-    text-align: center;
+    font-size: 16px;
+    text-align: left;
   }
   .cargrid-item-left {
     background-color: #f1f1f1;
@@ -275,8 +282,8 @@
   .cargrid-item-right {
     background-color: #f1f1f1;
     padding: 10px;
+    /* display: flex; */
     flex: 70%;
-    text-align: left;
   }
   .appy-btn {
     background-color: #2b00d4;
@@ -292,6 +299,10 @@
     font-weight: 500;
     margin: 0 auto;
     cursor: pointer;
+  }
+  .career-icn {
+    font-size: 20px;
+    color: rgb(43, 0, 212);
   }
 }
 @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {

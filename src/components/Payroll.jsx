@@ -14,7 +14,7 @@ const Payroll = () => {
             </div>
             <div className="staff-pic-div">
               <img
-                src="./payroll.svg"
+                src="./payment.svg"
                 alt="temporarystaffing"
                 className="staffpics"
               />
@@ -60,6 +60,10 @@ const Payroll = () => {
                 </div>
                 <div>Energy</div>
               </div>
+            </p>
+            <p>
+              We manage &nbsp;
+              <b>| Attendance | Leave | Payroll | Income tax | Queries</b>
             </p>
           </div>
         </div>
