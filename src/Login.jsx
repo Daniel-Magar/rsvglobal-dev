@@ -61,7 +61,7 @@ const Login = () => {
             {/* <UserBadgeIcon className="log-icon" /> */}
             <img src="./RSVglobal.png" alt="" style={{ width: "100px" }} />
           </div>
-          RSV Global Admin
+          <h4>RSV Global Admin</h4>
           <hr style={{ color: "purple" }} />
           <div>
             <form className="logform" onSubmit={handleLogin}>

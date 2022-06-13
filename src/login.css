@@ -105,3 +105,12 @@ button:hover {
   /* font-weight: bold; */
   color: rgb(247, 71, 73);
 }
+
+@media (max-width: 800px) {
+  .lgcontainer > div {
+    margin: 0 auto;
+    width: auto;
+    margin: 10px;
+    text-align: center;
+  }
+}
