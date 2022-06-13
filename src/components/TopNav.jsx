@@ -8,13 +8,12 @@ const TopNav = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  useEffect(() => {}, []);
+
   return (
     <>
       <nav className="navbar">
         <h1 className="logo">
-          <NavHashLink 
-        
+          <NavHashLink
             to="/#home"
             style={{ textDecoration: "none!important", padding: "0 12px" }}
           >
@@ -49,7 +48,7 @@ const TopNav = () => {
           </li>
           <li className="submenu">
             <a href="#services">
-              Services <i className="bx bx-chevron-down"></i>{" "}
+              Services <i className="bx bx-chevron-down"></i>
             </a>
             <ul className="dropdown" aria-label="submenu" id="target">
               <li>
@@ -59,7 +58,9 @@ const TopNav = () => {
                 <Link to="/tempstaffing"> Temp Staffing</Link>
               </li>
               <li>
-                <Link to="/statutoryCompliance">HR Statutory Compliance</Link>
+                <Link href="#statutoryCompliance" to="/statutoryCompliance">
+                  HR Statutory Compliance
+                </Link>
               </li>
               <li>
                 <Link to="/payroll">Payroll</Link>

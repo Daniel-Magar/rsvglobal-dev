@@ -4,7 +4,8 @@
   width: 82%;
   margin: 0 auto;
   justify-content: space-between;
-  padding: 240px 0 240px 0;
+  /* padding: 240px 0 240px 0; */
+  padding: 116px 0 116px 0;
 }
 
 .banner-flex-item-left {
@@ -115,12 +116,18 @@
   padding: 30px 30px 30px 20px;
   display: flex;
   justify-content: space-between;
-  gap: 200px;
+  gap: 50px;
   margin-left: 14%;
   margin-top: 80px;
   margin-bottom: 80px;
   align-items: center;
   background-color: white;
+}
+.phiring-left {
+  width: 30%;
+}
+.phiring-right {
+  width: 70%;
 }
 .phiring-right > p {
   font-size: 18px;
@@ -252,7 +259,7 @@
     padding: 0px;
   }
   .pstaff-txt > h2 {
-    font-size: 30px;
+    font-size: 22px;
     line-height: 34px;
     text-align: left;
   }
@@ -274,6 +281,16 @@
     font-size: 16px;
     text-align: justify;
   }
+  .phiring-left {
+    width: 100%;
+
+    padding: 20px 40px 0px 40px;
+  }
+  .phiring-right > h3 {
+    font-size: 20px;
+    /* text-align: justify; */
+    padding: 5px;
+  }
 }
 @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
   .banner-flex-container {
@@ -283,6 +300,16 @@
     margin: 0 auto;
     justify-content: space-between;
     padding: 240px 0 240px 0;
+  }
+  .phiring-left {
+    width: 30%;
+  }
+  .phiring-right {
+    width: 70%;
+  }
+  .staffpics {
+    width: 75%;
+    margin-top: 6px;
   }
 }
 
@@ -307,6 +334,38 @@
     left: 8%;
     color: #030441;
     font-weight: 500;
+  }
+  .phiring-left {
+    width: 30%;
+  }
+  .phiring-right {
+    width: 70%;
+  }
+  .perstaff-content {
+    width: 72%;
+    padding: 0px 30px 30px 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+    margin-left: 14%;
+    margin-top: 30px;
+    margin-bottom: 80px;
+    align-items: center;
+    background-color: white;
+  }
+  .staffing-head {
+    background-color: #e9eaff;
+    height: 200px;
+  }
+  .staffing-content {
+    width: 82%;
+    /* border: 1px solid purple; */
+    padding: 0px 12px 30px 20px;
+    display: flex;
+
+    margin-left: 8%;
+    align-items: center;
+    justify-content: space-between;
   }
 }
 @media (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {

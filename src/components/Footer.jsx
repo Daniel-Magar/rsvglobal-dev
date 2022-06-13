@@ -17,7 +17,6 @@ const Footer = () => {
         <div className="main-footer">
           <div className="logoinfo" data-aos="fade-up">
             <h3>
-              {" "}
               <span style={{ color: "rgb(247, 71, 73)" }}>RSV</span> &nbsp;
               <span style={{ color: "white" }}>Global</span>
             </h3>
@@ -31,12 +30,11 @@ const Footer = () => {
               </li>
               <li>
                 <div className="bx bxs-envelope footer-icn"></div>
-                <a href="mailto:yourmail@gmail.com"> balaji@rsvglobal.in</a>
+                <a href="mailto:balaji@rsvglobal.in"> balaji@rsvglobal.in</a>
               </li>
               <li>
                 <div className="bx bxs-map footer-icn"></div>
                 <a href="https://goo.gl/maps/EexKuS4jUW3TKAUR7" target="_blank">
-                  {" "}
                   rsvglobal
                 </a>
               </li>

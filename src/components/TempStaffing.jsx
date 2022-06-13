@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Footer from "./Footer";
 import TopNav from "./TopNav";
+import { useLocation } from "react-router-dom";
 
 const TempStaffing = () => {
+  const routePath = useLocation();
+  const onTop = () => {
+    window.scrollTo(0, 0);
+  };
+  useEffect(() => {
+    onTop();
+  }, [routePath]);
+
   return (
     <>
       <TopNav />
@@ -23,7 +32,7 @@ const TempStaffing = () => {
         </div>
 
         <div className="perstaff-content">
-          <div className="phiring-right">
+          <div className="phiring-left">
             <img src="./tempstaffing2.svg" alt="hire" className="staffpics" />
           </div>
           <div className="phiring-right">

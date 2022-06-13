@@ -142,18 +142,13 @@
 }
 .oppr-icn {
   font-size: 40px;
+  color: #030441;
 }
 .career-h3 {
   font-size: 20x;
   line-height: 42px;
 }
-/* .oppr-area {
-  background-color: #ccc;
-} */
 
-/* .tooltip:hover .tooltiptext {
-  visibility: visible;
-} */
 /* Responsive layout - makes a one column-layout instead of two-column layout */
 @media (max-width: 800px) {
   .career-flex-container {
@@ -164,14 +159,14 @@
     padding: 10px;
   }
   .career {
-    margin: 15px 12px;
+    margin: 0 0;
   }
   .info-grid-container {
     display: grid;
     grid-template-columns: auto;
     /* background-color: #2196f3; */
     padding: 10px;
-}
+  }
   .wrapper {
     display: grid;
     grid-template-columns: 1fr;
@@ -198,7 +193,8 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 10px;
-    padding: 10px 0 5px 0;
+    padding: 10px 0 0 0;
+    margin: 0px 20px;
   }
   .upldcard {
     width: 100%;
@@ -218,7 +214,7 @@
   }
   .oppr-icn {
     font-size: 40px;
-    color: #2b17d4;
+    color: #030441;
   }
 }
 @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {

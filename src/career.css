@@ -24,7 +24,8 @@
   display: none;
 }
 .btn {
-  background-color: #2b00d4; /* Green */
+  /* background-color: #2b00d4;  */
+  background-color: #030441;
   border: none;
   border-radius: 4px;
   color: white;
@@ -38,14 +39,21 @@
   margin: 4px 10px;
   cursor: pointer;
 }
+.btn:hover {
+  text-decoration: none;
+  color: white;
+  background-color: #2d3080;
+}
 .appy-btn {
-  background-color: #2b00d4;
+  /* background-color: #2b00d4; */
+  background-color: #030441;
   border: none;
   border-radius: 4px;
   width: 100%;
   color: white;
-  padding: 13px 270px;
-  /* padding: 13px 28px; */
+  /* padding: 13px 270px; */
+
+  padding: 13px 0px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -55,9 +63,9 @@
   cursor: pointer;
 }
 /* Posted Jobs Career */
-.career {
+/* .career {
   margin: 14px 42px;
-}
+} */
 
 .career-flex-item-left {
   margin: 0 auto;
@@ -106,7 +114,7 @@
 }
 .upld {
   text-align: center;
-  padding: 80px;
+  /* padding: 80px; */
 }
 .cargrid {
   display: flex;
@@ -147,7 +155,7 @@
   /* text-align: center; */
 }
 .btn-item-right {
-  position: sticky;
+  /* position: sticky; */
   padding: 10px;
 }
 /* Apply Job Posts  */
@@ -229,8 +237,27 @@
 }
 .career-icn {
   font-size: 30px;
-  color: rgb(43, 0, 212);
+  color: #030441;
 }
+.uploadcv {
+  width: 60%;
+}
+.career-banner {
+  background-color: #e9eaff;
+
+  height: 300px;
+}
+.career-banner-content {
+  width: 82%;
+
+  padding: 50px 12px 30px 20px;
+  display: flex;
+
+  margin-left: 8%;
+  align-items: center;
+  justify-content: space-between;
+}
+
 /* Responsive layout - makes a one column-layout instead of two-column layout */
 @media (max-width: 800px) {
   .career-flex-container {
@@ -253,7 +280,7 @@
     padding: 7px;
     width: 100%;
   }
-  .card {
+  head .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     width: 100%;
@@ -286,7 +313,7 @@
     flex: 70%;
   }
   .appy-btn {
-    background-color: #2b00d4;
+    background-color: #030441;
     border: none;
     border-radius: 4px;
     color: white;
@@ -302,7 +329,27 @@
   }
   .career-icn {
     font-size: 20px;
-    color: rgb(43, 0, 212);
+    color: #030441;
+  }
+  .career-banner {
+    background-color: #e9eaff;
+    height: auto;
+  }
+  .career-banner-content {
+    width: 82%;
+    padding: 50px 12px 30px 20px;
+    display: flex;
+    margin-left: 8%;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    text-align: center;
+  }
+  .upld > h3 {
+    font-size: 22px;
+  }
+  .upld > h4 {
+    font-size: 18px;
   }
 }
 @media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
@@ -316,7 +363,7 @@
   .incontainer {
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto auto;
     gap: 20px;
     padding: 10px 0 5px 0;
   }
@@ -334,8 +381,8 @@
     background-color: #f1f1f1;
   }
   .cargrid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    /* border: 1px solid rgba(0, 0, 0, 0.8); */
+    background-color: rgb(241, 241, 241);
+
     padding: 10px;
     font-size: 10px;
     text-align: center;
@@ -398,7 +445,8 @@
     text-align: left;
   }
   .btn-apply {
-    background-color: #2b00d4; /* Green */
+    /* background-color: #2b00d4; */
+    background-color: #030441;
     border: none;
     border-radius: 4px;
     color: white;
@@ -411,6 +459,18 @@
     font-weight: 500;
     margin: 4px 4px 4px 4px;
     cursor: pointer;
+  }
+  .uploadcv {
+    width: 50%;
+  }
+  .upld > h3 {
+    font-size: 24px;
+  }
+  .career-h3 {
+    font-size: 25px;
+  }
+  .cargrid-item > h4 {
+    font-size: 18px;
   }
 }
 @media (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -442,7 +502,7 @@
     text-align: left;
   }
   .appy-btn {
-    background-color: #2b00d4;
+    background-color: #030441;
     border: none;
     border-radius: 4px;
     color: white;
@@ -456,6 +516,12 @@
     font-weight: 500;
     margin: 4px 4px 4px 0px;
     cursor: pointer;
+  }
+  .incontainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 0 0 0px 0;
   }
 }
 @media (max-device-width: 800px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
@@ -475,5 +541,11 @@
     padding: 10px;
     font-size: 10px;
     text-align: center;
+  }
+  .incontainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 0 0 0px 0;
   }
 }

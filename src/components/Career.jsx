@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import TopNav from "./TopNav";
 import Footer from "./Footer";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
-import Modal from "react-modal";
 import "../modal.css";
 import "../career.css";
 import {
@@ -16,56 +15,63 @@ import {
 import { storage } from "../firebase-config";
 import ProgressBar from "./ProgressBar";
 import { db } from "../firebase-config";
-import { async } from "@firebase/util";
-import { Link, useNavigate } from "react-router-dom";
-import {
-  MuiPickersUtilsProvider,
-  KeyboardDatePicker,
-} from "@material-ui/pickers";
-import "date-fns";
-import DateFnsUtils from "@date-io/date-fns";
-import {
-  makeStyles,
-  createStyles,
-  ThemeProvider,
-  createMuiTheme,
-} from "@material-ui/core/styles";
-import { CheckPicker } from "rsuite";
-import ApplyJob from "./ApplyJob";
-const useStyles = makeStyles(() =>
-  createStyles({
-    componentStyle: {
-      verticalAlign: "middle",
-      fontSize: "12px",
-      width: (params) => (params.width ? params.width : "auto"),
 
-      "& fieldset": {
-        border: "solid 1px #ccc;",
-      },
-      "& .MuiInputBase-root": {
-        height: (params) => (params.height ? params.height : "auto"),
-        color: (params) => (params.color ? params.color : "inherit"),
-      },
-    },
-  })
-);
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
-const theme = createMuiTheme({
-  overrides: {
-    MuiTextField: {
-      root: {
-        verticalAlign: "middle",
-        fontSize: "12px",
-        width: 150,
-        "& fieldset": {
-          border: "solid 1px #ccc;",
-        },
-      },
-    },
-  },
-});
+// import {
+//   MuiPickersUtilsProvider,
+//   KeyboardDatePicker,
+// } from "@material-ui/pickers";
+// import "date-fns";
+// import DateFnsUtils from "@date-io/date-fns";
+// import {
+//   makeStyles,
+//   createStyles,
+//   ThemeProvider,
+//   createMuiTheme,
+// } from "@material-ui/core/styles";
+// import { CheckPicker } from "rsuite";
+// import ApplyJob from "./ApplyJob";
+// const useStyles = makeStyles(() =>
+//   createStyles({
+//     componentStyle: {
+//       verticalAlign: "middle",
+//       fontSize: "12px",
+//       width: (params) => (params.width ? params.width : "auto"),
+
+//       "& fieldset": {
+//         border: "solid 1px #ccc;",
+//       },
+//       "& .MuiInputBase-root": {
+//         height: (params) => (params.height ? params.height : "auto"),
+//         color: (params) => (params.color ? params.color : "inherit"),
+//       },
+//     },
+//   })
+// );
+
+// const theme = createMuiTheme({
+//   overrides: {
+//     MuiTextField: {
+//       root: {
+//         verticalAlign: "middle",
+//         fontSize: "12px",
+//         width: 150,
+//         "& fieldset": {
+//           border: "solid 1px #ccc;",
+//         },
+//       },
+//     },
+//   },
+// });
 const Career = (props) => {
-  console.log("Job posts lists", props.jobposts);
+  const routePath = useLocation();
+  const onTop = () => {
+    window.scrollTo(0, 0);
+  };
+  useEffect(() => {
+    onTop();
+  }, [routePath]);
 
   const [imgUrl, setImgUrl] = useState(null);
   const [progresspercent, setProgresspercent] = useState(0);
@@ -220,13 +226,6 @@ const Career = (props) => {
 
   const selectApply = (selected_data) => {
     setReqdData(selected_data);
-
-    // setJobpostid(selected_data.id);
-    // setJob_title(selected_data.jobtitle);
-    // setC_qual(selected_data.qualification);
-    // setsJ_descrp(selected_data.jobdescrp);
-    // setsJ_skill(selected_data.skill);
-    // setsJ_notice_period(selected_data.noticeperiod);
   };
   useEffect(() => {
     setReqdData((state) => {
@@ -241,19 +240,36 @@ const Career = (props) => {
     setSelectedDate(date);
   };
 
-  const classes = useStyles({
-    // color: "red",
-    width: 300,
-    height: 0,
-  });
+  // const classes = useStyles({
+  //   // color: "red",
+  //   width: 300,
+  //   height: 0,
+  // });
 
   return (
     <>
       <div>
         <TopNav />
         <section id="career" className="career">
+          <div className="career-banner">
+            <div className="career-banner-content">
+              <div className="staff-pic-div">
+                <img src="./cv.svg" alt="hire" className="uploadcv" />
+              </div>
+              <div className="pstaff-txt">
+                <div className="upld">
+                  <h3>Help Us Help You !!</h3>
+                  <h4>Upload your CV</h4>
+
+                  <Link className="btn" to="/cvupload">
+                    Upload CV
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className="career-flex-container">
-            <div className="career-flex-item-left">
+            {/* <div className="career-flex-item-left">
               <div className="card upldcard">
                 <div className="container">
                   <img src="./career.svg" alt="" className="career-img" />
@@ -273,14 +289,15 @@ const Career = (props) => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="oppr-area">
             <div className="career-flex-container">
               <div className="flex-item">
                 <div className="oppurtunity">
                   <div>
-                    <i className="bx bxs-briefcase-alt-2 oppr-icn"></i>
+                    <i className="bx bxs-hard-hat oppr-icn"></i>
+                    {/* <i className="bx bxs-briefcase-alt-2 oppr-icn"></i> */}
                   </div>
 
                   <div>
@@ -303,7 +320,7 @@ const Career = (props) => {
                             <div className="cargrid-item">
                               <div className="oppr-flex">
                                 <div>
-                                  <i class="bx bxs-wallet career-icn"></i>
+                                  <i className="bx bxs-wallet career-icn"></i>
                                 </div>
                                 <div>
                                   <p>{data.ctc}</p>
@@ -317,7 +334,7 @@ const Career = (props) => {
                             <div className="cargrid-item">
                               <div className="oppr-flex">
                                 <div>
-                                  <i class="bx bxs-briefcase-alt career-icn"></i>
+                                  <i className="bx bxs-briefcase-alt career-icn"></i>
                                 </div>
                                 <div>
                                   <p>{data.experience}</p>
@@ -332,7 +349,7 @@ const Career = (props) => {
                             <div className="cargrid-item">
                               <div className="oppr-flex">
                                 <div>
-                                  <i class="bx bxs-map career-icn"></i>
+                                  <i className="bx bxs-map career-icn"></i>
                                 </div>
                                 <div>
                                   <p> {data.location}</p>

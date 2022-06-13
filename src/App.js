@@ -31,7 +31,7 @@ import { LocationProvider } from "./context/LocationContext";
 import TempStaffing from "./components/TempStaffing";
 import HrStatutoryComp from "./components/HrStatutoryComp";
 import Payroll from "./components/Payroll";
-function App() {
+function App(props) {
   const { currentUser } = useContext(AuthContext);
 
   const RequireAuth = ({ children }) => {

@@ -1,14 +1,18 @@
 import React, { useEffect } from "react";
-import WhyRsv from "./WhyRsv";
-import Contact from "./Contact";
+
 import TopNav from "./TopNav";
 import Footer from "./Footer";
 import "../banner.css";
+import { useLocation } from "react-router-dom";
 
 const Pstaffing = () => {
-  useEffect(() => {
+  const routePath = useLocation();
+  const onTop = () => {
     window.scrollTo(0, 0);
-  }, []);
+  };
+  useEffect(() => {
+    onTop();
+  }, [routePath]);
   return (
     <>
       <TopNav />
@@ -25,7 +29,7 @@ const Pstaffing = () => {
         </div>
 
         <div className="perstaff-content">
-          <div className="phiring-right">
+          <div className="phiring-left">
             <img src="./phiring.svg" alt="hire" className="staffpics" />
           </div>
           <div className="phiring-right">

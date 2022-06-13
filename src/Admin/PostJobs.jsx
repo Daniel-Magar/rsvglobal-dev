@@ -66,7 +66,6 @@ const TextField = React.forwardRef((props, ref) => {
 });
 
 const PostJobs = (props) => {
-
   const [locationData, setLocationData] = useContext(LocationContext);
   const [show, setShow] = useState(false);
   const [info, setInfo] = useState("");
@@ -462,10 +461,19 @@ const PostJobs = (props) => {
                                   name="jobdescrp"
                                   label="Job Description:"
                                 />
-                                 <TextField name="location" label="Location:" />
-                                 <TextField name="experience" label="Experience Reqd.:" />
-                                <TextField name="skill" label="Primary Skills:" />
-                                <TextField name="secskill" label="Secondary Skills:" />
+                                <TextField name="location" label="Location:" />
+                                <TextField
+                                  name="experience"
+                                  label="Experience Reqd.:"
+                                />
+                                <TextField
+                                  name="skill"
+                                  label="Primary Skills:"
+                                />
+                                <TextField
+                                  name="secskill"
+                                  label="Secondary Skills:"
+                                />
                                 <TextField name="ctc" label="CTC:" />
                                 <TextField
                                   name="noticeperiod"

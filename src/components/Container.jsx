@@ -2,7 +2,6 @@ import React from "react";
 import Carousel, { CarouselItem } from "./Carousel";
 import "../banner.css";
 
-import { CarouselData } from "./CarouselData";
 const Container = (props) => {
   return (
     <>

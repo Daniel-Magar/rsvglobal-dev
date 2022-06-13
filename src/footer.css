@@ -127,7 +127,7 @@ li:focus-within {
     border-radius: 1px solid purple;
     left: 0px;
     background: #030441;
-}
+  }
 }
 @media (max-width: 480px) {
   .main-footer {
@@ -146,5 +146,23 @@ li:focus-within {
   }
   .com {
     padding: 20px 0;
+  }
+}
+/* ----------- Retina Screens ----------- */
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
+  .logoinfo > h3 {
+    font-size: 20px;
+  }
+  .contact-details > h1 {
+    font-size: 20px;
+  }
+  .com > h1 {
+    font-size: 20px;
+  }
+  .info > h1 {
+    font-size: 20px;
+  }
+  .copyrt {
+    font-size: 14px;
   }
 }
