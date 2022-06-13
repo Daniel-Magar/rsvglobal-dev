@@ -406,67 +406,61 @@ const ApplyJob = () => {
                   </div>
                 </div>
                 <div>
-                <div class="info-grid-item">
-                      <b>Role: </b>
+                  <div class="info-grid-item">
+                    <b>Role: </b>
 
-                      <span>{selectedData.data.jobtitle}</span>
-                    </div>
+                    <span>{selectedData.data.jobtitle}</span>
+                  </div>
                   <div class="info-grid-container">
-                   
                     <div class="info-grid-item">
                       <b>Primary Skill Required: </b>
                       <span>
-                      <ReactReadMoreReadLess
-                            charLimit={100}
-                            readMoreText={"Read more ▼"}
-                            readLessText={"Read less ▲"}
+                        <ReactReadMoreReadLess
+                          charLimit={200}
+                          readMoreText={"Read more ▼"}
+                          readLessText={"Read less ▲"}
                         >
-                              {selectedData.data.skill}
+                          {selectedData.data.skill}
                         </ReactReadMoreReadLess>
-                     
-                        
-                        </span>
+                      </span>
                     </div>
                     <div class="info-grid-item">
                       <b>Secondary Skill: </b>
                       <span>
-                      <ReactReadMoreReadLess
-                            charLimit={100}
-                            readMoreText={"Read more ▼"}
-                            readLessText={"Read less ▲"}
+                        <ReactReadMoreReadLess
+                          charLimit={200}
+                          readMoreText={"Read more ▼"}
+                          readLessText={"Read less ▲"}
                         >
-                              {selectedData.data.secskill}
+                          {selectedData.data.secskill}
                         </ReactReadMoreReadLess>
-                       
-                        </span>
+                      </span>
                     </div>
                     <div class="info-grid-item">
                       <b>Description: </b>
                       <span>
-                      <ReactReadMoreReadLess
-                            charLimit={100}
-                            readMoreText={"Read more ▼"}
-                            readLessText={"Read less ▲"}
+                        <ReactReadMoreReadLess
+                          charLimit={100}
+                          readMoreText={"Read more ▼"}
+                          readLessText={"Read less ▲"}
                         >
-                              {selectedData.data.jobdescrp}
+                          {selectedData.data.jobdescrp}
                         </ReactReadMoreReadLess>
-                       
-                        </span>
+                      </span>
                     </div>
-                   
+
                     <div class="info-grid-item">
                       <div>
-                      <b>Notice Period: </b>
-                      <span>{selectedData.data.noticeperiod}</span>
+                        <b>Notice Period: </b>
+                        <span>{selectedData.data.noticeperiod}</span>
                       </div>
-                    
+
                       <div>
-                      <b>Job Posted On: </b>
+                        <b>Job Posted On: </b>
 
                         <span>{finalDate}</span>
                       </div>
                     </div>
-                 
                   </div>
                 </div>
               </div>

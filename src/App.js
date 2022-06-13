@@ -31,6 +31,7 @@ import { LocationProvider } from "./context/LocationContext";
 import TempStaffing from "./components/TempStaffing";
 import HrStatutoryComp from "./components/HrStatutoryComp";
 import Payroll from "./components/Payroll";
+import Clients from "./Admin/Clients";
 function App(props) {
   const { currentUser } = useContext(AuthContext);
 
@@ -158,6 +159,16 @@ function App(props) {
                   element={
                     <RequireAuth>
                       <PostJobs jobposts={jobposts} />
+                    </RequireAuth>
+                  }
+                />
+              </Route>
+              <Route exact path="/admin/clients">
+                <Route
+                  index
+                  element={
+                    <RequireAuth>
+                      <Clients />
                     </RequireAuth>
                   }
                 />

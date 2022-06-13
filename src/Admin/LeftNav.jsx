@@ -74,6 +74,12 @@ const LeftNav = () => {
                   <span>Post Jobs</span>
                 </Link>
               </Nav.Item>
+              <Nav.Item className="nav-item" eventKey="3">
+                <Link to="/admin/clients">
+                  <i class="bx bx-edit icn" />
+                  <span>Clients</span>
+                </Link>
+              </Nav.Item>
             </Nav>
           </Sidenav.Body>
         </Sidenav>
