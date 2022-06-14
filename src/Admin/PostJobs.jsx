@@ -12,15 +12,12 @@ import {
   Button,
   ButtonToolbar,
   Schema,
-  InputPicker,
-  SelectPicker,
-  FlexboxGrid,
   Pagination,
   IconButton,
   Notification,
   Modal,
-  Divider,
 } from "rsuite";
+import Input from "rsuite/Input";
 
 import { Table, Column, HeaderCell, Cell } from "rsuite-table";
 // import { CheckPicker, Checkbox, Button, SelectPicker, Schema } from "rsuite";
@@ -33,7 +30,6 @@ import {
   doc,
   updateDoc,
   deleteDoc,
-  deleteField,
 } from "firebase/firestore";
 import { db } from "../firebase-config";
 
@@ -54,6 +50,10 @@ const model = Schema.Model({
   qualification: StringType().isRequired("This field is required."),
   skill: StringType().isRequired("This field is required."),
   noticeperiod: StringType().isRequired("This field is required."),
+  experience: StringType().isRequired("This field is required."),
+  secskill: StringType().isRequired("This field is required."),
+  ctc: StringType().isRequired("This field is required."),
+  location: StringType().isRequired("This field is required."),
 });
 const TextField = React.forwardRef((props, ref) => {
   const { name, label, accepter, ...rest } = props;
@@ -67,6 +67,9 @@ const TextField = React.forwardRef((props, ref) => {
 
 const PostJobs = (props) => {
   const [locationData, setLocationData] = useContext(LocationContext);
+  const Textarea = React.forwardRef((props, ref) => (
+    <Input {...props} as="textarea" ref={ref} />
+  ));
   const [show, setShow] = useState(false);
   const [info, setInfo] = useState("");
 
@@ -210,6 +213,7 @@ const PostJobs = (props) => {
       <div
         style={{
           width: "100%",
+          height: "auto",
         }}
       >
         <div
@@ -229,7 +233,8 @@ const PostJobs = (props) => {
         <p style={{ width: "100%" }}>
           <span className="exp-text">Job Title:</span> {rowData.jobtitle} |
           <span className="exp-text">Qualification:</span>
-          {rowData.qualification}
+          {rowData.qualification}| <span className="exp-text">Experience:</span>
+          {rowData.experience}
         </p>
 
         <p style={{ width: "100%" }}>
@@ -306,8 +311,17 @@ const PostJobs = (props) => {
           jobtitle: editData.jobtitle,
           qualification: editData.qualification,
           jobdescrp: editData.jobdescrp,
+
           skill: editData.skill,
           noticeperiod: editData.noticeperiod,
+
+          experience: editData.experience,
+
+          secskill: editData.secskill,
+          ctc: editData.ctc,
+
+          location: editData.location,
+          timestamp: Timestamp.now(),
         });
       }, 100);
     }
@@ -431,6 +445,7 @@ const PostJobs = (props) => {
                             open={open}
                             onClose={handleClose}
                             overflow={true}
+                            size="md"
                           >
                             <Modal.Header>
                               <Modal.Title>Post Job</Modal.Title>
@@ -535,7 +550,17 @@ const PostJobs = (props) => {
                                 name="jobdescrp"
                                 label="Job Description:"
                               />
-                              <TextField name="skill" label="Skills:" />
+                              <TextField name="location" label="Location:" />
+                              <TextField
+                                name="experience"
+                                label="Experience Reqd.:"
+                              />
+                              <TextField name="skill" label="Primary Skills:" />
+                              <TextField
+                                name="secskill"
+                                label="Secondary Skills:"
+                              />
+                              <TextField name="ctc" label="CTC:" />
                               <TextField
                                 name="noticeperiod"
                                 label="Notice Period:"
@@ -585,7 +610,7 @@ const PostJobs = (props) => {
                               dataKey="id"
                               expandedRowKeys={expandedRowKeys}
                               onChange={handleExpanded}
-                              height={100}
+                              height={900}
                             />
                           </Column>
                           <Column width={200} sortable flexGrow={2}>

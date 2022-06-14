@@ -54,7 +54,7 @@ const AdminBody = (props) => {
                   <i class="bx bxs-briefcase-alt-2 adminicon"></i>
                 </Col>
                 <Col xs={24} sm={24} md={6}>
-                  <h2 className="htxt">5</h2>
+                  <h2 className="htxt">0</h2>
                 </Col>
               </Panel>
             </Col>
@@ -64,7 +64,7 @@ const AdminBody = (props) => {
                   <i class="bx bxs-building-house adminicon"></i>
                 </Col>
                 <Col xs={24} sm={24} md={6}>
-                  <h2 className="htxt">30</h2>
+                  <h2 className="htxt">0</h2>
                 </Col>
               </Panel>
             </Col>

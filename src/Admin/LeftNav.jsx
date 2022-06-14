@@ -76,7 +76,7 @@ const LeftNav = () => {
               </Nav.Item>
               <Nav.Item className="nav-item" eventKey="3">
                 <Link to="/admin/clients">
-                  <i class="bx bx-edit icn" />
+                  <i className="bx bxs-business icn"></i>
                   <span>Clients</span>
                 </Link>
               </Nav.Item>

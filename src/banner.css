@@ -12,11 +12,11 @@
   /* margin: 0 auto; */
   justify-content: space-between;
   padding: 10px;
-  flex: 50%;
+  flex: 70%;
 }
 
 .banner-flex-item-right {
-  flex: 50%;
+  flex: 30%;
   justify-content: space-between;
   margin: 0 auto;
   padding: 10px;

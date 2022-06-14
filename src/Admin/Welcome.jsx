@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { Container, Header, Content } from "rsuite";
+import { Header } from "rsuite";
 const Welcome = () => {
   const { currentUser } = useContext(AuthContext);
   return (

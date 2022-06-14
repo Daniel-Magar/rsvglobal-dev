@@ -105,6 +105,29 @@ function App(props) {
     return () => abortCont.abort();
   }, []);
 
+  const [clients, setClients] = useState([]);
+  useEffect(() => {
+    const abortCont = new AbortController();
+    try {
+      const colRef = collection(db, "business");
+      const q = query(colRef, orderBy("timestamp", "desc"));
+      onSnapshot(q, (snapshot) => {
+        let asperquery = [];
+        snapshot.docs.forEach((doc) => {
+          asperquery.push({ ...doc.data(), id: doc.id });
+        });
+        let temp = [];
+        temp.push(asperquery);
+        setClients(asperquery);
+      });
+    } catch (error) {
+      if (error.name === "AbortError") {
+        console.log("fetch aborted!"); // catching error in updating component
+      }
+    }
+    return () => abortCont.abort();
+  }, []);
+
   return (
     <>
       <div>
@@ -168,7 +191,7 @@ function App(props) {
                   index
                   element={
                     <RequireAuth>
-                      <Clients />
+                      <Clients clients={clients} />
                     </RequireAuth>
                   }
                 />
