@@ -320,7 +320,14 @@ const Career = (props) => {
                             <div className="cargrid-item">
                               <div className="oppr-flex">
                                 <div>
-                                  <i className="bx bxs-wallet career-icn"></i>
+                                  <div className="opp-in-cotainer">
+                                    <div>
+                                      <i className="bx bxs-wallet career-icn"></i>
+                                    </div>
+                                    <div>
+                                      <b>CTC:</b>
+                                    </div>
+                                  </div>
                                 </div>
                                 <div>
                                   <p>{data.ctc}</p>
@@ -334,7 +341,14 @@ const Career = (props) => {
                             <div className="cargrid-item">
                               <div className="oppr-flex">
                                 <div>
-                                  <i className="bx bxs-briefcase-alt career-icn"></i>
+                                  <div className="opp-in-cotainer">
+                                    <div>
+                                      <i className="bx bxs-briefcase-alt career-icn"></i>
+                                    </div>
+                                    <div>
+                                      <b>Experience:</b>
+                                    </div>
+                                  </div>
                                 </div>
                                 <div>
                                   <p>{data.experience}</p>
@@ -349,7 +363,14 @@ const Career = (props) => {
                             <div className="cargrid-item">
                               <div className="oppr-flex">
                                 <div>
-                                  <i className="bx bxs-map career-icn"></i>
+                                  <div className="opp-in-cotainer">
+                                    <div>
+                                      <i className="bx bxs-map career-icn"></i>
+                                    </div>
+                                    <div>
+                                      <b>Location:</b>
+                                    </div>
+                                  </div>
                                 </div>
                                 <div>
                                   <p> {data.location}</p>

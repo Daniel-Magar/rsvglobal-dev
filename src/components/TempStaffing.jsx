@@ -39,7 +39,7 @@ const TempStaffing = () => {
             <h3>Temp Staffing : The Resource is yours and the Human ours!!</h3>
             <p>
               We endeavor to provide businesses the desired flexibility with
-              temporary resources to be associated only functionally.We will
+              temporary resources to be associated only functionally. We will
               handle all other aspects of employment of these resources –
               onboarding to exit:
             </p>

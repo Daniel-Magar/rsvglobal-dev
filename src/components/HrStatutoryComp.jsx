@@ -39,8 +39,8 @@ const HrStatutoryComp = () => {
             <h3>Statutory Compliance</h3>
             <p>
               Compliance with statutes is critical and often complex by nature
-              of its tedious process And extensive documentation which again has
-              a TIME and COST implication on businesses.
+              of its tedious process and extensive documentation which again has
+              a <b>TIME</b> and <b>COST</b> implication on businesses.
             </p>
 
             <p>

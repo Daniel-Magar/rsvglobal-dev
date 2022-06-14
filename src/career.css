@@ -136,7 +136,7 @@
 }
 .cargrid-item {
   padding: 5px;
-  font-size: 16px;
+  font-size: 18px;
   text-align: left;
 }
 .btngrid {
@@ -256,6 +256,12 @@
   margin-left: 8%;
   align-items: center;
   justify-content: space-between;
+}
+.opp-in-cotainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 /* Responsive layout - makes a one column-layout instead of two-column layout */

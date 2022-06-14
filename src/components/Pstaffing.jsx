@@ -61,7 +61,7 @@ const Pstaffing = () => {
             </p>
             <p>
               We have found success in using a combination of methodologies used
-              in &nbsp;
+              in&nbsp;
               <b>
                 Recruitment, Talent Acquisition, Head Hunting, Lateral Hiring
               </b>
