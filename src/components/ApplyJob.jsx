@@ -847,7 +847,7 @@ const ApplyJob = () => {
                       <div className="box b">
                         <div className="up">
                           <div className="upd-file">
-                            <label class="btn fileUpload btn-default">
+                            <label className="btn fileUpload btn-default">
                               Select file
                               <input
                                 type="file"
@@ -857,7 +857,7 @@ const ApplyJob = () => {
                                 ref={reference}
                               />
                               <i
-                                class="bx bx-file"
+                                className="bx bx-file"
                                 style={{
                                   color: "white",
                                   fontSize: "20px",

@@ -74,8 +74,8 @@
 }
 .info-grid-container {
   display: grid;
-  grid-template-columns: auto auto;
-  /* background-color: #2196f3; */
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
   padding: 10px;
 }
 .info-grid-item {
