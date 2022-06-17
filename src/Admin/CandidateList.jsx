@@ -127,6 +127,10 @@ const CandidateList = (props) => {
                       <Cell dataKey="applied_type" />
                     </Column>
                     <Column width={130} resizable>
+                      <HeaderCell>Current Location</HeaderCell>
+                      <Cell dataKey="cuurent_location" />
+                    </Column>
+                    <Column width={130} resizable>
                       <HeaderCell>Preferred Location</HeaderCell>
                       <Cell dataKey="preferred_location" />
                     </Column>

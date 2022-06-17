@@ -31,6 +31,8 @@ import {
 import { storage } from "../firebase-config";
 import { db } from "../firebase-config";
 import { LocationContext } from "../context/LocationContext";
+import { QualificationContext } from "../context/QualificationContext";
+import { LanguagesContext } from "../context/LanguagesContext";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -105,6 +107,9 @@ const allValue = data.map((item) => item.value);
 const CareerCVupload = () => {
   //   console.log("Geting data on button click:", props.selected_data);
   const [locationData, setLocationData] = useContext(LocationContext);
+  const [qualificationData, setQualificationData] =
+    useContext(QualificationContext);
+  const [languagesData, setLanguagesData] = useContext(LanguagesContext);
 
   const picker = React.useRef();
   const [value, setValue] = React.useState([]);
@@ -290,7 +295,6 @@ const CareerCVupload = () => {
     const storageRef = ref(storage, `resume/${filename + "." + extension}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
     try {
-     
       uploadTask.on(
         "state_changed",
         (snapshot) => {
@@ -477,11 +481,8 @@ const CareerCVupload = () => {
                         />
                         <span className="validity"></span>
                       </div>
-                    
                     </div>
-                    <div className="wrapper">
-                     
-                    </div>
+                    <div className="wrapper"></div>
                     <div className="wrapper">
                       <div className="box a">
                         <label for="location">Current Location</label>
@@ -511,7 +512,7 @@ const CareerCVupload = () => {
                         <SelectPicker
                           value={eduvalue}
                           onChange={setEduvalue}
-                          data={qaulif}
+                          data={qualificationData}
                           name="eduqual"
                           block
                           style={{ marginTop: "5px" }}
@@ -537,7 +538,7 @@ const CareerCVupload = () => {
                           style={{ marginTop: "5px" }}
                         >
                           <CheckPicker
-                            data={data}
+                            data={languagesData}
                             ref={picker}
                             block
                             value={value}

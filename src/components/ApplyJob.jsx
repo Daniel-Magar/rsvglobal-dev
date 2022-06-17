@@ -32,6 +32,8 @@ import {
 import { storage } from "../firebase-config";
 import { db } from "../firebase-config";
 import { LocationContext } from "../context/LocationContext";
+import { QualificationContext } from "../context/QualificationContext";
+import { LanguagesContext } from "../context/LanguagesContext";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -82,20 +84,7 @@ const data = [
   { value: "Hindi", label: "Hindi" },
   { value: "Tamil", label: "Tamil" },
 ];
-const qaulif = [
-  { value: "Post-Graduate", label: "Post-Graduate" },
-  { value: "Graduate", label: "Graduate" },
-  { value: "12th Pass", label: "12th Pass" },
-  { value: "10th Pass", label: "10th Pass" },
-  { value: "8th Pass", label: "8th Pass" },
-];
-const jobprefrence = [
-  { value: "Angular Developer", label: "Angular Developer" },
-  { value: "Backend Developer", label: "Backend Developer" },
-  { value: "React Developer", label: "eact Developer" },
-  { value: "Java Developer", label: "Java Developer" },
-  { value: "Python Developer", label: "Python Developer" },
-];
+
 const vaccinated = [
   { value: "Yes", label: "Yes" },
   { value: "Partial", label: "Partial" },
@@ -108,6 +97,9 @@ const { StringType, NumberType } = Schema.Types;
 const ApplyJob = () => {
   //   console.log("Geting data on button click:", props.selected_data);
   const [locationData, setLocationData] = useContext(LocationContext);
+  const [qualificationData, setQualificationData] =
+    useContext(QualificationContext);
+  const [languagesData, setLanguagesData] = useContext(LanguagesContext);
   const picker = React.useRef();
   const [value, setValue] = React.useState([]);
 
@@ -643,7 +635,7 @@ const ApplyJob = () => {
                         <SelectPicker
                           value={eduvalue}
                           onChange={setEduvalue}
-                          data={qaulif}
+                          data={qualificationData}
                           name="eduqual"
                           block
                           style={{ marginTop: "5px" }}
@@ -669,7 +661,7 @@ const ApplyJob = () => {
                           style={{ marginTop: "5px" }}
                         >
                           <CheckPicker
-                            data={data}
+                            data={languagesData}
                             ref={picker}
                             block
                             value={value}

@@ -28,6 +28,8 @@ import WhyRsv from "./components/WhyRsv";
 import Contact from "./components/Contact";
 import { BusinessRequiredProvider } from "./context/BussinessRquiredContext";
 import { LocationProvider } from "./context/LocationContext";
+import { QualificationProvider } from "./context/QualificationContext";
+import { LanguagesProvider } from "./context/LanguagesContext";
 import TempStaffing from "./components/TempStaffing";
 import HrStatutoryComp from "./components/HrStatutoryComp";
 import Payroll from "./components/Payroll";
@@ -131,74 +133,81 @@ function App(props) {
   return (
     <>
       <div>
-        <BusinessRequiredProvider>
-          <LocationProvider>
-            <Routes>
-              <Route exact path="/" element={<Body />} />
-              <Route path="/home" element={<Body />} />
-              <Route path="permanentstaffing" element={<Pstaffing />} />
-              <Route path="/tempstaffing" element={<TempStaffing />} />
-              <Route path="/payroll" element={<Payroll />} />
-              <Route
-                path="/statutoryCompliance"
-                element={<HrStatutoryComp />}
-              />
+        <LanguagesProvider>
+          <QualificationProvider>
+            <BusinessRequiredProvider>
+              <LocationProvider>
+                <Routes>
+                  <Route exact path="/" element={<Body />} />
+                  <Route path="/home" element={<Body />} />
+                  <Route path="permanentstaffing" element={<Pstaffing />} />
+                  <Route path="/tempstaffing" element={<TempStaffing />} />
+                  <Route path="/payroll" element={<Payroll />} />
+                  <Route
+                    path="/statutoryCompliance"
+                    element={<HrStatutoryComp />}
+                  />
 
-              <Route path="/applyjob" element={<ApplyJob />} />
-              <Route path="/cvupload" element={<CareerCVupload />} />
-              <Route path="/whyrsv" element={<WhyRsv />} />
+                  <Route path="/applyjob" element={<ApplyJob />} />
+                  <Route path="/cvupload" element={<CareerCVupload />} />
+                  <Route path="/whyrsv" element={<WhyRsv />} />
 
-              <Route path="/contact" element={<Contact />} />
+                  <Route path="/contact" element={<Contact />} />
 
-              <Route path="career" element={<Career jobposts={jobposts} />} />
+                  <Route
+                    path="career"
+                    element={<Career jobposts={jobposts} />}
+                  />
 
-              <Route path="*" element={<Body />} />
-              <Route path="/login" element={<Login />} />
+                  <Route path="*" element={<Body />} />
+                  <Route path="/login" element={<Login />} />
 
-              <Route exact path="/admin">
-                <Route
-                  index
-                  element={
-                    <RequireAuth>
-                      <Admin candidates={candidates} jobposts={jobposts} />
-                    </RequireAuth>
-                  }
-                />
-              </Route>
+                  <Route exact path="/admin">
+                    <Route
+                      index
+                      element={
+                        <RequireAuth>
+                          <Admin candidates={candidates} jobposts={jobposts} />
+                        </RequireAuth>
+                      }
+                    />
+                  </Route>
 
-              <Route exact path="/admin/candidates">
-                <Route
-                  index
-                  element={
-                    <RequireAuth>
-                      <CandidateList candidates={candidates} />
-                    </RequireAuth>
-                  }
-                />
-              </Route>
-              <Route exact path="/admin/postjobs">
-                <Route
-                  index
-                  element={
-                    <RequireAuth>
-                      <PostJobs jobposts={jobposts} />
-                    </RequireAuth>
-                  }
-                />
-              </Route>
-              <Route exact path="/admin/clients">
-                <Route
-                  index
-                  element={
-                    <RequireAuth>
-                      <Clients clients={clients} />
-                    </RequireAuth>
-                  }
-                />
-              </Route>
-            </Routes>
-          </LocationProvider>
-        </BusinessRequiredProvider>
+                  <Route exact path="/admin/candidates">
+                    <Route
+                      index
+                      element={
+                        <RequireAuth>
+                          <CandidateList candidates={candidates} />
+                        </RequireAuth>
+                      }
+                    />
+                  </Route>
+                  <Route exact path="/admin/postjobs">
+                    <Route
+                      index
+                      element={
+                        <RequireAuth>
+                          <PostJobs jobposts={jobposts} />
+                        </RequireAuth>
+                      }
+                    />
+                  </Route>
+                  <Route exact path="/admin/clients">
+                    <Route
+                      index
+                      element={
+                        <RequireAuth>
+                          <Clients clients={clients} />
+                        </RequireAuth>
+                      }
+                    />
+                  </Route>
+                </Routes>
+              </LocationProvider>
+            </BusinessRequiredProvider>
+          </QualificationProvider>
+        </LanguagesProvider>
       </div>
     </>
   );
