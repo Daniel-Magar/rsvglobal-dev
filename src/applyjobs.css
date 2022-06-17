@@ -228,7 +228,7 @@
 
   .wrapper {
     display: grid;
-    grid-template-columns: 100%;
+    grid-template-columns: 1fr 1fr;
     gap: 40px;
   }
   .applyform {
