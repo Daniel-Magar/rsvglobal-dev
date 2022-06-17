@@ -369,7 +369,7 @@
   .incontainer {
     display: grid;
 
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
     padding: 10px 0 5px 0;
   }
