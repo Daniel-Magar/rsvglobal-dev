@@ -395,7 +395,10 @@ const CareerCVupload = () => {
                   <form className="applyform" onSubmit={applyJob}>
                     <div className="wrapper">
                       <div className="box a">
-                        <label for="fname">Full Name</label>
+                        <label for="fname">
+                          {" "}
+                          <i className="bx bxs-user frm-i"></i>Full Name
+                        </label>
                         <input
                           type="text"
                           id="fname"
@@ -406,7 +409,10 @@ const CareerCVupload = () => {
                         {/* {valmsg.fullname && <h6>{valmsg.fullname}</h6>} */}
                       </div>
                       <div className="box b">
-                        <label for="gender">Gender</label>
+                        <label for="gender">
+                          {" "}
+                          <i className="bx bx-body frm-i"></i>Gender
+                        </label>
                         <div
                           className="cus_radio"
                           onChange={(event) => setGender(event.target.value)}
@@ -444,7 +450,10 @@ const CareerCVupload = () => {
                     </div>
                     <div className="wrapper">
                       <div className="box a">
-                        <label for="gender">Email Address</label>
+                        <label for="gender">
+                          {" "}
+                          <i className="bx bxs-envelope frm-i"></i>Email Address
+                        </label>
                         <input
                           type="text"
                           id="email"
@@ -466,7 +475,9 @@ const CareerCVupload = () => {
                         </div>
                       </div>
                       <div className="box b">
-                        <label for="phno">Phone Number</label>
+                        <label for="phno">
+                          <i className="bx bxs-phone frm-i"></i>Phone Number
+                        </label>
 
                         <input
                           type="tel"
@@ -485,7 +496,10 @@ const CareerCVupload = () => {
                     <div className="wrapper"></div>
                     <div className="wrapper">
                       <div className="box a">
-                        <label for="location">Current Location</label>
+                        <label for="location">
+                          {" "}
+                          <i className="bx bxs-map frm-i"></i>Current Location
+                        </label>
                         <SelectPicker
                           value={currentLocation}
                           onChange={setCurrentLocation}
@@ -494,7 +508,10 @@ const CareerCVupload = () => {
                         />
                       </div>
                       <div className="box b">
-                        <label for="prelocation">Preferred Location</label>
+                        <label for="prelocation">
+                          {" "}
+                          <i className="bx bxs-map frm-i"></i>Preferred Location
+                        </label>
                         <SelectPicker
                           value={preferredLocation}
                           onChange={setPreferredLocation}
@@ -506,7 +523,8 @@ const CareerCVupload = () => {
                     <div className="wrapper">
                       <div className="box a">
                         <label for="eduqual">
-                          Highest Education Qualification
+                          <i className="bx bxs-graduation frm-i"></i>Highest
+                          Education Qualification
                         </label>
 
                         <SelectPicker
@@ -532,7 +550,11 @@ const CareerCVupload = () => {
                         </div>
                       </div>
                       <div className="box b">
-                        <label for="clocation">Languages Known</label>
+                        <label for="clocation">
+                          {" "}
+                          <i className="bx bxs-user-voice frm-i"></i>Languages
+                          Known
+                        </label>
                         <div
                           className="example-item"
                           style={{ marginTop: "5px" }}
@@ -589,7 +611,8 @@ const CareerCVupload = () => {
                     <div className="wrapper">
                       <div className="box a">
                         <label for="experience">
-                          Total Experience (in Years)
+                          <i className="bx bxs-briefcase frm-i"></i>Total
+                          Experience (in Years)
                         </label>
                         <input
                           type="number"
@@ -601,7 +624,11 @@ const CareerCVupload = () => {
                         />
                       </div>
                       <div className="box b">
-                        <label for="notice">Notice Period (Days)</label>
+                        <label for="notice">
+                          {" "}
+                          <i className="bx bx-calendar frm-i"></i>Notice Period
+                          (Days)
+                        </label>
                         <input
                           type="number"
                           id="notice"
@@ -663,7 +690,11 @@ const CareerCVupload = () => {
                     </div>
                     <div className="wrapper">
                       <div className="box a">
-                        <label for="clocation">Current CTC (LPA)</label>
+                        <label for="clocation">
+                          {" "}
+                          <i className="bx bxs-wallet-alt frm-i"></i>Current CTC
+                          (LPA)
+                        </label>
                         <input
                           type="number"
                           id="experience"
@@ -674,7 +705,11 @@ const CareerCVupload = () => {
                         />
                       </div>
                       <div className="box b">
-                        <label for="clocation">Expected CTC (LPA)</label>
+                        <label for="clocation">
+                          {" "}
+                          <i className="bx bxs-wallet-alt frm-i"></i>Expected
+                          CTC (LPA)
+                        </label>
                         <input
                           type="number"
                           id="experience"
@@ -688,7 +723,8 @@ const CareerCVupload = () => {
                     <div className="wrapper">
                       <div className="box a">
                         <label for="clocation">
-                          Are you 100% vaccinated for Covid-19?{" "}
+                          <i className="bx bx-injection frm-i"></i> Are you 100%
+                          vaccinated for Covid-19?{" "}
                         </label>
                         <SelectPicker
                           value={vaccine}
