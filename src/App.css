@@ -497,7 +497,7 @@ ul li ul li {
     font-size: 16px;
     display: flex;
     text-align: center;
-    justify-content: center;
+    justify-content: justify;
     width: 100% !important;
   }
   .abt-main {
