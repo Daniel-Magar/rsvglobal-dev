@@ -19,7 +19,6 @@ import {
 import ProgressBar from "./ProgressBar";
 import { CheckPicker, Checkbox, Button, SelectPicker, Schema } from "rsuite";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
-import ReactReadMoreReadLess from "react-read-more-read-less";
 
 import {
   collection,
@@ -34,6 +33,7 @@ import { db } from "../firebase-config";
 import { LocationContext } from "../context/LocationContext";
 import { QualificationContext } from "../context/QualificationContext";
 import { LanguagesContext } from "../context/LanguagesContext";
+import { set } from "firebase/database";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -93,6 +93,23 @@ const vaccinated = [
 const allValue = data.map((item) => item.value);
 
 const { StringType, NumberType } = Schema.Types;
+
+const ReadMore = ({ children }) => {
+  const text = children;
+
+  const [isReadMore, setIsReadMore] = useState(true);
+  const toggleReadMore = () => {
+    setIsReadMore(!isReadMore);
+  };
+  return (
+    <p className="readmoreless-text">
+      {isReadMore ? text.slice(0, 180) : text}
+      <span onClick={toggleReadMore} className="read-or-hide">
+        {isReadMore ? "...Read more ▼" : " .Read less ▲"}
+      </span>
+    </p>
+  );
+};
 
 const ApplyJob = () => {
   //   console.log("Geting data on button click:", props.selected_data);
@@ -381,6 +398,25 @@ const ApplyJob = () => {
     console.log(cdte);
     setFinalDate(cdte);
   }, [mydate]);
+
+  const [jobwithdot, setJobwithdot] = useState("");
+  useEffect(() => {
+    // let jobdescription = String(selectedData.data.jobdescrp);
+    let str = String(selectedData.data.jobdescrp);
+
+    // let strArr = str.split("\u25CF");
+    let strArr = str.split("●");
+
+    // let newStr = "\u25CF" + strArr.join("\n\u25CF");
+    let newStr = "●" + strArr.join("\n●");
+
+    setJobwithdot(newStr);
+
+    setJobwithdot((state) => {
+      console.log("Selected Job Description" + state);
+      return state;
+    });
+  }, [selectedData.data]);
   return (
     <>
       <div>
@@ -398,60 +434,71 @@ const ApplyJob = () => {
                   </div>
                 </div>
                 <div>
-                  <div class="info-grid-item">
-                    <b>Role: </b>
+                  <div className="info-grid-container">
+                    <div className="info-grid-item">
+                      <b>
+                        <i className="bx bxs-user-circle frm-i"></i> Role:
+                      </b>
 
-                    <span>{selectedData.data.jobtitle}</span>
-                  </div>
-                  <div class="info-grid-container">
-                    <div class="info-grid-item">
-                      <b>Primary Skill Required: </b>
                       <span>
-                        <ReactReadMoreReadLess
-                          charLimit={200}
-                          readMoreText={"Read more ▼"}
-                          readLessText={"Read less ▲"}
-                        >
-                          {selectedData.data.skill}
-                        </ReactReadMoreReadLess>
+                        {selectedData.data.jobtitle} |
+                        <i className="bx bx-file frm-i"></i>
+                        Job Posted on:
+                        {finalDate} | <i className="bx bx-calendar frm-i"></i>{" "}
+                        Notiece Period:
+                        {selectedData.data.noticeperiod}
                       </span>
                     </div>
                     <div class="info-grid-item">
-                      <b>Secondary Skill: </b>
+                      <b>
+                        <i className="bx bx-laptop frm-i"></i>Primary Skill
+                        Required:{" "}
+                      </b>
                       <span>
-                        <ReactReadMoreReadLess
-                          charLimit={200}
-                          readMoreText={"Read more ▼"}
-                          readLessText={"Read less ▲"}
-                        >
-                          {selectedData.data.secskill}
-                        </ReactReadMoreReadLess>
+                        <div className="readmoreless">
+                          {selectedData.data.skill.length >= 100 ? (
+                            <ReadMore>{selectedData.data.skill}</ReadMore>
+                          ) : (
+                            <div>{selectedData.data.skill}</div>
+                          )}
+                        </div>
                       </span>
                     </div>
-                    <div class="info-grid-item">
-                      <b>Description: </b>
-                      <span>
-                        <ReactReadMoreReadLess
-                          charLimit={100}
-                          readMoreText={"Read more ▼"}
-                          readLessText={"Read less ▲"}
-                        >
-                          {selectedData.data.jobdescrp}
-                        </ReactReadMoreReadLess>
-                      </span>
-                    </div>
-
-                    <div class="info-grid-item">
+                    <div className="info-grid-item">
+                      <b>
+                        <i className="bx bxs-edit frm-i"></i>Description:{" "}
+                      </b>
                       <div>
-                        <b>Notice Period: </b>
-                        <span>{selectedData.data.noticeperiod}</span>
+                        {selectedData.data.jobdescrp
+                          .split("●")
+                          .map((i, key) => {
+                            return (
+                              <div className="readmoreless" key={key}>
+                                {/* <ReadMore>{"●" + i}</ReadMore> */}
+                                {i.length >= 100 ? (
+                                  <ReadMore>{"●" + i}</ReadMore>
+                                ) : (
+                                  <div>{"●" + i}</div>
+                                )}
+                              </div>
+                            );
+                          })}
                       </div>
+                    </div>
 
-                      <div>
-                        <b>Job Posted On: </b>
-
-                        <span>{finalDate}</span>
-                      </div>
+                    <div class="info-grid-item">
+                      <b>
+                        <i className="bx bx-laptop frm-i"></i>Secondary Skill:{" "}
+                      </b>
+                      <span>
+                        <div className="readmoreless">
+                          {selectedData.data.secskill.length >= 80 ? (
+                            <ReadMore>{selectedData.data.secskill}</ReadMore>
+                          ) : (
+                            <div>{selectedData.data.secskill}</div>
+                          )}
+                        </div>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -466,7 +513,9 @@ const ApplyJob = () => {
                   <form className="applyform" onSubmit={applyJob}>
                     <div className="wrapper">
                       <div className="box a">
-                        <label for="fname">Full Name</label>
+                        <label for="fname">
+                          <i className="bx bxs-user frm-i"></i>Full Name
+                        </label>
                         <input
                           type="text"
                           id="fname"
@@ -477,7 +526,9 @@ const ApplyJob = () => {
                         {/* {valmsg.fullname && <h6>{valmsg.fullname}</h6>} */}
                       </div>
                       <div className="box b">
-                        <label for="gender">Gender</label>
+                        <label for="gender">
+                          <i className="bx bx-body frm-i"></i>Gender
+                        </label>
                         <div
                           className="cus_radio"
                           onChange={(event) => setGender(event.target.value)}
@@ -515,7 +566,9 @@ const ApplyJob = () => {
                     </div>
                     <div className="wrapper">
                       <div className="box a">
-                        <label for="gender">Email Address</label>
+                        <label for="gender">
+                          <i className="bx bxs-envelope frm-i"></i>Email Address
+                        </label>
                         <input
                           type="text"
                           id="email"
@@ -537,7 +590,9 @@ const ApplyJob = () => {
                         </div>
                       </div>
                       <div className="box b">
-                        <label for="phno">Phone Number</label>
+                        <label for="phno">
+                          <i className="bx bxs-phone frm-i"></i>Phone Number
+                        </label>
 
                         <input
                           type="tel"
@@ -594,7 +649,9 @@ const ApplyJob = () => {
                     </div> */}
                     <div className="wrapper">
                       <div className="box a">
-                        <label for="location">Current Location</label>
+                        <label for="location">
+                          <i className="bx bxs-map frm-i"></i>Current Location
+                        </label>
                         <SelectPicker
                           value={currentLocation}
                           onChange={setCurrentLocation}
@@ -610,7 +667,9 @@ const ApplyJob = () => {
                         /> */}
                       </div>
                       <div className="box b">
-                        <label for="prelocation">Preferred Location</label>
+                        <label for="prelocation">
+                          <i className="bx bxs-map frm-i"></i>Preferred Location
+                        </label>
                         <SelectPicker
                           value={preferredLocation}
                           onChange={setPreferredLocation}
@@ -629,7 +688,8 @@ const ApplyJob = () => {
                     <div className="wrapper">
                       <div className="box a">
                         <label for="eduqual">
-                          Highest Education Qualification
+                          <i className="bx bxs-graduation frm-i"></i> Highest
+                          Education Qualification
                         </label>
 
                         <SelectPicker
@@ -655,7 +715,10 @@ const ApplyJob = () => {
                         </div>
                       </div>
                       <div className="box b">
-                        <label for="clocation">Languages Known</label>
+                        <label for="clocation">
+                          <i className="bx bxs-user-voice frm-i"></i>Languages
+                          Known
+                        </label>
                         <div
                           className="example-item"
                           style={{ marginTop: "5px" }}
@@ -712,7 +775,8 @@ const ApplyJob = () => {
                     <div className="wrapper">
                       <div className="box a">
                         <label for="experience">
-                          Total Experience (in Years)
+                          <i className="bx bxs-briefcase frm-i"></i> Total
+                          Experience (in Years)
                         </label>
                         <input
                           type="tel"
@@ -727,7 +791,8 @@ const ApplyJob = () => {
                       </div>
                       <div className="box b">
                         <label for="rexperience">
-                          Relevant Experience (in Years)
+                          <i className="bx bxs-briefcase frm-i"></i> Relevant
+                          Experience (in Years)
                         </label>
                         <input
                           type="tel"
@@ -744,6 +809,7 @@ const ApplyJob = () => {
                     <div className="wrapper">
                       <div className="box a">
                         <label for="company">
+                          <i className="bx bxs-building-house frm-i"></i>
                           Current/Last Employee or Company
                         </label>
                         <input
@@ -755,7 +821,10 @@ const ApplyJob = () => {
                         />
                       </div>
                       <div className="box b">
-                        <label for="role">Current/Last Job Role</label>
+                        <label for="role">
+                          <i className="bx bxs-hard-hat frm-i"></i>Current/Last
+                          Job Role
+                        </label>
                         <input
                           type="text"
                           id="role"
@@ -768,7 +837,10 @@ const ApplyJob = () => {
 
                     <div className="wrapper">
                       <div className="box a">
-                        <label for="clocation">Current CTC (LPA)</label>
+                        <label for="clocation">
+                          <i className="bx bxs-wallet-alt frm-i"></i>Current CTC
+                          (LPA)
+                        </label>
                         <input
                           type="tel"
                           id="experience"
@@ -781,7 +853,10 @@ const ApplyJob = () => {
                         />
                       </div>
                       <div className="box b">
-                        <label for="clocation">Expected CTC (LPA)</label>
+                        <label for="clocation">
+                          <i className="bx bxs-wallet-alt frm-i"></i>Expected
+                          CTC (LPA)
+                        </label>
                         <input
                           type="tel"
                           id="experience"
@@ -796,7 +871,10 @@ const ApplyJob = () => {
                     </div>
                     <div className="wrapper">
                       <div className="box a">
-                        <label for="notice">Notice Period (Days)</label>
+                        <label for="notice">
+                          <i className="bx bx-calendar frm-i"></i> Notice Period
+                          (Days)
+                        </label>
                         <input
                           type="tel"
                           id="notice"
@@ -810,7 +888,8 @@ const ApplyJob = () => {
                       </div>
                       <div className="box b">
                         <label for="clocation">
-                          Are you 100% vaccinated for Covid-19?{" "}
+                          <i className="bx bx-injection frm-i"></i> Are you 100%
+                          vaccinated for Covid-19?{" "}
                         </label>
                         <SelectPicker
                           value={vaccine}

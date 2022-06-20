@@ -10,13 +10,7 @@ import { AuthContext } from "./context/AuthContext";
 
 import React, { useState, useEffect } from "react";
 import CandidateList from "./Admin/CandidateList";
-import {
-  collection,
-  getDocs,
-  query,
-  orderBy,
-  onSnapshot,
-} from "firebase/firestore";
+import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
 import { db } from "./firebase-config";
 import Admin from "./Admin/Admin";
 import PostJobs from "./Admin/PostJobs";
@@ -43,24 +37,6 @@ function App(props) {
 
   const [candidates, setCandidates] = useState([]);
 
-  // useEffect(() => {
-  //   console.log("----------------------");
-  //   const colRef = collection(db, "candidates");
-  //   getDocs(colRef, orderBy("timestamp", "desc"))
-  //     .then((snapshot) => {
-  //       let productdb = [];
-  //       snapshot.docs.forEach((doc) => {
-  //         productdb.push({ ...doc.data(), id: doc.id });
-  //       });
-  //       let temp = [];
-  //       temp.push(productdb);
-  //       setCandidates(productdb);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err.message);
-  //     });
-  // }, []);
-  /* FECTHING ALL CANDIDATES () */
   useEffect(() => {
     const abortCont = new AbortController();
     try {

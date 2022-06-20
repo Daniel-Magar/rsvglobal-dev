@@ -81,7 +81,7 @@
 .info-grid-item {
   /* background-color: rgba(255, 255, 255, 0.8); */
   /* border: 1px solid rgba(0, 0, 0, 0.8); */
-  padding: 8px;
+  padding: 0 0 0 8px;
   font-size: 14px;
   text-align: justify;
 }
@@ -149,6 +149,26 @@
   line-height: 42px;
 }
 
+.readmoreless {
+  /* position: absolute; */
+  top: 10%;
+  left: 23%;
+  width: 100%;
+}
+
+.readmoreless-text {
+  display: inline;
+  width: 100%;
+}
+
+.read-or-hide {
+  color: rgb(194, 195, 197);
+  cursor: pointer;
+}
+.frm-i {
+  font-size: 16px;
+  color: rgb(140, 147, 155);
+}
 /* Responsive layout - makes a one column-layout instead of two-column layout */
 @media (max-width: 800px) {
   .career-flex-container {
