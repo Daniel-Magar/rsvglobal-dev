@@ -1,0 +1,115 @@
+.left-nav {
+  height: 100vh;
+  /* background-color: #9989f7; */
+  background-color: rgb(25, 118, 210);
+  width: 15%;
+
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  padding-top: 20px;
+  overflow-x: hidden;
+}
+.nav-content {
+  display: flex;
+  flex-direction: column;
+}
+.nav-content > a {
+  color: white;
+  padding: 18px;
+  font-size: 18px;
+  text-decoration: none;
+  text-align: left;
+}
+.ad-logo {
+  color: white;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid rgb(191, 196, 235);
+}
+.nav-content > a:hover {
+  background-color: rgb(77, 165, 247);
+}
+.tabs {
+  display: flex;
+  gap: 10px;
+}
+.active {
+  /* transform: translateX(0%); */
+  width: 15%;
+}
+.inactive {
+  /* transform: translateX(-10%); */
+  width: 8%;
+}
+.opennav {
+  padding-left: 300px;
+  transition: all 0.3s ease-in-out;
+}
+.closenav {
+  padding-left: 30px;
+  transition: all 0.3s ease-in-out;
+}
+.open {
+  position: absolute;
+  font-size: 46px;
+  color: #050505;
+  margin-left: 3%;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.close {
+  position: absolute;
+  color: white;
+  z-index: 50;
+  font-size: 46px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  margin-left: 13%;
+}
+.inactive .left-nav {
+  background-color: rgb(25, 118, 210);
+
+  justify-content: center;
+}
+/*.inactive .open {
+}
+.inactive .nav-content > a {
+  padding: 10px;
+}
+*/
+.inactive .nav-content .nav-texts {
+  display: none;
+}
+.inactive .ad-logo {
+  color: white;
+  font-size: 22px;
+  display: block;
+  border-bottom: 1px solid rgb(191, 196, 235);
+}
+
+.inactive .left-nav {
+  width: 3%;
+  transition: all 0.3s ease-in-out;
+}
+.active .left-nav {
+  transition: all 0.3s ease-in-out;
+}
+.inactive .logo-txt {
+  transition: all 0.3s ease-in-out;
+  animation: animate 2s 1s ease-in;
+}
+.inactive .logo-txt {
+  display: none;
+}
+@keyframes animate {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100;
+  }
+}
