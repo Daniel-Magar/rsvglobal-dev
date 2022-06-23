@@ -33,7 +33,7 @@ import { db } from "../firebase-config";
 import { LocationContext } from "../context/LocationContext";
 import { QualificationContext } from "../context/QualificationContext";
 import { LanguagesContext } from "../context/LanguagesContext";
-import { set } from "firebase/database";
+import ReadMore from "../ReadMore";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -93,23 +93,6 @@ const vaccinated = [
 const allValue = data.map((item) => item.value);
 
 const { StringType, NumberType } = Schema.Types;
-
-const ReadMore = ({ children }) => {
-  const text = children;
-
-  const [isReadMore, setIsReadMore] = useState(true);
-  const toggleReadMore = () => {
-    setIsReadMore(!isReadMore);
-  };
-  return (
-    <p className="readmoreless-text">
-      {isReadMore ? text.slice(0, 180) : text}
-      <span onClick={toggleReadMore} className="read-or-hide">
-        {isReadMore ? "...Read more ▼" : " .Read less ▲"}
-      </span>
-    </p>
-  );
-};
 
 const ApplyJob = () => {
   //   console.log("Geting data on button click:", props.selected_data);

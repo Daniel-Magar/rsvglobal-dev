@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import "./adminpanel.css";
+import { Link } from "react-router-dom";
+import ToggleAtom from "../Recoil/ToggleAtom";
+import { useRecoilState } from "recoil";
 
-const SideNav = (props) => {
-  console.log(props.toggle);
+const SideNav = () => {
+  const [toggle, setToggle] = useRecoilState(ToggleAtom);
+  const openSidenav = () => {
+    setToggle(!toggle);
+  };
   return (
     <>
-      <aside className={props.toggle ? "active" : "inactive"}>
+      {!toggle ? (
+        <span className="open" onClick={openSidenav}>
+          <i class="bx bxs-chevron-right"></i>
+        </span>
+      ) : (
+        <span className="close" onClick={openSidenav}>
+          <i class="bx bxs-chevron-left"></i>
+        </span>
+      )}
+      <aside className={toggle ? "left-active" : "left-inactive"}>
         <nav className="left-nav">
           <div className="ad-logo">
             <div>
@@ -13,31 +28,33 @@ const SideNav = (props) => {
             </div>
             <div className="logo-txt">RSV Global</div>
           </div>
+          <hr />
           <div className="nav-content">
-            <a href="" className="tabs">
+            <Link className="tabs" to="/admindashboard">
               <div className="nav-icons">
                 <i className="bx bxs-dashboard" label="dashboard"></i>
               </div>
               <div className="nav-texts">Dashboard</div>
-            </a>
-            <a href="" className="tabs">
+            </Link>
+
+            <Link className="tabs" to="/client">
               <div className="nav-icons">
                 <i className="bx bxs-group"></i>
               </div>
               <div className="nav-texts">Clients</div>
-            </a>
-            <a href="" className="tabs">
+            </Link>
+            <Link className="tabs" to="/candidates">
               <div className="nav-icons">
                 <i className="bx bxs-user-detail"></i>
               </div>
               <div className="nav-texts">Candidates</div>
-            </a>
-            <a href="" className="tabs">
+            </Link>
+            <Link className="tabs" to="/jobs">
               <div className="nav-icons">
                 <i className="bx bxs-briefcase-alt-2"></i>
               </div>
               <div className="nav-texts">Post Jobs</div>
-            </a>
+            </Link>
           </div>
         </nav>
       </aside>

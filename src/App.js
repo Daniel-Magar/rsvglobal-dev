@@ -30,6 +30,11 @@ import Payroll from "./components/Payroll";
 import Clients from "./Admin/Clients";
 
 import AdminDashboard from "./AdminPanel/AdminDashboard";
+import Candidates from "./AdminPanel/Candidates";
+import Client from "./AdminPanel/Client";
+import Jobs from "./AdminPanel/Jobs";
+import CandidatesAtom from "./Recoil/CandidatesAtom";
+import { useRecoilState } from "recoil";
 function App(props) {
   const { currentUser } = useContext(AuthContext);
 
@@ -122,6 +127,12 @@ function App(props) {
                   <Route path="admindashboard" element={<AdminDashboard />} />
                   <Route path="/tempstaffing" element={<TempStaffing />} />
                   <Route path="/payroll" element={<Payroll />} />
+                  <Route
+                    path="/candidates"
+                    element={<Candidates candidates={candidates} />}
+                  />
+                  <Route path="/client" element={<Client />} />
+                  <Route path="/jobs" element={<Jobs jobposts={jobposts} />} />
                   <Route
                     path="/statutoryCompliance"
                     element={<HrStatutoryComp />}

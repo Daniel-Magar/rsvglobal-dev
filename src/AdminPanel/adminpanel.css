@@ -1,6 +1,6 @@
 .left-nav {
   height: 100vh;
-  /* background-color: #9989f7; */
+  overflow-x: hidden;
   background-color: rgb(25, 118, 210);
   width: 15%;
 
@@ -17,7 +17,7 @@
 }
 .nav-content > a {
   color: white;
-  padding: 18px;
+  padding: 28px;
   font-size: 18px;
   text-decoration: none;
   text-align: left;
@@ -26,9 +26,11 @@
   color: white;
   font-size: 22px;
   display: flex;
+  margin-left: 14px;
   align-items: center;
+  width: 400px;
   gap: 10px;
-  border-bottom: 1px solid rgb(191, 196, 235);
+  /* border-bottom: 1px solid rgb(191, 196, 235); */
 }
 .nav-content > a:hover {
   background-color: rgb(77, 165, 247);
@@ -37,12 +39,10 @@
   display: flex;
   gap: 10px;
 }
-.active {
-  /* transform: translateX(0%); */
+.left-active {
   width: 15%;
 }
-.inactive {
-  /* transform: translateX(-10%); */
+.left-inactive {
   width: 8%;
 }
 .opennav {
@@ -70,40 +70,86 @@
   cursor: pointer;
   margin-left: 13%;
 }
-.inactive .left-nav {
+.left-inactive .left-nav {
   background-color: rgb(25, 118, 210);
 
   justify-content: center;
 }
-/*.inactive .open {
-}
-.inactive .nav-content > a {
-  padding: 10px;
-}
-*/
-.inactive .nav-content .nav-texts {
+
+.left-inactive .nav-content .nav-texts {
   display: none;
 }
-.inactive .ad-logo {
+.left-inactive .ad-logo {
   color: white;
   font-size: 22px;
-  display: block;
-  border-bottom: 1px solid rgb(191, 196, 235);
+  margin-left: 14px;
+  display: flex;
+
+  justify-content: start;
+  text-align: center;
+  /* border-bottom: 1px solid rgb(191, 196, 235); */
 }
 
-.inactive .left-nav {
-  width: 3%;
+.left-inactive .left-nav {
+  width: 72px;
   transition: all 0.3s ease-in-out;
 }
-.active .left-nav {
+.left-active .left-nav {
   transition: all 0.3s ease-in-out;
 }
-.inactive .logo-txt {
+.left-inactive .logo-txt {
   transition: all 0.3s ease-in-out;
   animation: animate 2s 1s ease-in;
 }
-.inactive .logo-txt {
-  display: none;
+.left-inactive .logo-txt {
+  /* display: none; */
+  display: block;
+}
+.nav-tooltip {
+  position: relative;
+  display: inline-block;
+}
+.nav-tooltip .nav-tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 110%;
+}
+.nav-tooltip .nav-tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+}
+.nav-tooltip:hover .nav-tooltiptext {
+  visibility: visible;
+  display: block;
+}
+
+.left-active .main-content {
+  background-color: aquamarine;
+  width: 100%;
+  margin-left: 15%;
+  transition: all 0.3s ease-in-out;
+}
+.left-inactive .main-content {
+  margin-left: 3%;
+  background-color: blue;
+}
+.content-admin {
+  margin-left: 15%;
+  padding-left: 20px;
 }
 @keyframes animate {
   from {
@@ -112,4 +158,77 @@
   to {
     opacity: 100;
   }
+}
+
+.admin-active {
+  margin-left: 15%;
+  transition: all 0.3s ease-in-out;
+}
+.admin-inactive {
+  margin-left: 3%;
+  transition: all 0.3s ease-in-out;
+}
+.admin-head {
+  margin-left: 1%;
+}
+.admin-text {
+  font-size: 30px;
+}
+.admin-container {
+  padding: 2px;
+  padding: 12px 0px;
+  margin-right: 12px;
+}
+.my-table {
+  width: 100%;
+  display: table;
+  padding: 10px;
+}
+.my-table-body {
+  display: table-row-group;
+}
+.my-table-row {
+  display: table-row;
+}
+.my-table-body-cell {
+  display: table-cell;
+  border: 1px solid #dddddd;
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  text-align: justify;
+}
+.nodata {
+  position: absolute;
+  width: 84%;
+  text-align: center;
+  padding: 92px;
+  font-size: 18px;
+  color: rgb(128, 132, 136);
+}
+.thead {
+  font-size: 16px;
+  font-weight: bold;
+}
+.page-title {
+  font-size: 16px;
+  font-weight: bold;
+
+  text-align: center;
+}
+.btn-admin {
+  background-color: rgb(25, 118, 210);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 8px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 4px 10px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
 }
