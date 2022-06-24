@@ -11,6 +11,7 @@ input[type="password"],
 input[type="email"],
 input[type="number"],
 input[type="tel"],
+textarea,
 select {
   width: 100%;
   padding: 10px 5px;
@@ -43,7 +44,18 @@ select {
 }
 select {
   cursor: pointer;
-  background-color: none;
+  background-color: white;
+}
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
 }
 option {
   cursor: pointer;

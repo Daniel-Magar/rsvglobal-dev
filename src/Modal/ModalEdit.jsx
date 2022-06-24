@@ -4,12 +4,10 @@ import DropDown from "../AdminPanel/DropDown";
 import "../AdminPanel/dropdown.css";
 import closeAtom from "../Recoil/closeAtom";
 import showAtom from "../Recoil/showAtom";
-
-const Modal = (props) => {
+const ModalEdit = () => {
   const [closeStatus, setCloseStatus] = useRecoilState(closeAtom);
 
   const [show, setShow] = useRecoilState(showAtom);
-
   return (
     <>
       <div
@@ -123,7 +121,7 @@ const Modal = (props) => {
                     setShow(false);
                   }}
                 >
-                  Submit
+                  Edit
                 </button>
               </div>
             </div>
@@ -134,4 +132,4 @@ const Modal = (props) => {
   );
 };
 
-export default Modal;
+export default ModalEdit;

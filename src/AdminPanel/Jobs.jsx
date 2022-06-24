@@ -6,6 +6,8 @@ import SideNav from "./SideNav";
 import SimpleDateTime from "react-simple-timestamp-to-date";
 import ReadMore from "../ReadMore";
 import Modal from "../Modal/Modal";
+import showAtom from "../Recoil/showAtom";
+import closeAtom from "../Recoil/closeAtom";
 
 const Jobs = (props) => {
   const [toggle, setToggle] = useRecoilState(ToggleAtom);
@@ -13,7 +15,8 @@ const Jobs = (props) => {
   useEffect(() => {
     console.log(toggle);
   }, [toggle]);
-
+  const [show, setShow] = useRecoilState(showAtom);
+  const [closeStatus, setCloseStaus] = useRecoilState(closeAtom);
   return (
     <>
       <SideNav />
@@ -31,7 +34,13 @@ const Jobs = (props) => {
         </div>
 
         <div className="admin-container">
-          <button className="btn-admin" type="submit">
+          <button
+            className="btn-admin"
+            onClick={() => {
+              setShow(true);
+              setCloseStaus(false);
+            }}
+          >
             <div className="btn-content">
               <div className="btn-sub">Post</div>
               <div className="btn-sub">
@@ -46,7 +55,13 @@ const Jobs = (props) => {
               </div>
             </div>
           </button>
-          <Modal />
+          <Modal
+            title="Post New Job"
+            // show={show}
+            // onClose={() => {
+            //   setShow(false);
+            // }}
+          />
           <div className="my-table">
             <div className="my-table-body">
               <div className="my-table-row">
@@ -59,7 +74,8 @@ const Jobs = (props) => {
                 <div class="my-table-body-cell thead">Notice Period</div>
                 <div class="my-table-body-cell thead">Location</div>
 
-                <div class="my-table-body-cell thead">Applied Date</div>
+                <div class="my-table-body-cell thead">Job Posted On</div>
+                <div class="my-table-body-cell thead">Action</div>
               </div>
 
               {props.jobposts.length > 0 ? (
@@ -97,6 +113,24 @@ const Jobs = (props) => {
                       >
                         {data.timestamp.toDate()}
                       </SimpleDateTime>
+                    </div>
+                    <div class="my-table-body-cell">
+                      <div className="action">
+                        <div>
+                          <button
+                            className="btn-admin"
+                            onClick={() => {
+                              setShow(true);
+                              setCloseStaus(false);
+                            }}
+                          >
+                            Edit
+                          </button>
+                        </div>
+                        <div>
+                          <button className="btn-delete ">Delete</button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 ))

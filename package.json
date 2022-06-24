@@ -28,6 +28,7 @@
     "react-scripts": "^5.0.1",
     "react-simple-timestamp-to-date": "^1.0.3",
     "react-swipeable": "^7.0.0",
+    "react-transition-group": "^4.4.2",
     "read-more-react": "^1.0.10",
     "recoil": "^0.7.4",
     "rsuite": "^5.12.0",

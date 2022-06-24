@@ -83,20 +83,7 @@ const data = [
   { value: "Hindi", label: "Hindi" },
   { value: "Tamil", label: "Tamil" },
 ];
-const qaulif = [
-  { value: "Post-Graduate", label: "Post-Graduate" },
-  { value: "Graduate", label: "Graduate" },
-  { value: "12th Pass", label: "12th Pass" },
-  { value: "10th Pass", label: "10th Pass" },
-  { value: "8th Pass", label: "8th Pass" },
-];
-const jobprefrence = [
-  { value: "Angular Developer", label: "Angular Developer" },
-  { value: "Backend Developer", label: "Backend Developer" },
-  { value: "React Developer", label: "eact Developer" },
-  { value: "Java Developer", label: "Java Developer" },
-  { value: "Python Developer", label: "Python Developer" },
-];
+
 const vaccinated = [
   { value: "Yes", label: "Yes" },
   { value: "Partial", label: "Partial" },
@@ -137,9 +124,7 @@ const CareerCVupload = () => {
   const [currentLocation, setCurrentLocation] = useState("");
   const [preferredLocation, setPreferredLocation] = useState("");
   const [experience, setExperience] = useState("");
-  const [relvExperience, setRelvExperience] = useState("");
-  const [currentLastEmp, setCurrentLastEmp] = useState("");
-  const [currentLastRole, setCurrentLastRole] = useState("");
+
   const [selfNoticePeriod, setSelfNoticePeriod] = useState("");
   const [currentCTC, setCurrentCTC] = useState("");
   const [expectedCTC, setExpectedCTC] = useState("");
@@ -638,56 +623,9 @@ const CareerCVupload = () => {
                           maxLength="2"
                         />
                       </div>
-                      {/* <div className="box b">
-                        <label for="rexperience">
-                          Relevant Experience (in Years)
-                        </label>
-                        <input
-                          type="text"
-                          id="rexperience"
-                          name="rexperience"
-                          onChange={(e) => setRelvExperience(e.target.value)}
-                          required
-                        />
-                      </div> */}
                     </div>
-                    <div className="wrapper">
-                      {/* <div className="box a">
-                        <label for="company">
-                          Current/Last Employee or Company
-                        </label>
-                        <input
-                          type="text"
-                          id="company"
-                          name="company"
-                          onChange={(e) => setCurrentLastEmp(e.target.value)}
-                          required
-                        />
-                      </div> */}
-                      {/* <div className="box b">
-                        <label for="role">Current/Last Job Role</label>
-                        <input
-                          type="text"
-                          id="role"
-                          name="role"
-                          onChange={(e) => setCurrentLastRole(e.target.value)}
-                          required
-                        />
-                      </div> */}
-                    </div>
-                    <div className="wrapper">
-                      {/* <div className="box a">
-                        <label for="jpreference">Job Preference</label>
-                        <SelectPicker
-                          value={jobpref}
-                          onChange={setJobpref}
-                          data={jobprefrence}
-                          block
-                          style={{ marginTop: "5px" }}
-                          searchable={false}
-                        />
-                      </div> */}
-                    </div>
+                    <div className="wrapper"></div>
+                    <div className="wrapper"></div>
                     <div className="wrapper">
                       <div className="box a">
                         <label for="clocation">
