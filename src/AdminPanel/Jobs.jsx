@@ -6,7 +6,9 @@ import SideNav from "./SideNav";
 import SimpleDateTime from "react-simple-timestamp-to-date";
 import ReadMore from "../ReadMore";
 import Modal from "../Modal/Modal";
+import ModalEdit from "../Modal/ModalEdit";
 import showAtom from "../Recoil/showAtom";
+import show2Atom from "../Recoil/show2Atom";
 import closeAtom from "../Recoil/closeAtom";
 
 const Jobs = (props) => {
@@ -16,7 +18,34 @@ const Jobs = (props) => {
     console.log(toggle);
   }, [toggle]);
   const [show, setShow] = useRecoilState(showAtom);
+  const [show2, setShow2] = useRecoilState(show2Atom);
   const [closeStatus, setCloseStaus] = useRecoilState(closeAtom);
+  const [editFormData, setEditFormData] = useState({
+    jobtitle: "",
+    qualification: "",
+    jobdescrp: "",
+    skill: "",
+    secskill: "",
+    location: "",
+    experience: "",
+    ctc: "",
+    noticeperiod: "",
+    editedon: "",
+  });
+  const editItem = (item) => {
+    console.log("Item selected: ", item);
+    setEditFormData({
+      jobtitle: item.jobtitle,
+      qualification: item.qualification,
+      jobdescrp: item.jobdescrp,
+      skill: item.skill,
+      secskill: item.secskill,
+      location: item.location,
+      experience: item.experience,
+      ctc: item.ctc,
+      noticeperiod: item.noticeperiod,
+    });
+  };
   return (
     <>
       <SideNav />
@@ -55,13 +84,8 @@ const Jobs = (props) => {
               </div>
             </div>
           </button>
-          <Modal
-            title="Post New Job"
-            // show={show}
-            // onClose={() => {
-            //   setShow(false);
-            // }}
-          />
+          <Modal title="Post New Job" editItem={editItem ? editFormData : ""} />
+          <ModalEdit title="Edit Job" editFormData={editFormData} />
           <div className="my-table">
             <div className="my-table-body">
               <div className="my-table-row">
@@ -120,8 +144,9 @@ const Jobs = (props) => {
                           <button
                             className="btn-admin"
                             onClick={() => {
-                              setShow(true);
+                              setShow2(true);
                               setCloseStaus(false);
+                              editItem(data);
                             }}
                           >
                             Edit

@@ -6,36 +6,7 @@ import { LocationContext } from "../context/LocationContext";
 
 const DropDown = () => {
   const [locationData, setLocationData] = useContext(LocationContext);
-  const options = [
-    {
-      lableName: "React",
-      value: 125,
-    },
-    {
-      lableName: "Angular",
-      value: 5645,
-    },
-    {
-      lableName: "Vue",
-      value: 564,
-    },
-    {
-      lableName: "Native",
-      value: 45,
-    },
-    {
-      lableName: "CoffeeShop",
-      value: 657,
-    },
-    {
-      lableName: "SpeingBoot",
-      value: 23,
-    },
-    {
-      lableName: "Java",
-      value: 4515,
-    },
-  ];
+
   const [isActive, setIsActive] = useState(false);
   const [selected, setSelected] = useRecoilState(selectedAtom);
   return (
