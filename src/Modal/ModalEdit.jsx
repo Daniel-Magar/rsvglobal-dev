@@ -6,6 +6,15 @@ import closeAtom from "../Recoil/closeAtom";
 import show2Atom from "../Recoil/show2Atom";
 import selectedAtom from "../Recoil/selectedAtom";
 import { LocationContext } from "../context/LocationContext";
+import {
+  collection,
+  addDoc,
+  Timestamp,
+  doc,
+  updateDoc,
+  deleteDoc,
+} from "firebase/firestore";
+import { db } from "../firebase-config";
 const ModalEdit = (props) => {
   const [closeStatus, setCloseStatus] = useRecoilState(closeAtom);
   const [selected, setSelected] = useState();
@@ -37,11 +46,12 @@ const ModalEdit = (props) => {
   });
   useEffect(() => {
     setEditData({
+      id: props.editFormData.id,
       jobtitle: props.editFormData.jobtitle,
       qualification: props.editFormData.qualification,
       jobdescrp: props.editFormData.jobdescrp,
       skill: props.editFormData.skill,
-      secskill: props.editFormData.skill,
+      secskill: props.editFormData.secskill,
       location: props.editFormData.location,
       experience: props.editFormData.experience,
       ctc: props.editFormData.ctc,
@@ -59,11 +69,44 @@ const ModalEdit = (props) => {
   // onchange function to get all the values typed by the user from the form
   const handleChange = (evt) => {
     const value = evt.target.value;
-    console.log(evt.targe.name);
+
     setEditData({
       ...editData,
       [evt.target.name]: value,
     });
+  };
+  // update function
+  const update = () => {
+    console.log(props.editFormData);
+
+    // console.log("editing", editData.jobtitle);
+    // console.log("editing", editData.jobdescrp);
+    try {
+      const ref = doc(db, "job_posts", editData.id);
+      updateDoc(ref, {
+        jobtitle: editData.jobtitle,
+        qualification: editData.qualification,
+        jobdescrp: editData.jobdescrp,
+        experience: editData.experience,
+        skill: editData.skill,
+        secskill: editData.secskill,
+        location: editData.location,
+        ctc: editData.ctc,
+        noticeperiod: editData.noticeperiod,
+        editedon: Timestamp.now(),
+      })
+        .then(() => {
+          console.log("Dataa updated");
+        })
+        .catch((error) => {
+          alert("Unsuccessfull, Error:" + error);
+        });
+    } catch (err) {
+      // alert("errororororor", err);
+      console.log("errororororor", err);
+    }
+    setCloseStatus(true);
+    setShow2(false);
   };
   return (
     <>
@@ -241,13 +284,7 @@ const ModalEdit = (props) => {
                 </button>
               </div>
               <div>
-                <button
-                  className="modal-cls-btn"
-                  onClick={() => {
-                    setCloseStatus(true);
-                    setShow2(false);
-                  }}
-                >
+                <button className="modal-cls-btn" onClick={update}>
                   Edit
                 </button>
               </div>

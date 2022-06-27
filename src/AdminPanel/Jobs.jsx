@@ -35,6 +35,7 @@ const Jobs = (props) => {
   const editItem = (item) => {
     console.log("Item selected: ", item);
     setEditFormData({
+      id: item.id,
       jobtitle: item.jobtitle,
       qualification: item.qualification,
       jobdescrp: item.jobdescrp,
