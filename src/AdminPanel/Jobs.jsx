@@ -12,7 +12,17 @@ import show2Atom from "../Recoil/show2Atom";
 import closeAtom from "../Recoil/closeAtom";
 
 const Jobs = (props) => {
+  const [data, setData] = useState(props.jobposts);
   const [toggle, setToggle] = useRecoilState(ToggleAtom);
+
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    setData(props.jobposts);
+    setData((state) => {
+      return state;
+    });
+  }, [props]);
 
   useEffect(() => {
     console.log(toggle);
@@ -47,6 +57,16 @@ const Jobs = (props) => {
       noticeperiod: item.noticeperiod,
     });
   };
+
+  const [order, setOrder] = useState("ASC");
+
+  const sorting = (col) => {
+    if (order == "ASC") {
+      const sorted = [...props.editFormData].sort((a, b) =>
+        a[col].toLowerCase() > b.toLowerCase() ? 1 : -1
+      );
+    }
+  };
   return (
     <>
       <SideNav />
@@ -64,28 +84,40 @@ const Jobs = (props) => {
         </div>
 
         <div className="admin-container">
-          <button
-            className="btn-admin"
-            onClick={() => {
-              setShow(true);
-              setCloseStaus(false);
-            }}
-          >
-            <div className="btn-content">
-              <div className="btn-sub">Post</div>
-              <div className="btn-sub">
-                <i
-                  className="bx bx-edit"
-                  style={{
-                    color: "white",
-                    fontSize: "22px",
-                    padding: "4px",
-                  }}
-                />
-              </div>
+          <div className="job-top-flex">
+            <div>
+              <button
+                className="btn-admin"
+                onClick={() => {
+                  setShow(true);
+                  setCloseStaus(false);
+                }}
+              >
+                <div className="btn-content">
+                  <div className="btn-sub">Post</div>
+                  <div className="btn-sub">
+                    <i
+                      className="bx bx-edit"
+                      style={{
+                        color: "white",
+                        fontSize: "22px",
+                        padding: "4px",
+                      }}
+                    />
+                  </div>
+                </div>
+              </button>
             </div>
-          </button>
-          <Modal title="Post New Job" editItem={editItem ? editFormData : ""} />
+            <div>
+              <input
+                type="text"
+                placeholder="Search..."
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </div>
+          </div>
+
+          <Modal title="Post New Job" />
           <ModalEdit title="Edit Job" editFormData={editFormData} />
           <div className="my-table">
             <div className="my-table-body">
@@ -103,63 +135,83 @@ const Jobs = (props) => {
                 <div class="my-table-body-cell thead">Action</div>
               </div>
 
-              {props.jobposts.length > 0 ? (
-                props.jobposts.map((data, idx) => (
-                  <div className="my-table-row" key={idx}>
-                    <div class="my-table-body-cell">{data.jobtitle}</div>
-                    <div class="my-table-body-cell">
-                      <ReadMore>{data.jobdescrp}</ReadMore>
-                    </div>
-                    <div class="my-table-body-cell">
-                      {data.skill.length >= 100 ? (
-                        <ReadMore>{data.skill}</ReadMore>
-                      ) : (
-                        <div>{data.skill}</div>
-                      )}
-                    </div>
-                    <div class="my-table-body-cell">
-                      {data.secskill.length > 0 ? (
-                        <ReadMore>{data.secskill}</ReadMore>
-                      ) : (
-                        <div>No Secondary Skill...</div>
-                      )}
-                    </div>
-                    <div class="my-table-body-cell">{data.qualification}</div>
+              {data.length > 0 ? (
+                data
+                  .filter((data) => {
+                    if (search == "") {
+                      return data;
+                    } else if (
+                      data.jobtitle
+                        .toLowerCase()
+                        .includes(search.toLowerCase()) ||
+                      data.jobdescrp
+                        .toLowerCase()
+                        .includes(search.toLowerCase()) ||
+                      data.skill.toLowerCase().includes(search.toLowerCase()) ||
+                      data.secskill
+                        .toLowerCase()
+                        .includes(search.toLowerCase()) ||
+                      data.location.toLowerCase().includes(search.toLowerCase())
+                    ) {
+                      return data;
+                    }
+                  })
+                  .map((data, idx) => (
+                    <div className="my-table-row" key={idx}>
+                      <div class="my-table-body-cell">{data.jobtitle}</div>
+                      <div class="my-table-body-cell">
+                        <ReadMore>{data.jobdescrp}</ReadMore>
+                      </div>
+                      <div class="my-table-body-cell">
+                        {data.skill.length >= 100 ? (
+                          <ReadMore>{data.skill}</ReadMore>
+                        ) : (
+                          <div>{data.skill}</div>
+                        )}
+                      </div>
+                      <div class="my-table-body-cell">
+                        {data.secskill.length > 0 ? (
+                          <ReadMore>{data.secskill}</ReadMore>
+                        ) : (
+                          <div>No Secondary Skill...</div>
+                        )}
+                      </div>
+                      <div class="my-table-body-cell">{data.qualification}</div>
 
-                    <div class="my-table-body-cell">{data.noticeperiod}</div>
-                    <div class="my-table-body-cell">{data.location}</div>
+                      <div class="my-table-body-cell">{data.noticeperiod}</div>
+                      <div class="my-table-body-cell">{data.location}</div>
 
-                    <div class="my-table-body-cell">
-                      <SimpleDateTime
-                        dateFormat="DMY"
-                        dateSeparator="/"
-                        timeSeparator=":"
-                        showTime="0"
-                      >
-                        {data.timestamp.toDate()}
-                      </SimpleDateTime>
-                    </div>
-                    <div class="my-table-body-cell">
-                      <div className="action">
-                        <div>
-                          <button
-                            className="btn-admin"
-                            onClick={() => {
-                              setShow2(true);
-                              setCloseStaus(false);
-                              editItem(data);
-                            }}
-                          >
-                            Edit
-                          </button>
-                        </div>
-                        <div>
-                          <button className="btn-delete ">Delete</button>
+                      <div class="my-table-body-cell">
+                        <SimpleDateTime
+                          dateFormat="DMY"
+                          dateSeparator="/"
+                          timeSeparator=":"
+                          showTime="0"
+                        >
+                          {data.timestamp.toDate()}
+                        </SimpleDateTime>
+                      </div>
+                      <div class="my-table-body-cell">
+                        <div className="action">
+                          <div>
+                            <button
+                              className="btn-admin"
+                              onClick={() => {
+                                setShow2(true);
+                                setCloseStaus(false);
+                                editItem(data);
+                              }}
+                            >
+                              Edit
+                            </button>
+                          </div>
+                          <div>
+                            <button className="btn-delete ">Delete</button>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))
+                  ))
               ) : (
                 <div className="nodata">No Data avaliable....</div>
               )}

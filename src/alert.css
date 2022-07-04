@@ -1,0 +1,29 @@
+.msg {
+  padding: 10px;
+  font-size: 18px;
+}
+.msg-success {
+  display: flex;
+  gap: 10px;
+  border: 1px solid rgb(230, 226, 226);
+  border-radius: 4px;
+  background-color: #04aa6d;
+  color: white;
+  padding: 5px;
+  box-shadow: seashell;
+  align-items: center;
+}
+.msg-error {
+  display: flex;
+  gap: 10px;
+  border: 1px solid rgb(230, 226, 226);
+  border-radius: 4px;
+  background-color: #f44336;
+  color: white;
+  padding: 5px;
+  box-shadow: seashell;
+  align-items: center;
+}
+.msg-icon {
+  font-size: 18px;
+}

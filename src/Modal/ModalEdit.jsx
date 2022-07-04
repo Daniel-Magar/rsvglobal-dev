@@ -15,6 +15,7 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 import { db } from "../firebase-config";
+import "../alert.css";
 const ModalEdit = (props) => {
   const [closeStatus, setCloseStatus] = useRecoilState(closeAtom);
   const [selected, setSelected] = useState();
@@ -23,14 +24,17 @@ const ModalEdit = (props) => {
 
   const [show2, setShow2] = useRecoilState(show2Atom);
   const [locationData, setLocationData] = useContext(LocationContext);
-  // console.log("EEEEE", props.editFormData);
-  // useEffect(() => {
-  //   setSelected(props.editItem.location);
-  //   setSelected((state) => {
-  //     console.log("selected location:", state);
-  //     return state;
-  //   });
-  // }, [props.editItem]);
+
+  const [jobtitle, setJobtitle] = useState("");
+  const [qualification, setQualification] = useState("");
+  const [jobdescrp, setJobdescrp] = useState("");
+  const [skill, setSkill] = useState("");
+  const [location, setLocation] = useState("");
+  const [secskill, setSecskill] = useState("");
+  const [experience, setExperience] = useState("");
+  const [ctc, setCtc] = useState("");
+  const [noticeperiod, setNoticeperiod] = useState("");
+  const [id, setId] = useState("");
 
   const [editData, setEditData] = useState({
     jobtitle: "",
@@ -45,69 +49,90 @@ const ModalEdit = (props) => {
     editedon: "",
   });
   useEffect(() => {
-    setEditData({
-      id: props.editFormData.id,
-      jobtitle: props.editFormData.jobtitle,
-      qualification: props.editFormData.qualification,
-      jobdescrp: props.editFormData.jobdescrp,
-      skill: props.editFormData.skill,
-      secskill: props.editFormData.secskill,
-      location: props.editFormData.location,
-      experience: props.editFormData.experience,
-      ctc: props.editFormData.ctc,
-      noticeperiod: props.editFormData.noticeperiod,
-      editedon: "",
-    });
-    setEditData((state) => {
-      return state;
-    });
+    setId(props.editFormData.id);
+    setJobtitle(props.editFormData.jobtitle);
+    setQualification(props.editFormData.qualification);
+    setJobdescrp(props.editFormData.jobdescrp);
+    setSkill(props.editFormData.skill);
+    setLocation(props.editFormData.location);
+    setSecskill(props.editFormData.secskill);
+    setExperience(props.editFormData.experience);
+    setNoticeperiod(props.editFormData.noticeperiod);
+    setCtc(props.editFormData.ctc);
+
+    // setEditData({
+    //   id: props.editFormData.id,
+    //   jobtitle: props.editFormData.jobtitle,
+    //   qualification: props.editFormData.qualification,
+    //   jobdescrp: props.editFormData.jobdescrp,
+    //   skill: props.editFormData.skill,
+    //   secskill: props.editFormData.secskill,
+    //   location: props.editFormData.location,
+    //   experience: props.editFormData.experience,
+    //   ctc: props.editFormData.ctc,
+    //   noticeperiod: props.editFormData.noticeperiod,
+    //   editedon: "",
+    // });
+    // setEditData((state) => {
+    //   return state;
+    // });
   }, [props.editFormData]);
   // uef to update the onchange value to set the new value while updation
   useEffect(() => {
     console.log("------------------------------------", editData);
   }, [editData]);
   // onchange function to get all the values typed by the user from the form
-  const handleChange = (evt) => {
-    const value = evt.target.value;
+  // const handleChange = (evt) => {
+  //   const value = evt.target.value;
 
-    setEditData({
-      ...editData,
-      [evt.target.name]: value,
-    });
-  };
+  //   setEditData({
+  //     ...editData,
+  //     [evt.target.name]: value,
+  //   });
+  // };
+
   // update function
-  const update = () => {
+  const update = (event) => {
+    event.preventDefault();
     console.log(props.editFormData);
-
-    // console.log("editing", editData.jobtitle);
-    // console.log("editing", editData.jobdescrp);
     try {
-      const ref = doc(db, "job_posts", editData.id);
+      const ref = doc(db, "job_posts", id);
       updateDoc(ref, {
-        jobtitle: editData.jobtitle,
-        qualification: editData.qualification,
-        jobdescrp: editData.jobdescrp,
-        experience: editData.experience,
-        skill: editData.skill,
-        secskill: editData.secskill,
-        location: editData.location,
-        ctc: editData.ctc,
-        noticeperiod: editData.noticeperiod,
+        jobtitle: jobtitle,
+        qualification: qualification,
+        jobdescrp: jobdescrp,
+        experience: experience,
+        skill: skill,
+        secskill: secskill,
+        location: location,
+        ctc: ctc,
+        noticeperiod: noticeperiod,
         editedon: Timestamp.now(),
       })
         .then(() => {
           console.log("Dataa updated");
+          setStatus({ type: "success" });
+          setTimeout(() => {
+            setStatus(undefined);
+          }, 4000);
         })
         .catch((error) => {
-          alert("Unsuccessfull, Error:" + error);
+          // alert("Unsuccessfull, Error:" + error);
+          setStatus({ type: "error", error });
+          setTimeout(() => {
+            setStatus(undefined);
+          }, 4000);
         });
     } catch (err) {
-      // alert("errororororor", err);
       console.log("errororororor", err);
     }
-    setCloseStatus(true);
-    setShow2(false);
+    // setCloseStatus(true);
+    // setShow2(false);
   };
+  const [status, setStatus] = useState(undefined);
+
+  // Sorting Ascending and Descending
+
   return (
     <>
       <div
@@ -119,8 +144,31 @@ const ModalEdit = (props) => {
           onClick={(e) => e.stopPropagation()}
         >
           <div className="modal-header">
-            <h4 className="modal-title">{props.title} Edit Data</h4>
+            <h4 className="modal-title">{props.title}</h4>
           </div>
+          <div className="msg">
+            {status?.type == "success" && (
+              <div className="msg-success">
+                <div>
+                  <i className="bx bx-info-square msg-icon"></i>
+                </div>
+                <div>
+                  <p>Edit Successful!</p>
+                </div>
+              </div>
+            )}
+            {status?.type == "error" && (
+              <div className="msg-error">
+                <div>
+                  <i className="bx bx-error msg-icon"></i>
+                </div>
+                <div>
+                  <p>Error! Please try again.</p>
+                </div>
+              </div>
+            )}
+          </div>
+
           <div className="modal-bodee">
             <div className="job-form">
               <form className="jform" ref={editRef}>
@@ -132,8 +180,8 @@ const ModalEdit = (props) => {
                     <input
                       type="text"
                       name="jobtitle"
-                      value={editData.jobtitle}
-                      onChange={handleChange}
+                      value={jobtitle}
+                      onChange={(e) => setJobtitle(e.target.value)}
                       required
                     />
                   </div>
@@ -148,8 +196,8 @@ const ModalEdit = (props) => {
                       name="jobdescrp"
                       rows="4"
                       cols="51"
-                      value={editData.jobdescrp}
-                      onChange={handleChange}
+                      value={jobdescrp}
+                      onChange={(e) => setJobdescrp(e.target.value)}
                     />
                   </div>
                 </div>
@@ -162,8 +210,8 @@ const ModalEdit = (props) => {
                     <input
                       type="text"
                       name="experience"
-                      value={editData.experience}
-                      onChange={handleChange}
+                      value={experience}
+                      onChange={(e) => setExperience(e.target.value)}
                     />
                   </div>
                 </div>
@@ -177,8 +225,8 @@ const ModalEdit = (props) => {
                       name="skill"
                       rows="4"
                       cols="51"
-                      value={editData.skill}
-                      onChange={handleChange}
+                      value={skill}
+                      onChange={(e) => setSkill(e.target.value)}
                     />
                   </div>
                 </div>
@@ -192,8 +240,8 @@ const ModalEdit = (props) => {
                       name="secskill"
                       rows="4"
                       cols="51"
-                      value={editData.secskill}
-                      onChange={handleChange}
+                      value={secskill}
+                      onChange={(e) => setSecskill(e.target.value)}
                     />
                   </div>
                 </div>
@@ -205,8 +253,8 @@ const ModalEdit = (props) => {
                     <input
                       type="text"
                       name="ctc"
-                      value={editData.ctc}
-                      onChange={handleChange}
+                      value={ctc}
+                      onChange={(e) => setCtc(e.target.value)}
                     />
                   </div>
                 </div>
@@ -220,7 +268,7 @@ const ModalEdit = (props) => {
                         className="dropdown-btn"
                         onClick={(e) => setIsActive(!isActive)}
                       >
-                        {editData.location}
+                        {location}
                         <i
                           className={`bx bxs-chevron-down  ${
                             isActive ? "invertedicon" : "normal-icon "
@@ -235,9 +283,7 @@ const ModalEdit = (props) => {
                                 key={idx}
                                 className="dropdown-item"
                                 onClick={(e) => {
-                                  setEditData({
-                                    location: data?.label,
-                                  });
+                                  setLocation(data?.label);
 
                                   setIsActive(false);
                                 }}
@@ -262,8 +308,8 @@ const ModalEdit = (props) => {
                     <input
                       type="text"
                       name="notice-period"
-                      value={editData.noticeperiod}
-                      onChange={handleChange}
+                      value={noticeperiod}
+                      onChange={(e) => setNoticeperiod(e.target.value)}
                     />
                   </div>
                 </div>

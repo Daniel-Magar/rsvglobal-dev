@@ -10,6 +10,19 @@ const Modal = (props) => {
 
   const [show, setShow] = useRecoilState(showAtom);
 
+  const [postData, setPostData] = useState({
+    jobtitle: "",
+    qualification: "",
+    jobdescrp: "",
+    skill: "",
+    secskill: "",
+    location: "",
+    experience: "",
+    ctc: "",
+    noticeperiod: "",
+    editedon: "",
+  });
+
   return (
     <>
       <div
