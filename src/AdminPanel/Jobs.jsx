@@ -17,6 +17,8 @@ const Jobs = (props) => {
 
   const [search, setSearch] = useState("");
 
+  const [isActive, setIsActive] = useState(false);
+
   useEffect(() => {
     setData(props.jobposts);
     setData((state) => {
@@ -62,9 +64,20 @@ const Jobs = (props) => {
 
   const sorting = (col) => {
     if (order == "ASC") {
-      const sorted = [...props.editFormData].sort((a, b) =>
-        a[col].toLowerCase() > b.toLowerCase() ? 1 : -1
+      const sorted = [...data].sort((a, b) =>
+        a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1
       );
+      setData(sorted);
+      setOrder("DSC");
+      setIsActive(!isActive);
+    }
+    if (order == "DSC") {
+      const sorted = [...data].sort((a, b) =>
+        a[col].toLowerCase() < b[col].toLowerCase() ? 1 : -1
+      );
+      setData(sorted);
+      setOrder("ASC");
+      setIsActive(!isActive);
     }
   };
   return (
@@ -122,7 +135,15 @@ const Jobs = (props) => {
           <div className="my-table">
             <div className="my-table-body">
               <div className="my-table-row">
-                <div class="my-table-body-cell thead">Job Title</div>
+                <div class="my-table-body-cell thead">
+                  Job Title
+                  <i
+                    className={`bx bx-chevron-down sorting ${
+                      isActive ? "invertedicon" : "normalicon"
+                    }`}
+                    onClick={() => sorting("jobtitle")}
+                  ></i>
+                </div>
                 <div class="my-table-body-cell thead">Description</div>
                 <div class="my-table-body-cell thead">Primary Skill</div>
                 <div class="my-table-body-cell thead">Secodary Skill</div>
