@@ -121,9 +121,10 @@ const Jobs = (props) => {
                 </div>
               </button>
             </div>
-            <div>
+            <div className="searchbox">
               <input
                 type="text"
+                name="search"
                 placeholder="Search..."
                 onChange={(e) => setSearch(e.target.value)}
               />

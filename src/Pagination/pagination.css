@@ -32,7 +32,7 @@ Pagination css
   cursor: pointer;
 }
 .pagination-container .pagination-item.selected {
-  background-color: rgb(14 116 208);
+  background-color: rgb(0 26 102);
   color: white;
 }
 .pagination-container .pagination-item .arrow::before {

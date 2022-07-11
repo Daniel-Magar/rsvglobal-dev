@@ -32,7 +32,7 @@ const SideNav = () => {
           <div className="nav-content">
             <Link className="tabs" to="/admindashboard">
               <div className="nav-icons">
-                <i className="bx bxs-dashboard" label="dashboard"></i>
+                <i className="bx bxs-grid-alt"></i>
               </div>
               <div className="nav-texts">Dashboard</div>
             </Link>
@@ -54,6 +54,12 @@ const SideNav = () => {
                 <i className="bx bxs-briefcase-alt-2"></i>
               </div>
               <div className="nav-texts">Post Jobs</div>
+            </Link>
+            <Link className="tabs" to="/settings">
+              <div className="nav-icons">
+                <i class="bx bxs-cog"></i>
+              </div>
+              <div className="nav-texts">Settings</div>
             </Link>
           </div>
         </nav>
