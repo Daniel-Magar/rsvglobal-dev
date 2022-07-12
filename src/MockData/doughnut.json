@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "jobs_posted": 498,
+    "candidates_hired": 2,
+    "total_candidates": 236,
+    "gender": "Agender",
+    "ip_address": "172.39.42.136"
+  },
+  {
+    "id": 2,
+    "jobs_posted": 231,
+    "candidates_hired": 11,
+    "total_candidates": 996,
+    "gender": "Female",
+    "ip_address": "116.89.102.35"
+  },
+  {
+    "id": 3,
+    "jobs_posted": 182,
+    "candidates_hired": 270,
+    "total_candidates": 899,
+    "gender": "Male",
+    "ip_address": "167.203.138.199"
+  }
+]

@@ -24,12 +24,23 @@ const SideNav = () => {
         <nav className="left-nav">
           <div className="ad-logo">
             <div>
-              <img src="./RSVglobal.png" alt="logo" width="50" />
+              <img
+                src="./RSVglobal.png"
+                className="logo-img"
+                alt="logo"
+                // width="50"
+              />
             </div>
             <div className="logo-txt">RSV Global</div>
           </div>
+          <input type="checkbox" id="checkbox_toggle" />
+          <label for="checkbox_toggle" class="hamburger">
+            &#9776;
+          </label>
           <hr />
           <div className="nav-content">
+            {/* hamburger */}
+
             <Link className="tabs" to="/admindashboard">
               <div className="nav-icons">
                 <i className="bx bxs-grid-alt"></i>
