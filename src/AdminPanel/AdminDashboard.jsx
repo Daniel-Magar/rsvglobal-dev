@@ -283,8 +283,8 @@ const AdminDashboard = () => {
                       // cy={100}
                       cx="50%"
                       cy="50%"
-                      innerRadius={50}
-                      outerRadius={90}
+                      innerRadius={35}
+                      outerRadius={70}
                       fill="#8884d8"
                       paddingAngle={2}
                       layout="middle"
