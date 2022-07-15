@@ -85,6 +85,7 @@ const Client = () => {
             <input
               type="text"
               name="search"
+              className="searchInput"
               placeholder="Search..."
               onChange={(e) => setSearch(e.target.value)}
             />

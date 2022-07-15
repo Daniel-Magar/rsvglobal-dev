@@ -31,6 +31,10 @@ const piedata = [
 const AdminDashboard = () => {
   const [toggle, setToggle] = useRecoilState(ToggleAtom);
 
+  const openSidenav = () => {
+    setToggle(!toggle);
+  };
+
   console.log(candidates);
 
   useEffect(() => {
@@ -109,8 +113,8 @@ const AdminDashboard = () => {
                     "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px",
                 }}
               >
-                <span>No. of Job per months </span> <br />
-                {`${data.name} : ${data.value}`}
+                <b>No. of Job per months </b> <br />
+                <b> {`${data.name} : ${data.value}`}</b>
               </p>
             </div>
           ))}
@@ -124,12 +128,14 @@ const AdminDashboard = () => {
   return (
     <>
       <SideNav />
+
       <div
         className={`content-admin ${
           toggle ? "admin-active" : "admin-inactive"
         }`}
       >
         <Header />
+
         <div className="main-dashboard">
           <div className="admin-top-gridbox">
             <div className="admin-grid-item">
@@ -300,7 +306,7 @@ const AdminDashboard = () => {
             </div>
           </div>
           <div className="admin-charts">
-            <div className="charts-left">
+            <div className="charts-l">
               <div className="chart-head">
                 <h6>List Of Top 10 Clients</h6>
               </div>
@@ -335,7 +341,7 @@ const AdminDashboard = () => {
                 </table>
               </div>
             </div>
-            <div className="charts-left">
+            <div className="charts-r">
               <div className="chart-head">
                 <h6>Jobs Per Month</h6>
               </div>
@@ -361,7 +367,7 @@ const AdminDashboard = () => {
                     <Bar
                       dataKey="count"
                       fill="#8884d8"
-                      radius={[6, 6, 6, 6]}
+                      radius={[4, 4, 0, 0]}
                       barSize={40}
                     />
                   </BarChart>

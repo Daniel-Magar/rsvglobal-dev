@@ -11,15 +11,18 @@ const SideNav = () => {
   };
   return (
     <>
-      {!toggle ? (
-        <span className="open" onClick={openSidenav}>
-          <i class="bx bxs-chevron-right"></i>
-        </span>
-      ) : (
-        <span className="close" onClick={openSidenav}>
-          <i class="bx bxs-chevron-left"></i>
-        </span>
-      )}
+      {/* <div>
+        {!toggle ? (
+          <span className="open" onClick={openSidenav}>
+            <i class="bx bxs-chevron-right"></i>
+          </span>
+        ) : (
+          <span className="close" onClick={openSidenav}>
+            <i class="bx bxs-chevron-left"></i>
+          </span>
+        )}
+      </div> */}
+
       <aside className={toggle ? "left-active" : "left-inactive"}>
         <nav className="left-nav">
           <div className="ad-logo">
