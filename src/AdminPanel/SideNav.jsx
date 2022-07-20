@@ -75,6 +75,12 @@ const SideNav = () => {
               </div>
               <div className="nav-texts">Settings</div>
             </Link>
+            <Link className="tabs" to="/spinning">
+              <div className="nav-icons">
+                <i class="bx bxs-cog"></i>
+              </div>
+              <div className="nav-texts">Spinning</div>
+            </Link>
           </div>
         </nav>
       </aside>

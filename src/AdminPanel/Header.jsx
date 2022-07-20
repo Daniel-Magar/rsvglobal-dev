@@ -22,8 +22,19 @@ const Header = () => {
             </span>
           )}
         </div> */}
-        <div className="round-toggle">
+        <div className="round-toggle" onClick={openSidenav}>
           <div>
+            {!toggle ? (
+              <span>
+                <i className="bx bx-list-ul"></i>
+              </span>
+            ) : (
+              <span>
+                <i className="bx bx-dots-vertical"></i>
+              </span>
+            )}
+          </div>
+          {/* <div>
             {!toggle ? (
               <span onClick={openSidenav}>
                 <i className="bx bx-list-ul"></i>
@@ -33,7 +44,7 @@ const Header = () => {
                 <i className="bx bx-dots-vertical"></i>
               </span>
             )}
-          </div>
+          </div> */}
         </div>
 
         <div>

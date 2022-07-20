@@ -35,6 +35,7 @@ import Client from "./AdminPanel/Client";
 import Jobs from "./AdminPanel/Jobs";
 import CandidatesAtom from "./Recoil/CandidatesAtom";
 import { useRecoilState } from "recoil";
+import SpinningWheel from "./AdminPanel/SpinningWheel";
 function App(props) {
   const { currentUser } = useContext(AuthContext);
 
@@ -143,6 +144,7 @@ function App(props) {
                   <Route path="/whyrsv" element={<WhyRsv />} />
 
                   <Route path="/contact" element={<Contact />} />
+                  <Route path="/spinning" element={<SpinningWheel />} />
 
                   <Route
                     path="career"

@@ -72,25 +72,18 @@ input[type="checkbox"] {
   text-align: center;
   width: 100%;
   margin: 10px 15px;
-  cursor: pointer;
 }
 .open {
-  /* position: absolute; */
   font-size: 46px;
   color: #050505;
-  /* margin-left: 3%; */
-  cursor: pointer;
+
   transition: all 0.3s ease-in-out;
 }
 .close {
-  /* position: absolute; */
-  /* color: white; */
   color: #050505;
   z-index: 50;
   font-size: 46px;
   transition: all 0.3s ease-in-out;
-  cursor: pointer;
-  /* margin-left: 13%; */
 }
 .left-inactive .left-nav {
   background-color: rgb(0 28 104);
@@ -414,6 +407,38 @@ td {
   font-size: 20px;
   background-color: #001a66;
   color: white;
+  cursor: pointer;
+}
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 10px solid #f3f3f3; /* Light grey */
+  border-top: 10px solid rgb(136, 132, 216); /* Black */
+  border-radius: 50%;
+  animation: spinner 1.5s linear infinite;
+}
+.spinner-container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 350px;
+}
+button:hover {
+  background-color: rgb(136, 132, 216);
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+.error {
+  color: red;
 }
 /*Responsive design*/
 /* For Desktop View */
